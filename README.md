@@ -1,7 +1,7 @@
-# PAP21L-Z07
-## Członkowie zespołu:
+## PAP21L-Z07
+### Członkowie zespołu:
 - **Piotr Hondra**
 - **Kamil Szczepanik**
 - **Michał Taczała**
 
-## Temat Projektu: **System umawiania wizyt lekarskich w klinice**
+### Temat Projektu: **System umawiania wizyt lekarskich w klinice**

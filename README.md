@@ -56,4 +56,4 @@ System pozwalający pacjentom kliniki na umawianie się na wizyty lekarskie. Pri
 - HTML
 - CSS
 - Spring
-- MySQL
+- PostgreSQL

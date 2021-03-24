@@ -52,6 +52,7 @@ System pozwalający pacjentom kliniki na umawianie się na wizyty lekarskie. Pri
 
 **Wstępna specyfikacja technologii:**
 
+- React
 - Java
 - HTML
 - CSS

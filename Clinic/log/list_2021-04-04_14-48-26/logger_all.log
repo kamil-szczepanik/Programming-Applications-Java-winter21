@@ -1,0 +1,348 @@
+[0.219s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '-p', '--base-paths', '/home/kamil/pap_workspace/pap21l-z07/Clinic']
+[0.219s] DEBUG:colcon:Parsed command line arguments: Namespace(base_paths=['/home/kamil/pap_workspace/pap21l-z07/Clinic'], build_base='build', ignore_user_meta=False, log_base=None, log_level=None, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0x7f66d483b3d0>>, metas=['./colcon.meta'], names_only=False, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, paths=None, paths_only=True, topological_graph=False, topological_graph_density=False, topological_graph_dot=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, topological_graph_legend=False, topological_order=False, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0x7f66d483b3d0>, verb_name='list', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f66d47243a0>)
+[0.279s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.279s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.279s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.279s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.279s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.279s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/kamil/pap_workspace/pap21l-z07/Clinic'
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extensions ['ignore', 'ignore_ament_install']
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extension 'ignore'
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extension 'ignore_ament_install'
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extensions ['colcon_pkg']
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extension 'colcon_pkg'
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extensions ['colcon_meta']
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extension 'colcon_meta'
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extensions ['ros']
+[0.281s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extension 'ros'
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extensions ['cmake', 'python']
+[0.305s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extension 'cmake'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extension 'python'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extensions ['python_setup_py']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic) by extension 'python_setup_py'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/log) by extensions ['ignore', 'ignore_ament_install']
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/log) by extension 'ignore'
+[0.306s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/log) ignored
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extensions ['ignore', 'ignore_ament_install']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extension 'ignore'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extension 'ignore_ament_install'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extensions ['colcon_pkg']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extension 'colcon_pkg'
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extensions ['colcon_meta']
+[0.307s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extension 'colcon_meta'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extensions ['ros']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extension 'ros'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extensions ['cmake', 'python']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extension 'cmake'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extension 'python'
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extensions ['python_setup_py']
+[0.308s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src) by extension 'python_setup_py'
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extensions ['ignore', 'ignore_ament_install']
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extension 'ignore'
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extension 'ignore_ament_install'
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extensions ['colcon_pkg']
+[0.309s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extension 'colcon_pkg'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extensions ['colcon_meta']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extension 'colcon_meta'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extensions ['ros']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extension 'ros'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extensions ['cmake', 'python']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extension 'cmake'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extension 'python'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extensions ['python_setup_py']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main) by extension 'python_setup_py'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extensions ['ignore', 'ignore_ament_install']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extension 'ignore'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extension 'ignore_ament_install'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extensions ['colcon_pkg']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extension 'colcon_pkg'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extensions ['colcon_meta']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extension 'colcon_meta'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extensions ['ros']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extension 'ros'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extensions ['cmake', 'python']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extension 'cmake'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extension 'python'
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extensions ['python_setup_py']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java) by extension 'python_setup_py'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extensions ['ignore', 'ignore_ament_install']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extension 'ignore'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extension 'ignore_ament_install'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extensions ['colcon_pkg']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extension 'colcon_pkg'
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extensions ['colcon_meta']
+[0.313s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extension 'colcon_meta'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extensions ['ros']
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extension 'ros'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extensions ['cmake', 'python']
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extension 'cmake'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extension 'python'
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extensions ['python_setup_py']
+[0.314s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com) by extension 'python_setup_py'
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extensions ['ignore', 'ignore_ament_install']
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extension 'ignore'
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extension 'ignore_ament_install'
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extensions ['colcon_pkg']
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extension 'colcon_pkg'
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extensions ['colcon_meta']
+[0.315s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extension 'colcon_meta'
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extensions ['ros']
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extension 'ros'
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extensions ['cmake', 'python']
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extension 'cmake'
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extension 'python'
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extensions ['python_setup_py']
+[0.316s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup) by extension 'python_setup_py'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extensions ['ignore', 'ignore_ament_install']
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extension 'ignore'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extension 'ignore_ament_install'
+[0.317s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extensions ['colcon_pkg']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extension 'colcon_pkg'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extensions ['colcon_meta']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extension 'colcon_meta'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extensions ['ros']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extension 'ros'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extensions ['cmake', 'python']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extension 'cmake'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extension 'python'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extensions ['python_setup_py']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/java/com/thsgroup/Clinic) by extension 'python_setup_py'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extensions ['ignore', 'ignore_ament_install']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extension 'ignore'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extension 'ignore_ament_install'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extensions ['colcon_pkg']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extension 'colcon_pkg'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extensions ['colcon_meta']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extension 'colcon_meta'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extensions ['ros']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extension 'ros'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extensions ['cmake', 'python']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extension 'cmake'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extension 'python'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extensions ['python_setup_py']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources) by extension 'python_setup_py'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extensions ['ignore', 'ignore_ament_install']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extension 'ignore'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extension 'ignore_ament_install'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extensions ['colcon_pkg']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extension 'colcon_pkg'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extensions ['colcon_meta']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extension 'colcon_meta'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extensions ['ros']
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extension 'ros'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extensions ['cmake', 'python']
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extension 'cmake'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extension 'python'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extensions ['python_setup_py']
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/static) by extension 'python_setup_py'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extensions ['ignore', 'ignore_ament_install']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extension 'ignore'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extension 'ignore_ament_install'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extensions ['colcon_pkg']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extension 'colcon_pkg'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extensions ['colcon_meta']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extension 'colcon_meta'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extensions ['ros']
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extension 'ros'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extensions ['cmake', 'python']
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extension 'cmake'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extension 'python'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extensions ['python_setup_py']
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/main/resources/templates) by extension 'python_setup_py'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extensions ['ignore', 'ignore_ament_install']
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extension 'ignore'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extension 'ignore_ament_install'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extensions ['colcon_pkg']
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extension 'colcon_pkg'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extensions ['colcon_meta']
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extension 'colcon_meta'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extensions ['ros']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extension 'ros'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extensions ['cmake', 'python']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extension 'cmake'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extension 'python'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extensions ['python_setup_py']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test) by extension 'python_setup_py'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extensions ['ignore', 'ignore_ament_install']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extension 'ignore'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extension 'ignore_ament_install'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extensions ['colcon_pkg']
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extension 'colcon_pkg'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extensions ['colcon_meta']
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extension 'colcon_meta'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extensions ['ros']
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extension 'ros'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extensions ['cmake', 'python']
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extension 'cmake'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extension 'python'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extensions ['python_setup_py']
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java) by extension 'python_setup_py'
+[0.327s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extensions ['ignore', 'ignore_ament_install']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extension 'ignore'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extension 'ignore_ament_install'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extensions ['colcon_pkg']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extension 'colcon_pkg'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extensions ['colcon_meta']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extension 'colcon_meta'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extensions ['ros']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extension 'ros'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extensions ['cmake', 'python']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extension 'cmake'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extension 'python'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extensions ['python_setup_py']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com) by extension 'python_setup_py'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extensions ['ignore', 'ignore_ament_install']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extension 'ignore'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extension 'ignore_ament_install'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extensions ['colcon_pkg']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extension 'colcon_pkg'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extensions ['colcon_meta']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extension 'colcon_meta'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extensions ['ros']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extension 'ros'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extensions ['cmake', 'python']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extension 'cmake'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extension 'python'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extensions ['python_setup_py']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup) by extension 'python_setup_py'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extensions ['ignore', 'ignore_ament_install']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extension 'ignore'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extension 'ignore_ament_install'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extensions ['colcon_pkg']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extension 'colcon_pkg'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extensions ['colcon_meta']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extension 'colcon_meta'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extensions ['ros']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extension 'ros'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extensions ['cmake', 'python']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extension 'cmake'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extension 'python'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extensions ['python_setup_py']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/src/test/java/com/thsgroup/Clinic) by extension 'python_setup_py'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extensions ['ignore', 'ignore_ament_install']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extension 'ignore'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extension 'ignore_ament_install'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extensions ['colcon_pkg']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extension 'colcon_pkg'
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extensions ['colcon_meta']
+[0.332s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extension 'colcon_meta'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extensions ['ros']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extension 'ros'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extensions ['cmake', 'python']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extension 'cmake'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extension 'python'
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extensions ['python_setup_py']
+[0.333s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target) by extension 'python_setup_py'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extensions ['ignore', 'ignore_ament_install']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extension 'ignore'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extension 'ignore_ament_install'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extensions ['colcon_pkg']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extension 'colcon_pkg'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extensions ['colcon_meta']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extension 'colcon_meta'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extensions ['ros']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extension 'ros'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extensions ['cmake', 'python']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extension 'cmake'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extension 'python'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extensions ['python_setup_py']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes) by extension 'python_setup_py'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extensions ['ignore', 'ignore_ament_install']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extension 'ignore'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extension 'ignore_ament_install'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extensions ['colcon_pkg']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extension 'colcon_pkg'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extensions ['colcon_meta']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extension 'colcon_meta'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extensions ['ros']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extension 'ros'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extensions ['cmake', 'python']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extension 'cmake'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extension 'python'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extensions ['python_setup_py']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com) by extension 'python_setup_py'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extensions ['ignore', 'ignore_ament_install']
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extension 'ignore'
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extension 'ignore_ament_install'
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extensions ['colcon_pkg']
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extension 'colcon_pkg'
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extensions ['colcon_meta']
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extension 'colcon_meta'
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extensions ['ros']
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extension 'ros'
+[0.338s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extensions ['cmake', 'python']
+[0.338s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extension 'cmake'
+[0.338s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extension 'python'
+[0.338s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extensions ['python_setup_py']
+[0.338s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup) by extension 'python_setup_py'
+[0.338s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extensions ['ignore', 'ignore_ament_install']
+[0.338s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extension 'ignore'
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extension 'ignore_ament_install'
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extensions ['colcon_pkg']
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extension 'colcon_pkg'
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extensions ['colcon_meta']
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extension 'colcon_meta'
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extensions ['ros']
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extension 'ros'
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extensions ['cmake', 'python']
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extension 'cmake'
+[0.339s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extension 'python'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extensions ['python_setup_py']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/classes/com/thsgroup/Clinic) by extension 'python_setup_py'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extensions ['ignore', 'ignore_ament_install']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extension 'ignore'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extension 'ignore_ament_install'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extensions ['colcon_pkg']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extension 'colcon_pkg'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extensions ['colcon_meta']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extension 'colcon_meta'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extensions ['ros']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extension 'ros'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extensions ['cmake', 'python']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extension 'cmake'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extension 'python'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extensions ['python_setup_py']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes) by extension 'python_setup_py'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extensions ['ignore', 'ignore_ament_install']
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extension 'ignore'
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extension 'ignore_ament_install'
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extensions ['colcon_pkg']
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extension 'colcon_pkg'
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extensions ['colcon_meta']
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extension 'colcon_meta'
+[0.342s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extensions ['ros']
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extension 'ros'
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extensions ['cmake', 'python']
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extension 'cmake'
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extension 'python'
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extensions ['python_setup_py']
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com) by extension 'python_setup_py'
+[0.343s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extensions ['ignore', 'ignore_ament_install']
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extension 'ignore'
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extension 'ignore_ament_install'
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extensions ['colcon_pkg']
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extension 'colcon_pkg'
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extensions ['colcon_meta']
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extension 'colcon_meta'
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extensions ['ros']
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extension 'ros'
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extensions ['cmake', 'python']
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extension 'cmake'
+[0.344s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extension 'python'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extensions ['python_setup_py']
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup) by extension 'python_setup_py'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extensions ['ignore', 'ignore_ament_install']
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extension 'ignore'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extension 'ignore_ament_install'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extensions ['colcon_pkg']
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extension 'colcon_pkg'
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extensions ['colcon_meta']
+[0.345s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extension 'colcon_meta'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extensions ['ros']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extension 'ros'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extensions ['cmake', 'python']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extension 'cmake'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extension 'python'
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extensions ['python_setup_py']
+[0.346s] Level 1:colcon.colcon_core.package_identification:_identify(/home/kamil/pap_workspace/pap21l-z07/Clinic/target/test-classes/com/thsgroup/Clinic) by extension 'python_setup_py'
+[0.346s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults

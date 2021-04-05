@@ -1,6 +1,25 @@
 package com.thsgroup.Clinic.Doctor;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Doctor {
+    @Id
+    @SequenceGenerator(
+        name = "doctor_sequence",
+        sequenceName = "doctor_sequence",
+        allocationSize = 1
+    )
+    @GeneratedValue(
+        strategy = GenerationType.SEQUENCE,
+        generator = "doctor_sequence"
+    )
     private Long id;
     private String firstName;
     private String lastName;

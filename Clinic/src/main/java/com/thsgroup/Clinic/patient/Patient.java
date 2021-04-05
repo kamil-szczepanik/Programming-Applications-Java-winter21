@@ -3,12 +3,34 @@ package com.thsgroup.Clinic.patient;
 import java.time.LocalDate;
 import java.time.Period;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table
 public class Patient {
+    
+    @Id
+    @SequenceGenerator(
+        name = "patient_sequence",
+        sequenceName = "patient_sequence",
+        allocationSize = 1
+    )
+    @GeneratedValue(
+        strategy = GenerationType.SEQUENCE,
+        generator = "patient_sequence"
+    )
     private Long id;
     private String firstName;
     private String lastName;
     private LocalDate dob;
     private Long pesel;
+    @Transient
     private Integer age;
 
     
@@ -46,13 +68,25 @@ public class Patient {
 
     public void setDob(LocalDate dob) { this.dob = dob; }
 
-    public Integer getAge() { return Period.between(dob, LocalDate.now()).getYears(); }
+    public Integer getAge() { return Period.between(this.dob, LocalDate.now()).getYears(); }
     
     public void setAge(Integer age) { this.age = age; }
 
     public Long getPesel() { return pesel; }
 
     public void setPesel(Long pesel) { this.pesel = pesel; }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", firstName='" + getFirstName() + "'" +
+            ", lastName='" + getLastName() + "'" +
+            ", dob='" + getDob() + "'" +
+            ", pesel='" + getPesel() + "'" +
+            ", age='" + getAge() + "'" +
+            "}";
+    }
 
 
 }

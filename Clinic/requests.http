@@ -1,0 +1,20 @@
+###
+POST http://localhost:8080/api/doctor HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Janusz",
+    "lastName": "Kowalski",
+    "specialisation": "gastrolog"
+}
+
+###
+POST http://localhost:8080/api/patient HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Kamil",
+    "lastName": "Nowak",
+    "dob": "2000-07-03",
+    "pesel": "33451010444"
+}

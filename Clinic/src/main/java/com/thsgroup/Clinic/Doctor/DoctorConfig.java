@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class DoctorConfig {
     
     @Bean
-    CommandLineRunner commandLineRunner(
+    CommandLineRunner commandLineDoctorRunner(
         DoctorRepository repository) {
             return args -> {
                 Doctor piotr = new Doctor(

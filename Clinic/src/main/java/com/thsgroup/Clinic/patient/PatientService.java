@@ -20,6 +20,6 @@ public class PatientService {
 	}
 
     public void addNewPatient(Patient patient) {
-        System.out.println(patient);
+        patientRepository.save(patient);
     }
 }

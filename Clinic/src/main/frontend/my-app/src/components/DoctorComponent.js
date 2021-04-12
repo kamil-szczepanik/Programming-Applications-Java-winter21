@@ -26,7 +26,7 @@ class DoctorComponent extends React.Component{
                 this.state.doctors.map(
                 doctor=>{
 
-                    return <p className = "doctor" key={doctor.id}> Imie:{doctor.firstName},<br></br> Nazwisko: {doctor.lastName}, <br></br>Specjalizacja: {doctor.specialisation}</p>
+                    return <p className = "doctor" key={doctor.id}> Imie:{doctor.firstName}<br></br> Nazwisko: {doctor.lastName} <br></br>Specjalizacja: {doctor.specialisation}</p>
                     
                 }
                 )

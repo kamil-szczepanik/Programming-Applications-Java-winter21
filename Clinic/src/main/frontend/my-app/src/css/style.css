@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 2vh;
+    
+
+}
+
+
+.Wrapper{
+    position: relative;
+    display: flex;
+    
+    flex-direction: column;
+    min-height: 300vh;
+    max-width: 1000px;    
+    margin: 0 auto;
+    background-color: beige;
+
+}
+.Wrapper section.mainSection{
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1000px;
+    position: fixed;
+    height: 15vh;
+    width: 100%;
+    background-color: blueviolet;
+}
+.Wrapper section.mainSection header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.Wrapper section.mainSection header section.bothSections{
+    display: flex;
+    background-color: chartreuse;
+    max-height: 15vh;
+
+}
+
+
+.Wrapper section.mainSection header section.leftheadersection{
+    background-color: greenyellow;
+    display: flex;
+    flex-grow: 1;
+
+}
+.Wrapper section.mainSection header section.rightHeaderSection{
+    background-color: aqua;
+    flex-grow: 1;
+}
+.topElement:first-child{
+    padding: 0.8rem;
+    margin: 0 1rem 0 0.1rem;
+    width: 10vw;
+    flex-grow: 0;
+
+}
+.topElement:last-child{
+    padding: 0.8rem;
+    flex-basis: 80px;
+}
+.topElement img{
+    height: 100%;
+    max-height: 10rem;
+    flex-grow: 0;
+}
+.mainSection header ul{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    border-top: 0.2rem dotted brown;
+    background-color: blanchedalmond;
+}
+.mainSection header ul > li{
+    font-size: 0.7rem;
+    list-style: none;
+    flex-basis: 12.5%;
+    height: 100%;
+
+    border: 0.1rem solid black;
+    border-radius: 10%;
+    text-align: center;
+}
+.mainSection header ul > li:last-child{
+    background-color: white;
+    flex-grow: 1;
+}
+body div footer.bottomFooter{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+}
+main{
+    margin-top: 10rem;
+}
+.main_div{
+    margin: 0 auto;
+}
+.doctor{
+    display: inline-block;
+    padding: 1rem;
+    margin: 0.4rem;
+    border: 0.2rem solid rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
+}

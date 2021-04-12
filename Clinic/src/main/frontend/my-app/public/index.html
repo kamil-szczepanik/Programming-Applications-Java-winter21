@@ -9,6 +9,7 @@
       name="description"
       content="Web site created using create-react-app"
     />
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -24,11 +25,52 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script src="https://kit.fontawesome.com/88a192cfe3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./index.css">
     <title>React App</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div class="Wrapper">
+      <section class="mainSection">
+          <header>
+              <section class="bothSections">
+                  <section class="leftheadersection">
+                      <div class="topElement">ZET-MED</div>
+                      <div class="topElement image"><img src="img/caduceus-30591_1280.png" alt="logo"></div>
+                  </section>
+                  <section class="rightHeaderSection">
+                      <div class="topElement">A</div>
+                      <div class="topElement">B</div>
+                      <div class="topElement">C</div>
+                  </section>
+              </section>
+              
+              <ul>
+                  <li>Aktualności<i class="far fa-newspaper"></i></li>
+                  <li>Możliwe Zabiegi<i class="fas fa-stethoscope"></i></li>
+                  <li>Dla pacjentów<i class="fas fa-user-injured"></i></li>
+                  <li>Personel<i class="fas fa-user-tie"></i></li>
+                  <li>O nas<i class="fas fa-clinic-medical"></i></li>
+                  <li>Kontakt<i class="fas fa-id-card"></i></li>
+                  <li>Zaloguj/Zarejestruj się<i class="fas fa-sign-in-alt"></i></li>
+              </ul>
+          </header>
+      </section>
+      <main>
+          <div id="root"></div>
+      </main>
+      <aside class="mediaAndInformations">
+          Aside
+      </aside>
+      <footer class="bottomFooter">
+          Footer
+      </footer>
+
+
+
+
+  </div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

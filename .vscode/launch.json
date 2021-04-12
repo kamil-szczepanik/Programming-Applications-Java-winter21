@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ClinicApplication<Clinic>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.thsgroup.Clinic.ClinicApplication",
+            "projectName": "Clinic",
+            "args": ""
+        }
+    ]
+}

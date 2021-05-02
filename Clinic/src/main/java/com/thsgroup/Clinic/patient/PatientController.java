@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+// @RequestMapping(path = "api/patient")
 @RestController
-@RequestMapping(path = "api/patient")
 public class PatientController {
 
     private final PatientService patientService;
@@ -23,22 +24,22 @@ public class PatientController {
         this.patientService = patientService;
     }
 
-    @GetMapping
+    @GetMapping("api/patient")
 	public List<Patient> getPatients() {
         return patientService.getPatients();
     }
 
-    @GetMapping("/api/patient/{id}")
+    @GetMapping("api/patient/{id}")
     public Patient findPatientById(@PathVariable Long id) {
         return patientService.getPatientById(id);
     }
 
-    @PostMapping
+    @PostMapping("api/patient/registerNewPatient")
     public void registerNewPatient(@RequestBody Patient patient) {
         patientService.addNewPatient(patient);
     }
 
-    @PostMapping("/api/addPatients")
+    @PostMapping("api/patient/addPatients")
     public void registerNewPatients(@RequestBody List<Patient> patients) {
         patientService.addNewPatients(patients);
     }

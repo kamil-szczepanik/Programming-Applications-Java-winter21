@@ -1,0 +1,26 @@
+
+###
+POST  http://localhost:8080/api/patient/registerNewPatient
+Content-Type: application/json
+
+{
+    "firstName": "Joey",
+    "lastName": "Tribbiani",
+    "dob": "1975-07-12",
+    "pesel": "753245825712"
+}
+
+###
+DELETE  http://localhost:8080/api/patient/delete/4
+
+###
+PUT http://localhost:8080/api/patient/update
+Content-Type: application/json
+
+{
+    "id": "3",
+    "firstName": "Ross",
+    "lastName": "Geller",
+    "dob": "1975-07-12",
+    "pesel": "753245825712"
+}

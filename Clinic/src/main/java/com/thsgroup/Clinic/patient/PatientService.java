@@ -19,7 +19,32 @@ public class PatientService {
 		return patientRepository.findAll();
 	}
 
+    public Patient getPatientById(Long id) {
+		return patientRepository.findById(id).orElse(null);
+	}
+
     public void addNewPatient(Patient patient) {
         patientRepository.save(patient);
+    }
+
+    public void addNewPatients(List<Patient> patients) {
+        patientRepository.saveAll(patients);
+    }
+
+    public void deletePatient(Long id) {
+        patientRepository.deleteById(id);
+    }
+
+    public void updatePatient(Patient patient){
+        Patient existingPatient = patientRepository.findById(patient.getId()).orElse(null);
+        existingPatient.setId(patient.getId());
+        existingPatient.setFirstName(patient.getFirstName());
+        existingPatient.setLastName(patient.getLastName());
+        existingPatient.setDob(patient.getDob());
+        existingPatient.setPesel(patient.getPesel());
+        existingPatient.setAge(patient.getAge());
+
+        patientRepository.save(existingPatient);
+
     }
 }

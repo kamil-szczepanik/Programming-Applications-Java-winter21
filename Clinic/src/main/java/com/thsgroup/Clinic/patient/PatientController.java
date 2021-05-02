@@ -3,8 +3,11 @@ package com.thsgroup.Clinic.patient;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,9 +28,33 @@ public class PatientController {
         return patientService.getPatients();
     }
 
+    @GetMapping("/api/patient/{id}")
+    public Patient findPatientById(@PathVariable Long id) {
+        return patientService.getPatientById(id);
+    }
+
     @PostMapping
     public void registerNewPatient(@RequestBody Patient patient) {
         patientService.addNewPatient(patient);
     }
+
+    @PostMapping("/api/addPatients")
+    public void registerNewPatients(@RequestBody List<Patient> patients) {
+        patientService.addNewPatients(patients);
+    }
+
+    @PutMapping("api/patient/update")
+    public void updatePatient(@RequestBody Patient patient) {
+        patientService.updatePatient(patient);
+    }
+
+    @DeleteMapping("api/patient/delete/{id}")
+    public void deletePatient(@PathVariable Long id) {
+        patientService.deletePatient(id);
+    }
+
+
+
+
 
 }

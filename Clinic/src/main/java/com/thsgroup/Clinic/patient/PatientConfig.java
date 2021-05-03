@@ -12,21 +12,21 @@ import org.springframework.context.annotation.Configuration;
 public class PatientConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(PatientRepository repository){
+    CommandLineRunner commandLinePatientRunner(PatientRepository repository){
         return args -> {
             Patient michael = new Patient(
                 1L,
                 "Michael",
                 "Scott",
                 LocalDate.of(1981, Month.MARCH, 3),
-                12345678910L
+                "12345678910"
             );
 
             Patient dwight = new Patient(
                 "Dwight",
                 "Schrute",
                 LocalDate.of(1984, Month.DECEMBER, 13),
-                92838383921L
+                "92838383921"
             );
 
             repository.saveAll(

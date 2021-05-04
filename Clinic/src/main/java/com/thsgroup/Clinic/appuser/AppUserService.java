@@ -38,7 +38,9 @@ public class AppUserService implements UserDetailsService{
         boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
         
         if(userExists) {
-            throw new IllegalStateException("email already taken");
+            if (appUser.getEnabled()) {
+                throw new IllegalStateException("email already taken");
+            }
         }
 
         String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());

@@ -1,0 +1,48 @@
+
+###
+POST  http://localhost:8080/api/patient/registerNewPatient
+Content-Type: application/json
+
+{
+    "firstName": "Joey",
+    "lastName": "Tribbiani",
+    "dob": "1975-07-12",
+    "pesel": "753245825712"
+}
+
+###
+DELETE  http://localhost:8080/api/patient/delete/4
+
+###
+PUT http://localhost:8080/api/patient/update
+Content-Type: application/json
+
+{
+    "id": "3",
+    "firstName": "Ross",
+    "lastName": "Geller",
+    "dob": "1975-07-12",
+    "pesel": "753245825712"
+}
+
+###
+POST http://localhost:8080/api/v1/registration
+Content-Type: application/json
+
+{
+    "firstName": "Joey",
+    "lastName": "Tribbiani",
+    "email": "joey.tribiani@gmail.com",
+    "password": "password"
+}
+
+###
+GET http://localhost:8080/api/v1/registration/confirm?token=a0ecd8bb-5d7a-457f-8fa0-35cbf945b9dd
+Content-Type: application/json
+
+{
+    "firstName": "Joey",
+    "lastName": "Tribbiani",
+    "email": "joey.tribiani@gmail.com",
+    "password": "password"
+}

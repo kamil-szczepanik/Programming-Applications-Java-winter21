@@ -29,17 +29,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .authorizeRequests()
             .antMatchers("/api/registration/**")
             .permitAll()
-            // .anyRequest()
-            // .authenticated()
+            .anyRequest()
+            .authenticated()
             .and()
-            .formLogin()
-            .usernameParameter("username") // default is username
-                 .passwordParameter("password") // default is password
-                 .loginPage("/authentication/login") // default is /login with an HTTP get
-                 .failureUrl("/authentication/login?failed") // default is /login?error
-                 .loginProcessingUrl("/authentication/login/process"); // default is /login
-                                                                         // with an HTTP
-                                                                         // post;
+            .formLogin();
+            // .usernameParameter("username") // default is username
+            //      .passwordParameter("password") // default is password
+            //      .loginPage("/authentication/login") // default is /login with an HTTP get
+            //      .failureUrl("/authentication/login?failed") // default is /login?error
+            //      .loginProcessingUrl("/authentication/login/process"); // default is /login
+            //                                                              // with an HTTP
+            //                                                              // post;
     }
 
     @Override

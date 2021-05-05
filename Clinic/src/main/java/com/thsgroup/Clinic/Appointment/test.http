@@ -1,0 +1,25 @@
+
+###
+POST http://localhost:8080/api/appointment
+Content-Type: application/json
+
+{
+    "patient_id": "15",
+    "doctor_id": "30",
+    "date": "1975-07-12T12:20:00"
+}
+
+# ###
+# DELETE  http://localhost:8080/api/patient/delete/4
+
+# ###
+# PUT http://localhost:8080/api/patient/update
+# Content-Type: application/json
+
+# {
+#     "id": "3",
+#     "firstName": "Ross",
+#     "lastName": "Geller",
+#     "dob": "1975-07-12",
+#     "pesel": "753245825712"
+# }

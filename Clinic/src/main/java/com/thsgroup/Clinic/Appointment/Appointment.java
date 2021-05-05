@@ -23,8 +23,8 @@ public class Appointment {
         generator = "appointment_sequence"
     )
     private Long id;
-    private Long patient_id;
-    private Long doctor_id;
+    private Long patientId;
+    private Long doctorId;
     private LocalDateTime date;
 
 
@@ -32,16 +32,16 @@ public class Appointment {
     }
 
 
-    public Appointment(Long patient_id, Long doctor_id, LocalDateTime date) {
-        this.patient_id = patient_id;
-        this.doctor_id = doctor_id;
+    public Appointment(Long patientId, Long doctorId, LocalDateTime date) {
+        this.patientId = patientId;
+        this.doctorId = doctorId;
         this.date = date;
     }
 
-    public Appointment(Long id, Long patient_id, Long doctor_id, LocalDateTime date) {
+    public Appointment(Long id, Long patientId, Long doctorId, LocalDateTime date) {
         this.id = id;
-        this.patient_id = patient_id;
-        this.doctor_id = doctor_id;
+        this.patientId = patientId;
+        this.doctorId = doctorId;
         this.date = date;
     }
 
@@ -54,19 +54,19 @@ public class Appointment {
     }
 
     public Long getPatient_id() {
-        return this.patient_id;
+        return this.patientId;
     }
 
-    public void setPatient_id(Long patient_id) {
-        this.patient_id = patient_id;
+    public void setPatient_id(Long patientId) {
+        this.patientId = patientId;
     }
 
     public Long getDoctor_id() {
-        return this.doctor_id;
+        return this.doctorId;
     }
 
-    public void setDoctor_id(Long doctor_id) {
-        this.doctor_id = doctor_id;
+    public void setDoctor_id(Long doctorId) {
+        this.doctorId = doctorId;
     }
 
     public LocalDateTime getDate() {
@@ -81,8 +81,8 @@ public class Appointment {
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", patient_id='" + getPatient_id() + "'" +
-            ", doctor_id='" + getDoctor_id() + "'" +
+            ", patientId='" + getPatient_id() + "'" +
+            ", doctorId='" + getDoctor_id() + "'" +
             ", date='" + getDate() + "'" +
             "}";
     }

@@ -46,3 +46,12 @@ Content-Type: application/json
     "email": "joey.tribiani@gmail.com",
     "password": "password"
 }
+
+###
+POST http://localhost:8080/authentication/login/process
+Content-Type: application/json
+
+{
+    "username": "joey.tribiani@gmail.com",
+    "password": "password"
+}

@@ -1,17 +1,17 @@
 import React from 'react';
 import DoctorService from '../services/DoctorService';
 import props from 'prop-types';
-
+import {useHistory} from "react-router-dom";
 
 class DoctorComponent extends React.Component{
-
     constructor(props){
         super(props)
         this.state = {
-            doctors:[]
+            doctors:[],
+            
         }
     }
-
+    
 
     componentDidMount(){
         DoctorService.getDoctors().then((response)=>{
@@ -20,7 +20,7 @@ class DoctorComponent extends React.Component{
     }
     render(){
         return(
-            
+            <p>as</p>,
             <div>
                 {
                 this.state.doctors.map(

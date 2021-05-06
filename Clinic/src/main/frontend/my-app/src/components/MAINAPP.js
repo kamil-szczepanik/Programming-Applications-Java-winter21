@@ -6,12 +6,10 @@ import NavigationComponent from './NavigationComponent';
 import { BrowserRouter, Route,NavLink, Switch } from 'react-router-dom';
 import StartComponent from './StartComponent';
 import ContactComponent from './ContactComponent';
+import MyAppointments from './myAppointments';
 
 class MainAPP extends React.Component{
-    constructor(props){
-        super(props);
-        this.navElement = React.createRef(true);
-    }
+    
     render(){
         return(
         <>
@@ -23,6 +21,7 @@ class MainAPP extends React.Component{
                     <Route path='/doctors' exact component={DoctorComponent}/>
                     <Route path='/login' component={LoginComponent}/>
                     <Route path='/contact' component={ContactComponent}/>
+                    <Route path='/appointments' component={MyAppointments}/>
                     <Route component={StartComponent}/>
                 </Switch>
             </BrowserRouter>

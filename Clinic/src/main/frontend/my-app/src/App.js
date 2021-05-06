@@ -38,12 +38,8 @@ class App extends Component {
   return (
     <div className="App">
 
+      <MainAPP/>
 
-        <MainAPP/>
-        {/* <DoctorComponent /> */}
-        {/* <button type="button" onClick={AuthService.login("marek","123456")} >CLICK</button> */}
-        {/* <AppointmentComponent /> */}
-        {/* <LoginComponent /> */}
     </div>
   );
   }

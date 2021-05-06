@@ -20,7 +20,7 @@ class DoctorComponent extends React.Component{
     }
     render(){
         return(
-            <p>as</p>,
+
             <div>
                 {
                 this.state.doctors.map(

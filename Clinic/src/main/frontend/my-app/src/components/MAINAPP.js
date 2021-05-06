@@ -18,11 +18,13 @@ class MainAPP extends React.Component{
             
             <BrowserRouter>
                 <NavigationComponent/>
-                <Route path='/' exact component={StartComponent}/>
-                <Route path='/doctors' exact component={DoctorComponent}/>
-                <Route path='/login' component={LoginComponent}/>
-                <Route path='/contact' component={ContactComponent}/>
-
+                <Switch>
+                    <Route path='/' exact component={StartComponent}/>
+                    <Route path='/doctors' exact component={DoctorComponent}/>
+                    <Route path='/login' component={LoginComponent}/>
+                    <Route path='/contact' component={ContactComponent}/>
+                    <Route component={StartComponent}/>
+                </Switch>
             </BrowserRouter>
             
 

@@ -7,6 +7,7 @@ import { BrowserRouter, Route,NavLink, Switch } from 'react-router-dom';
 import StartComponent from './StartComponent';
 import ContactComponent from './ContactComponent';
 import MyAppointments from './myAppointments';
+import AddAppointment from './AddAppointment';
 
 class MainAPP extends React.Component{
     
@@ -22,6 +23,8 @@ class MainAPP extends React.Component{
                     <Route path='/login' component={LoginComponent}/>
                     <Route path='/contact' component={ContactComponent}/>
                     <Route path='/appointments' component={MyAppointments}/>
+                    <Route path='/addAppointment' component={AddAppointment}/>
+
                     <Route component={StartComponent}/>
                 </Switch>
             </BrowserRouter>

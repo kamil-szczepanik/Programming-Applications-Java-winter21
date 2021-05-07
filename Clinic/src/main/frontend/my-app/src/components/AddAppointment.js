@@ -25,8 +25,24 @@ class AddAppointment extends React.Component{
             this.setState({appointments: response.data})
         });
     }
+    dateToString(given_date, delay=0){
+        var date = new Date();
+        date.setDate(given_date.getDate()+delay);
+        var dd = String(date.getDate()).padStart(2, '0');
+        var mm = String(date.getMonth() + 1).padStart(2, '0');
+        var yyyy = date.getFullYear();
+
+        return yyyy + '-' + mm + '-' + dd;
+
+    }
+    
 
     render(){
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+
         return(
             <>
                 {this.state.doctors.map(doctor=>{
@@ -42,16 +58,14 @@ class AddAppointment extends React.Component{
                         </>
                     )
                 })}
-                {this.state.doctors.map(doctor=>{
-                    return(
-                    <div className="dateInAppointmentCreating">
+                <div className="dateInAppointmentCreating">
                         <form>
-                            <label htmlFor={doctor.firstName + doctor.lastName}>Data wizyty:</label>
-                            <input type="datetime-local" id={doctor.id} name={doctor.firstName + doctor.lastName}/>
+                            <label htmlFor="1">Data wizyty:</label>
+                            <input type="date" id="1234" name="1234" min={this.dateToString(today,2)} max={this.dateToString(today,16)} required/>
+                            <input type="time" id="12345"name="12345" min='10:00' max='19:00'  step="0:30"required/>
+
                         </form>
                     </div>
-            )
-        })}
            </> 
         )
     }

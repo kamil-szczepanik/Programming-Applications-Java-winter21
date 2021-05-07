@@ -4,6 +4,8 @@ import com.thsgroup.Clinic.appuser.AppUserService;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,6 +18,7 @@ import lombok.AllArgsConstructor;
 @Configuration
 @AllArgsConstructor
 @EnableWebSecurity
+@Profile("!https")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     private final AppUserService appUserService;
@@ -27,19 +30,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .csrf()
             .disable()
             .authorizeRequests()
-            .antMatchers("/api/registration/**")
-            .permitAll()
-            // .anyRequest()
-            // .authenticated()
+            .antMatchers("/admin/**").hasRole("ADMIN")
+            .antMatchers("/api/registration/**").permitAll()
+            .antMatchers("/anonymous*").anonymous()
+            .antMatchers(HttpMethod.GET, "/index*", "/static/**", "/*.js", "/*.json", "/*.ico").permitAll()
+            .anyRequest().authenticated()
             .and()
             .formLogin()
-            .usernameParameter("username") // default is username
-                 .passwordParameter("password") // default is password
-                 .loginPage("/authentication/login") // default is /login with an HTTP get
-                 .failureUrl("/authentication/login?failed") // default is /login?error
-                 .loginProcessingUrl("/authentication/login/process"); // default is /login
-                                                                         // with an HTTP
-                                                                         // post;
+                 .loginPage("/index.html") // default is /login with an HTTP get
+                 .loginProcessingUrl("/perform_login") // default is /login with an HTTP post;
+                 .defaultSuccessUrl("/homepage.html", true)
+                 .failureUrl("/index.html?error=true") // default is /login?error
+                 .and()
+                 .logout()
+                 .logoutUrl("/perform_logout")
+                 .deleteCookies("JSESSIONID");
+                 // @formatter:on
     }
 
     @Override

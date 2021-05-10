@@ -16,9 +16,19 @@ public class RegistrationController {
 
     private final RegistrationService registrationService;
 
-    @PostMapping
+    @PostMapping("patient")
     public String register(@RequestBody RegistrationRequest request) {
         return registrationService.register(request);
+    }
+
+    @PostMapping("doctor")
+    public String registerDoctor(@RequestBody RegistrationRequest request) {
+        return registrationService.registerDoctor(request);
+    }
+
+    @PostMapping("admin")
+    public String registerAdmin(@RequestBody RegistrationRequest request) {
+        return registrationService.registerAdmin(request);
     }
 
     @GetMapping(path = "confirm")

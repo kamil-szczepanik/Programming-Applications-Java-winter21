@@ -32,6 +32,7 @@ public class Patient {
     private String pesel;
     @Transient
     private Integer age;
+    private Long appUserId;
 
     
     public Patient() {
@@ -50,6 +51,12 @@ public class Patient {
         this.lastName = lastName;
         this.dob = dob;
         this.pesel = pesel;
+    }
+
+    public Patient(String firstName, String lastName, Long appUserId){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.appUserId = appUserId;
     }
 
     public Long getId() { return id; }
@@ -76,6 +83,10 @@ public class Patient {
 
     public void setPesel(String pesel) { this.pesel = pesel; }
 
+    public Long getAppUserId() { return appUserId; }
+
+    public void setAppUserId(Long appUserId) { this.appUserId = appUserId; }
+
     @Override
     public String toString() {
         return "{" +
@@ -85,6 +96,7 @@ public class Patient {
             ", dob='" + getDob() + "'" +
             ", pesel='" + getPesel() + "'" +
             ", age='" + getAge() + "'" +
+            ", appUserId='" + getAppUserId() + "'" +
             "}";
     }
 

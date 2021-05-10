@@ -24,6 +24,7 @@ public class Doctor {
     private String firstName;
     private String lastName;
     private String specialisation;
+    private Long appUserId;
 
 
     public Doctor() {
@@ -40,6 +41,12 @@ public class Doctor {
         this.firstName = firstName;
         this.lastName = lastName;
         this.specialisation = specialisation;
+    }
+
+    public Doctor(String firstName, String lastName, Long appUserId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.appUserId = appUserId;
     }
 
     public Long getId() {
@@ -74,6 +81,11 @@ public class Doctor {
         this.specialisation = specialisation;
     }
 
+    public Long getAppUserId() { return appUserId; }
+
+    public void setAppUserId(Long appUserId) { this.appUserId = appUserId; }
+
+
     @Override
     public String toString() {
         return "{" +
@@ -81,6 +93,7 @@ public class Doctor {
             ", firstName='" + getFirstName() + "'" +
             ", lastName='" + getLastName() + "'" +
             ", specialisation='" + getSpecialisation() + "'" +
+            ", appUserId='" + getAppUserId() + "'" +
             "}";
     }
 

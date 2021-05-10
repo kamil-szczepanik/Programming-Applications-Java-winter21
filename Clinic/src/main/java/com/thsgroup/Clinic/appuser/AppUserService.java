@@ -101,12 +101,11 @@ public class AppUserService implements UserDetailsService{
     }
 
     public void updateAppUser(AppUser appUser) {
-		AppUser existingAppUser = appUserRepository.findByEmail(appUser.getEmail()).get();
-		// existingAppUser.setId(appUser.getId());
-		existingAppUser.setFirstName(appUser.getFirstName());
-		existingAppUser.setLastName(appUser.getLastName());
-		existingAppUser.setPassword(appUser.getPassword());
-		
-		appUserRepository.save(existingAppUser);
+        AppUser existingAppUser = appUserRepository.findByEmail(appUser.getEmail()).get();
+        existingAppUser.setFirstName(appUser.getFirstName());
+        existingAppUser.setLastName(appUser.getLastName());
+        existingAppUser.setPassword(appUser.getPassword());
+
+        appUserRepository.save(existingAppUser);
 	}
 }

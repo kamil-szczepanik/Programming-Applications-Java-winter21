@@ -49,8 +49,10 @@ class AddAppointment extends React.Component{
         axios.post('http://localhost:8080/api/appointment', {"date":date_String, "patient_id":this.state.appPacID, "doctor_id":this.state.appDocID})
         .then(response =>{
             console.log(response)
+            alert("Pomyślnie dodano wizytę!")
         })
         .catch(error=>{
+            alert("Nie udało się dodać wizyty!")
             console.log(error)
         })
 

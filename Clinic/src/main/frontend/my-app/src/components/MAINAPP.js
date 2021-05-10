@@ -8,6 +8,7 @@ import StartComponent from './StartComponent';
 import ContactComponent from './ContactComponent';
 import MyAppointments from './myAppointments';
 import AddAppointment from './AddAppointment';
+import MyProfile from './myProfile';
 
 class MainAPP extends React.Component{
     
@@ -24,7 +25,7 @@ class MainAPP extends React.Component{
                     <Route path='/contact' component={ContactComponent}/>
                     <Route path='/appointments' component={MyAppointments}/>
                     <Route path='/addAppointment' component={AddAppointment}/>
-
+                    <Route path='/myProfile' component={MyProfile}/>
                     <Route component={StartComponent}/>
                 </Switch>
             </BrowserRouter>

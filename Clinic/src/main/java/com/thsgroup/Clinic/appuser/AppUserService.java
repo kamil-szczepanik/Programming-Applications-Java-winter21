@@ -37,8 +37,28 @@ public class AppUserService implements UserDetailsService{
     public String signUpUser(AppUser appUser) {
         boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
         
+        
         if(userExists) {
-            if (appUser.getEnabled()) {
+            if (checkIfAttributesAreTheSame(appUser) && !appUser.getEnabled()) {
+                String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
+
+                appUser.setPassword(encodedPassword);
+                
+                updateAppUser(appUser);
+        
+                String token = UUID.randomUUID().toString();
+                ConfirmationToken confirmationToken = new ConfirmationToken(
+                    token,
+                    LocalDateTime.now(),
+                    LocalDateTime.now().plusMinutes(15),
+                    appUserRepository.findByEmail(appUser.getEmail()).get()
+                );
+        
+                confirmationTokenService.saveConfirmationToken(confirmationToken);
+        
+                return token;
+            }
+            else {
                 throw new IllegalStateException("email already taken");
             }
         }
@@ -65,4 +85,28 @@ public class AppUserService implements UserDetailsService{
     public int enableAppUser(String email) {
         return appUserRepository.enableAppUser(email);
     }
+
+    public boolean checkIfAttributesAreTheSame(AppUser appUser) {
+        boolean emailExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
+        if (emailExists) {
+            boolean firstNameTheSame = appUserRepository.findByEmail(appUser.getEmail()).get().getFirstName().equals(appUser.getFirstName());
+            boolean lastNameTheSame = appUserRepository.findByEmail(appUser.getEmail()).get().getLastName().equals(appUser.getLastName());
+
+            if (firstNameTheSame && lastNameTheSame) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void updateAppUser(AppUser appUser) {
+		AppUser existingAppUser = appUserRepository.findByEmail(appUser.getEmail()).get();
+		// existingAppUser.setId(appUser.getId());
+		existingAppUser.setFirstName(appUser.getFirstName());
+		existingAppUser.setLastName(appUser.getLastName());
+		existingAppUser.setPassword(appUser.getPassword());
+		
+		appUserRepository.save(existingAppUser);
+	}
 }

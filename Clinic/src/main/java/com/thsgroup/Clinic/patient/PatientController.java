@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-// import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-// @RequestMapping(path = "api/patient")
+@RequestMapping(path = "api/patient")
 @RestController
 public class PatientController {
 
@@ -24,32 +24,32 @@ public class PatientController {
         this.patientService = patientService;
     }
 
-    @GetMapping("api/patient")
+    @GetMapping
 	public List<Patient> getPatients() {
         return patientService.getPatients();
     }
 
-    @GetMapping("api/patient/{id}")
+    @GetMapping("{id}")
     public Patient findPatientById(@PathVariable Long id) {
         return patientService.getPatientById(id);
     }
 
-    @PostMapping("api/patient/registerNewPatient")
+    @PostMapping("registerNewPatient")
     public void registerNewPatient(@RequestBody Patient patient) {
         patientService.addNewPatient(patient);
     }
 
-    @PostMapping("api/patient/addPatients")
+    @PostMapping("addPatients")
     public void registerNewPatients(@RequestBody List<Patient> patients) {
         patientService.addNewPatients(patients);
     }
 
-    @PutMapping("api/patient/update")
+    @PutMapping("update")
     public void updatePatient(@RequestBody Patient patient) {
         patientService.updatePatient(patient);
     }
 
-    @DeleteMapping("api/patient/delete/{id}")
+    @DeleteMapping("delete/{id}")
     public void deletePatient(@PathVariable Long id) {
         patientService.deletePatient(id);
     }

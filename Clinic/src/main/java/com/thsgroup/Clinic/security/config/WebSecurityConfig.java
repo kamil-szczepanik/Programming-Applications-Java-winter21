@@ -29,8 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .authorizeRequests()
             .antMatchers("/api/registration/**")
             .permitAll()
-            .anyRequest()
-            .authenticated()
+            // .anyRequest()
+            // .authenticated()
             .and()
             .formLogin();
             // .usernameParameter("username") // default is username

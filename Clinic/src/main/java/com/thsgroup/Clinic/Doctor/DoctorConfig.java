@@ -16,12 +16,12 @@ public class DoctorConfig {
                 Doctor piotr = new Doctor(
 				"Piotr",
 				"Fryzowski",
-				"urolog"
+				DoctorSpecialisation.CHIRURGIA
 			);
                 Doctor ewa = new Doctor(
 				"Ewa",
 				"Stroz",
-				"pediatra"
+				DoctorSpecialisation.DERMATOLOGIA
 			);
             repository.saveAll(
                 List.of(piotr, ewa)

@@ -24,8 +24,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class AppointmentController {
     private final AppointmentService appointmentService;
 
-    // @Autowired
-    // private AppUserRepository appUserRepository;
+    @Autowired
+    private AppUserRepository appUserRepository;
 
     @Autowired
     public AppointmentController(AppointmentService appointmentService) {
@@ -75,14 +75,15 @@ public class AppointmentController {
 
 
 
-    // @ResponseBody
-    // @PostMapping("/save")
-    // public void saveAppointment(Appointment appointment) {
-    //     String username = SecurityContextHolder.getContext().getAuthentication().getName();
-    //     AppUser user = appUserRepository.findByEmail(username).get();
-
-
-    // }
+    @ResponseBody
+    @PostMapping("/addPatientToAppointment")
+    public void saveAppointment(@RequestBody Appointment appointment) {
+        // String usernameAkaEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+        // // AppUserRole appUserRole = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+        AppUser user = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        appointment.setPatientId(user.getId());
+        appointmentService.updateAppointment(appointment);
+    }
 
     
 }

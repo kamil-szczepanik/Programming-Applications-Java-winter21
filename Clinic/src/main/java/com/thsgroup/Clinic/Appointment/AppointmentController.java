@@ -25,9 +25,6 @@ public class AppointmentController {
     private final AppointmentService appointmentService;
 
     @Autowired
-    private AppUserRepository appUserRepository;
-
-    @Autowired
     public AppointmentController(AppointmentService appointmentService) {
         this.appointmentService = appointmentService;
     }
@@ -73,15 +70,11 @@ public class AppointmentController {
         appointmentService.deleteAppointment(id);
     }
 
-
-
     @ResponseBody
     @PostMapping("/addPatientToAppointment")
     public void saveAppointment(@RequestBody Appointment appointment) {
-        // String usernameAkaEmail = SecurityContextHolder.getContext().getAuthentication().getName();
-        // // AppUserRole appUserRole = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
-        AppUser user = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        appointment.setPatientId(user.getId());
+        AppUser appUser = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        appointment.setPatientId(appUser.getId());
         appointmentService.updateAppointment(appointment);
     }
 

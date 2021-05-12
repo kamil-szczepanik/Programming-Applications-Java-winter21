@@ -39,7 +39,7 @@ public class AppUserService implements UserDetailsService{
         
         
         if(userExists) {
-            if (checkIfAttributesAreTheSame(appUser) && !appUser.getEnabled()) {
+            if (checkIfAttributesAreTheSame(appUser) && !appUserRepository.findByEmail(appUser.getEmail()).get().getEnabled()) {
                 String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
 
                 appUser.setPassword(encodedPassword);

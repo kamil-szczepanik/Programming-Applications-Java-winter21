@@ -125,6 +125,10 @@ public class RegistrationService {
             throw new IllegalStateException("token expired");
         }
 
+        if (confirmationToken.getAppUser().isEnabled()) {
+            throw new IllegalStateException("account already verified");
+        }
+
         confirmationTokenService.setConfirmed(token);
         appUserService.enableAppUser(
             confirmationToken.getAppUser().getEmail());

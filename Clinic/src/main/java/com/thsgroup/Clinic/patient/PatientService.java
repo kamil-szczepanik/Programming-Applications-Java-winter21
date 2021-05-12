@@ -48,7 +48,4 @@ public class PatientService {
 
     }
 
-    // public boolean patientIsPresent(Patient patient) {
-    //     patientRepository.
-    // }
 }

@@ -33,6 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .authenticated()
             .and()
             .formLogin();
+            // .defaultSuccessUrl("/login");
             // .usernameParameter("username") // default is username
             //      .passwordParameter("password") // default is password
             //      .loginPage("/authentication/login") // default is /login with an HTTP get

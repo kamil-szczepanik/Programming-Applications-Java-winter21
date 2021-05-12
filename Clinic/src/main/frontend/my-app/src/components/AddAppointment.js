@@ -17,7 +17,6 @@ class AddAppointment extends React.Component{
             appDate:null,
             appDocID:null,
             appPacID:21,
-            appTime:null,
 
             
         }
@@ -46,7 +45,7 @@ class AddAppointment extends React.Component{
         event.preventDefault()
         var date_String = ""
         date_String+=this.state.appDate + "T" + this.state.appTime + ':00'
-        axios.post('http://localhost:8080/api/appointment', {"date":date_String, "patient_id":this.state.appPacID, "doctor_id":this.state.appDocID})
+        axios.post('http://localhost:8080/api/addPatientToAppointment', {"date":date_String, "patient_id":this.state.appPacID, "doctor_id":this.state.appDocID})
         .then(response =>{
             console.log(response)
             alert("Pomyślnie dodano wizytę!")
@@ -55,11 +54,8 @@ class AddAppointment extends React.Component{
             alert("Nie udało się dodać wizyty!")
             console.log(error)
         })
-
-
-
-       
     }
+
     dateHandleChange(event){
         event.preventDefault();
         console.log("no siema");
@@ -111,16 +107,30 @@ class AddAppointment extends React.Component{
                     })}
                     </div>
                 
-                    <div className="dateInAppointmentCreating" >
+                    {/* <div className="dateInAppointmentCreating" >
                         
                             <label htmlFor="1">Data wizyty:</label>
                             <input value={this.state.appDate} onChange={(e)=>this.setState({appDate:e.target.value})} type="date" id="1234" min={this.dateToString(today,2)} max={this.dateToString(today,16)} required/>
-                            <input value={this.state.appTime} onChange={(e)=>this.setState({appTime:e.target.value})} type="time" id="12345"name="12345" min='10:00' max='19:00'  step="1200"required/>
+                    </div> */}
+                    <select value={this.state.appDate} name="appointments" id="appointments" onChange={(e)=>this.setState({appTime:e.target.value})}>
+                    <label for="appointments">Wybierz termin:</label>
+                    <optgroup label="appointment:">
+                        {this.state.appointments.map(appointment=>{
 
-                        
-                    </div>
-                    <p>{this.state.appDocID}</p>
-                    <p>{this.state.appDate}</p>
+                            if (this.state.appDocID===appointment.doctor_id )return(
+                                <>
+                                    
+                                        <option value={appointment.date}>{appointment.date}</option>
+                                       
+                                </>
+                            
+                            
+                                
+                            )
+                        })}
+                        </optgroup>
+                    </select>
+                  
 
 
                     <p>{this.state.appTime}</p>

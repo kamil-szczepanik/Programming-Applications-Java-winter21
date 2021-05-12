@@ -2,13 +2,21 @@
 
 import React, { Component } from 'react';
 import AuthenticationService from '../services/AuthenticationService';
-import LoginForm from '../components/LoginForm';
+import RegistrationForm from '../components/RegistrationForm';
 
 
 const inputs = [{
-    name: "username",
-    placeholder: "username",
+    name: "firstName",
+    placeholder: "firstName",
     type: "text"
+  },{
+    name: "lastName",
+    placeholder: "lastName",
+    type: "text"
+  },{
+    name: "email",
+    placeholder: "email",
+    type: "email"
   },{
     name: "password",
     placeholder: "password",
@@ -22,18 +30,20 @@ const inputs = [{
 const props = {
     name: 'loginForm',
     method: 'POST',
-    action: '/login',
+    action: '/perform_login',
     inputs: inputs
   }
   
 const params = new URLSearchParams(window.location.search)
-class LoginComponent extends Component {
+class RegistrationComponent extends Component {
 
     constructor(props) {
         super(props)
 
         this.state = {
-            email: '',
+            firstName: '',
+            lastName:'',
+            email:'',
             password: '',
             hasLoginFailed: false,
             showSuccessMessage: false
@@ -55,9 +65,9 @@ class LoginComponent extends Component {
     loginClicked() {
 
        AuthenticationService
-            .executeBasicAuthenticationService(this.state.username, this.state.password)
+            .executeBasicAuthenticationService(this.state.firstName,this.state.lastName,this.state.email, this.state.password)
             .then(() => {
-                AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password)
+                AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.lastName,this.state.email,this.state.password)
 
             }).catch(() => {
                 this.setState({ showSuccessMessage: false })
@@ -85,10 +95,10 @@ class LoginComponent extends Component {
     render(){
         return(
             <>
-                <LoginForm {...props} error={params.get('error')} />
+                <RegistrationForm {...props} error={params.get('error')} />
             </>
         )
     }
 }
 
-export default LoginComponent
+export default RegistrationComponent

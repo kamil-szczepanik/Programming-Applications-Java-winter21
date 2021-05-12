@@ -10,12 +10,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import lombok.AllArgsConstructor;
 
 @Configuration
 @AllArgsConstructor
 @EnableWebSecurity
+@CrossOrigin(origins = "http://localhost:3000")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     private final AppUserService appUserService;
@@ -27,17 +29,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .csrf()
             .disable()
             .authorizeRequests()
-            .antMatchers("/api/registration/**")
+            .antMatchers("/**")
             .permitAll()
-            // .anyRequest()
-            // .authenticated()
+            .anyRequest()
+            .authenticated()
             .and()
-            .formLogin()
-            .usernameParameter("username") // default is username
-                 .passwordParameter("password") // default is password
-                 .loginPage("/authentication/login") // default is /login with an HTTP get
-                 .failureUrl("/authentication/login?failed") // default is /login?error
-                 .loginProcessingUrl("/authentication/login/process"); // default is /login
+            .httpBasic()
+            .and();
+            
+            
+            // .usernameParameter("username") // default is username
+            //      .passwordParameter("password") // default is password
+            //      .loginPage("/authentication/login") // default is /login with an HTTP get
+            //      .failureUrl("/authentication/login?failed") // default is /login?error
+            //      .loginProcessingUrl("/authentication/login/process"); // default is /login
                                                                          // with an HTTP
                                                                          // post;
     }

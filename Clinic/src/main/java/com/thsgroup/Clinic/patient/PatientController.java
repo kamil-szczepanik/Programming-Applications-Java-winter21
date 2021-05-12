@@ -5,6 +5,7 @@ import java.util.List;
 import com.thsgroup.Clinic.Appointment.Appointment;
 import com.thsgroup.Clinic.Appointment.AppointmentRepository;
 import com.thsgroup.Clinic.appuser.AppUser;
+import com.thsgroup.Clinic.appuser.AppUserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -27,6 +28,9 @@ public class PatientController {
 
     @Autowired
     private AppointmentRepository appointmentRepository;
+
+    @Autowired
+    private AppUserRepository appUserRepository;
 
     @Autowired
     public PatientController(PatientService patientService) {
@@ -67,7 +71,7 @@ public class PatientController {
     @GetMapping("/getAppointmentsOfLoggedPatient")
     public List<Appointment> getAppointmentsOfLoggedPatient() {
         AppUser appUser = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return appointmentRepository.findByPatientId(appUser.getId());
+        return appointmentRepository.findByPatientId(appUserRepository.findPatientByAppUserId(appUser.getId()).getId());
     }
 
 }

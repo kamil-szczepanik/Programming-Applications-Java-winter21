@@ -47,4 +47,8 @@ public class PatientService {
         patientRepository.save(existingPatient);
 
     }
+
+    // public boolean patientIsPresent(Patient patient) {
+    //     patientRepository.
+    // }
 }

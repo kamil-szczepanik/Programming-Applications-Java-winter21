@@ -24,6 +24,7 @@ public class Admin {
     private Long id;
     private String firstName;
     private String lastName;
+    private Long appUserId;
     
     public Admin() {
     }
@@ -39,6 +40,12 @@ public class Admin {
         this.lastName = lastName;
     }
 
+    public Admin(String firstName, String lastName, Long appUserId){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.appUserId = appUserId;
+    }
+
     public Long getId() { return id; }
 
     public void setId(Long id) { this.id = id; }
@@ -51,12 +58,18 @@ public class Admin {
 
     public void setLastName(String lastName) { this.lastName = lastName; }
 
+    public Long getAppUserId() { return appUserId; }
+
+    public void setAppUserId(Long appUserId) { this.appUserId = appUserId; }
+
+
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
             ", firstName='" + getFirstName() + "'" +
             ", lastName='" + getLastName() + "'" +
+            ", appUserId='" + getAppUserId() + "'" +
             "}";
     }
 

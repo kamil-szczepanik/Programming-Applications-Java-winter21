@@ -1,13 +1,12 @@
 
 ###
-POST  http://localhost:8080/api/patient/registerNewPatient
+POST  http://localhost:8080/api/appointment/registerNewAppointment
 Content-Type: application/json
 
 {
-    "firstName": "Joey",
-    "lastName": "Tribbiani",
-    "dob": "1975-07-12",
-    "pesel": "753245825712"
+    "patientId": "2",
+    "doctorId": "1",
+    "date": [2021, 3, 4, 15, 30]
 }
 
 ###
@@ -52,34 +51,3 @@ Content-Type: application/json
 }
 
 
-
-###
-POST http://localhost:8080/api/registration
-Content-Type: application/json
-
-{
-    "firstName": "Joey",
-    "lastName": "Tribbiani",
-    "email": "joey.tribiani@gmail.com",
-    "password": "password"
-}
-
-###
-GET http://localhost:8080/api/registration/confirm?token=a0ecd8bb-5d7a-457f-8fa0-35cbf945b9dd
-Content-Type: application/json
-
-{
-    "firstName": "Joey",
-    "lastName": "Tribbiani",
-    "email": "joey.tribiani@gmail.com",
-    "password": "password"
-}
-
-###
-POST http://localhost:8080/login
-Content-Type: application/json
-
-{
-    "username": "joey.tribiani@gmail.com",
-    "password": "password"
-}

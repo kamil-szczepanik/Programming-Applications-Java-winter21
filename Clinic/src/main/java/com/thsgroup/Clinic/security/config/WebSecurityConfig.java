@@ -29,13 +29,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .csrf()
             .disable()
             .authorizeRequests()
-            .antMatchers("/**")
+            .antMatchers("/api/registration/**", "/", "/login")
+
             .permitAll()
             .anyRequest()
             .authenticated()
             .and()
             .httpBasic()
-            .and();
+            .and()
+            .formLogin()
+            .defaultSuccessUrl("/",true);
             
             
             // .usernameParameter("username") // default is username

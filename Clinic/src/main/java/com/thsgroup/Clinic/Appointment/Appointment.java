@@ -31,7 +31,6 @@ public class Appointment {
     public Appointment() {
     }
 
-
     public Appointment(Long patientId, Long doctorId, LocalDateTime date) {
         this.patientId = patientId;
         this.doctorId = doctorId;
@@ -53,19 +52,19 @@ public class Appointment {
         this.id = id;
     }
 
-    public Long getPatient_id() {
+    public Long getPatientId() {
         return this.patientId;
     }
 
-    public void setPatient_id(Long patientId) {
+    public void setPatientId(Long patientId) {
         this.patientId = patientId;
     }
 
-    public Long getDoctor_id() {
+    public Long getDoctorId() {
         return this.doctorId;
     }
 
-    public void setDoctor_id(Long doctorId) {
+    public void setDoctorId(Long doctorId) {
         this.doctorId = doctorId;
     }
 
@@ -81,8 +80,8 @@ public class Appointment {
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", patientId='" + getPatient_id() + "'" +
-            ", doctorId='" + getDoctor_id() + "'" +
+            ", patientId='" + getPatientId() + "'" +
+            ", doctorId='" + getDoctorId() + "'" +
             ", date='" + getDate() + "'" +
             "}";
     }

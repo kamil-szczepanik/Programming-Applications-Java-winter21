@@ -1,83 +1,76 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Input';
-
+import axios from 'axios'
 class LoginForm extends Component {
-
-    constructor(props) {
+    constructor(props){
         super(props)
-        if(props.error) {
-            this.state = {
-              failure: 'wrong username or password!',
-              errcount: 0
-            }
-        } else {
-            this.state = { errcount: 0 }
+        this.state = {
+            username:'',
+            password:'',            
         }
     }
-    handleSubmit = (event) => {
-        event.preventDefault()
-        if(!this.state.errcount) {
-            const data = new FormData(this.form)
-            fetch(this.form.action, {
-              method: this.form.method,
-              body: new URLSearchParams(data)
-            })
-            .then(v => {
-                if(v.redirected) window.location = v.url
-            })
-            .catch(e => console.warn(e))
-        }
-    }
-    handleError = (field, errmsg) => {
-        if(!field) return
+   handlePressedButton(event){
+    const axios = require('axios')
+    const url='http://localhost:8080/login';
+    const params = new URLSearchParams()
+    params.append('username', this.state.username)
+    params.append('password', this.state.password)
 
-        if(errmsg) {
-            this.setState((prevState) => ({
-                failure: '',
-                errcount: prevState.errcount + 1, 
-                errmsgs: {...prevState.errmsgs, [field]: errmsg}
-            }))
-        } else {
-            this.setState((prevState) => ({
-                failure: '',
-                errcount: prevState.errcount===1? 0 : prevState.errcount-1,
-                errmsgs: {...prevState.errmsgs, [field]: ''}
-            }))
-        }
+    
+    const config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
     }
+    // we can use .append to add a file
+    var bodyData = new FormData();
+    bodyData.append('username', this.state.username);
+    bodyData.append('password', this.state.password);
 
-    renderError = () => {
-        if(this.state.errcount || this.state.failure) {
-            const errmsg = this.state.failure 
-              || Object.values(this.state.errmsgs).find(v=>v)
-            return <div className="error">{errmsg}</div>
+    axios({
+    method: 'post', // Declare the method
+    url: 'http://localhost:8080/login',
+    
+    data: bodyData,
+    config: {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
         }
-    }
-
+      } // declare the kind of data
+    })
+    // axios.post(url, params, config)
+    // .then(response =>{
+    //     console.log(response)
+    //     alert("Pomyślnie zalogowano!");
+    // })
+    .catch(error=>{
+        alert("Nie udało się zalogować!")
+        console.log(error)
+    })
+   }
+   
     render() {
-        const inputs = this.props.inputs.map(
-          ({name, placeholder, type, value, className}, index) => (
-            <Input key={index} name={name} placeholder={placeholder} type={type} value={value}
-              className={type==='submit'? className : ''} handleError={this.handleError} />
-          )
-        )
-        const errors = this.renderError()
-        return (
-            <form {...this.props} onSubmit={this.handleSubmit} ref={fm => {this.form=fm}} >
-              {inputs}
-              {errors}
-            </form>
+        return(
+            <>
+                
+                <form  method="post" id="login_form" onSubmit={this.handlePressedButton}>
+                <div>
+                    <label for="username">Email:</label>
+                    <input onChange={(e)=>this.setState({username:e.target.value})} type="text" id="username" name="username" required/>
+                </div>
+                <div>
+                    <label for="pass">Password</label>
+                    <input onChange={(e)=>this.setState({password:e.target.value})} type="password" id="pass" name="password" required/>
+                </div>    
+                                    
+                    <button type='submit'>Zaloguj się</button>
+                    
+                </form>
+            </>
+
         )
     }
-}
-
-LoginForm.propTypes = {
-  name: PropTypes.string,
-  action: PropTypes.string,
-  method: PropTypes.string,
-  inputs: PropTypes.array,
-  error: PropTypes.string
 }
 
 export default LoginForm

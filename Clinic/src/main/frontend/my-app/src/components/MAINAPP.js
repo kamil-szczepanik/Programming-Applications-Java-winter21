@@ -9,6 +9,7 @@ import ContactComponent from './ContactComponent';
 import MyAppointments from './myAppointments';
 import AddAppointment from './AddAppointment';
 import MyProfile from './myProfile';
+import RegistrationComponent from './PatientRegisterComponent';
 
 class MainAPP extends React.Component{
     
@@ -21,6 +22,7 @@ class MainAPP extends React.Component{
                 <Switch>
                     <Route path='/' exact component={StartComponent}/>
                     <Route path='/doctors' exact component={DoctorComponent}/>
+                    <Route path='/register' component={RegistrationComponent}/>
                     <Route path='/login' component={LoginComponent}/>
                     <Route path='/contact' component={ContactComponent}/>
                     <Route path='/appointments' component={MyAppointments}/>

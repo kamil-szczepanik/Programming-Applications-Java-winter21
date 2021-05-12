@@ -23,11 +23,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping(path = "api/appointment")
 public class AppointmentController {
     private final AppointmentService appointmentService;
+    
+    @Autowired
+    private AppUserRepository appUserRepository;
 
     @Autowired
     public AppointmentController(AppointmentService appointmentService) {
         this.appointmentService = appointmentService;
     }
+    
     
     @GetMapping
     public List<Appointment> getAppointments() {
@@ -70,13 +74,22 @@ public class AppointmentController {
         appointmentService.deleteAppointment(id);
     }
 
+    // @ResponseBody
+    // @PostMapping("/addPatientToAppointment")
+    // public void saveAppointment(@RequestBody Appointment appointment) {
+    //     AppUser appUser = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    //     appointment.setPatientId(appUser.getId());
+    //     appointmentService.updateAppointment(appointment);
+    // }
+
     @ResponseBody
     @PostMapping("/addPatientToAppointment")
     public void saveAppointment(@RequestBody Appointment appointment) {
         AppUser appUser = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        appointment.setPatientId(appUser.getId());
-        appointmentService.updateAppointment(appointment);
+        
+        appointment.setPatientId(appUserRepository.findPatientByAppUserId(appUser.getId()).getId());
+        appointmentService.addPatientToAppointment(appointment);
     }
 
-    
+
 }

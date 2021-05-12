@@ -60,4 +60,11 @@ public class AppointmentService {
 
 		appointmentRepository.save(existingAppointment);
 	}
+
+	public void addPatientToAppointment(Appointment appointment) {
+		Appointment existingAppointment = appointmentRepository.findById(appointment.getId()).orElse(null);
+		existingAppointment.setPatientId(appointment.getPatientId());
+
+		appointmentRepository.save(existingAppointment);
+	}
 }

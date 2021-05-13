@@ -10,7 +10,7 @@ spring:
     username: postgres
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -34,3 +34,8 @@ spring:
           connectiontimeout: 5000
           timeout: 3000
           writetimeout: 5000
+  
+thsgroup:
+  app:
+    jwtSecret: secretKey
+    jwtExpirationMs: 86500000

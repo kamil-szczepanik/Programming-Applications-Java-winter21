@@ -35,10 +35,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .anyRequest()
             .authenticated()
             .and()
-            .httpBasic()
-            .and()
-            .formLogin()
-            .defaultSuccessUrl("/",true);
+            .httpBasic();
+            // .and()
+            // .formLogin()
+            // .defaultSuccessUrl("/",false);
             
             
             // .usernameParameter("username") // default is username

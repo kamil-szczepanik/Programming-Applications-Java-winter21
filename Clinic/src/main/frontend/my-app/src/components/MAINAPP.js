@@ -8,6 +8,8 @@ import StartComponent from './StartComponent';
 import ContactComponent from './ContactComponent';
 import MyAppointments from './myAppointments';
 import AddAppointment from './AddAppointment';
+import AddAppointment_Doctor from './AddAppointment_Doctor';
+
 import MyProfile from './myProfile';
 import RegistrationComponent from './PatientRegisterComponent';
 
@@ -27,6 +29,8 @@ class MainAPP extends React.Component{
                     <Route path='/contact' component={ContactComponent}/>
                     <Route path='/appointments' component={MyAppointments}/>
                     <Route path='/addAppointment' component={AddAppointment}/>
+                    <Route path='/addAppointmentDoctor' component={AddAppointment_Doctor}/>
+
                     <Route path='/myProfile' component={MyProfile}/>
                     <Route component={StartComponent}/>
                 </Switch>

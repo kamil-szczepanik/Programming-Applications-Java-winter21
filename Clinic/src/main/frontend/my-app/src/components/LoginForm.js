@@ -10,45 +10,25 @@ class LoginForm extends Component {
             password:'',            
         }
     }
-   handlePressedButton(event){
-    const axios = require('axios')
-    const url='http://localhost:8080/login';
-    const params = new URLSearchParams()
-    params.append('username', this.state.username)
-    params.append('password', this.state.password)
+    handleSubmit = (event) =>{
+        event.preventDefault()
+        const data = new FormData(this.form)
 
-    
-    const config = {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
+        alert(data.get('username'))
+        axios.post('http://localhost:8080/api/auth/signin', {'username':data.get('username'),
+        'password':data.get('password')})
+        .then(response =>{
+            console.log("1")
+            response.
+            alert("Pomyślnie zalogowano!");
+        })
+        .catch(error=>{
+            console.log("2")
+
+            alert("Nie udało się zalogować!")
+            console.log(error)
+        })
     }
-    // we can use .append to add a file
-    var bodyData = new FormData();
-    bodyData.append('username', this.state.username);
-    bodyData.append('password', this.state.password);
-
-    axios({
-    method: 'post', // Declare the method
-    url: 'http://localhost:8080/login',
-    
-    data: bodyData,
-    config: {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      } // declare the kind of data
-    })
-    // axios.post(url, params, config)
-    // .then(response =>{
-    //     console.log(response)
-    //     alert("Pomyślnie zalogowano!");
-    // })
-    .catch(error=>{
-        alert("Nie udało się zalogować!")
-        console.log(error)
-    })
-   }
    
     render() {
         return(
@@ -56,11 +36,11 @@ class LoginForm extends Component {
                 
                 <form  method="post" id="login_form" onSubmit={this.handlePressedButton}>
                 <div>
-                    <label for="username">Email:</label>
+                    <label htmlFor="username">Email:</label>
                     <input onChange={(e)=>this.setState({username:e.target.value})} type="text" id="username" name="username" required/>
                 </div>
                 <div>
-                    <label for="pass">Password</label>
+                    <label htmlFor="pass">Password</label>
                     <input onChange={(e)=>this.setState({password:e.target.value})} type="password" id="pass" name="password" required/>
                 </div>    
                                     

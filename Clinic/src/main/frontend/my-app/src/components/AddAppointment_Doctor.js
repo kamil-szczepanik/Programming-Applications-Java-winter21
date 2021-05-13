@@ -3,6 +3,8 @@ import props from 'prop-types';
 import DoctorService from '../services/DoctorService';
 import AppointmentService from '../services/AppointmentService';
 import axios from 'axios';
+import PatientService from '../services/PatientService';
+import CreatePatient from './CreatePatient';
 
 
 class AddAppointment extends React.Component{
@@ -14,9 +16,11 @@ class AddAppointment extends React.Component{
         this.state = {
             doctors:[],
             appointments:[],
+            patients:[],
             appDate:null,
-            appDocID:null,
-            appPacID:21,
+            appTime:null,
+            appDocID:1,
+            patient_pesel:null,
 
             
         }
@@ -30,6 +34,9 @@ class AddAppointment extends React.Component{
         AppointmentService.getAppointments().then((response)=>{
             this.setState({appointments: response.data})
         });
+        PatientService.getPatients().then((response)=>{
+            this.setState({patients: response.data})
+        });
     }
     dateToString(given_date, delay=0){
         var date = new Date();
@@ -41,12 +48,28 @@ class AddAppointment extends React.Component{
         return yyyy + '-' + mm + '-' + dd;
 
     }
+    createPatient(){
+        
+    }
+    createPatientIfNeeded(){
+        var isPatientCreated = false
+        this.patients.map(patient=>{
+            if (patient.pesel===this.state.patient_pesel){
+                isPatientCreated=true;
+            }
+        })
+
+        if (isPatientCreated!==true){
+            this.createPatient()
+        } 
+
+    }
     handlePressedButton = (event) =>{
+        this.createPatientIfNeeded()
         event.preventDefault()
         var date_String = ""
         date_String+=this.state.appDate + "T" + this.state.appTime + ':00'
-        //dodać inne tworzenie z ID wizyty
-        axios.post('http://localhost:8080/api/addPatientToAppointment', {"date":date_String, "patient_id":this.state.appPacID, "doctor_id":this.state.appDocID})
+        axios.post('http://localhost:8080/api/appointment', { "patient_id":this.state.appPacID, "doctor_id":this.state.appDocID,"date":date_String,})
         .then(response =>{
             console.log(response)
             alert("Pomyślnie dodano wizytę!")
@@ -81,38 +104,21 @@ class AddAppointment extends React.Component{
         var yyyy = today.getFullYear();
 
         return(
-            <>
-                <form  method="post" id="appointment_form" onSubmit={this.handlePressedButton}>
-                    <div className="doctorsInAppointmentCreating" onChange={this.onChangeValue.bind(this)}>
-                    {this.state.doctors.map(doctor=>{
-                        return(
-                            
-                        // <div className="doctorsInAppointmentCreating">
-                        //     <input type="radio" id={doctor.id}
-                        //     name={doctor.firstName + doctor.lastName} value={doctor.firstName + doctor.lastName}/>
-                        //     <label htmlFor={doctor.firstName + doctor.lastName}>{doctor.firstName + doctor.lastName}</label>
-                        // </div>
-                            <>
-                                
-                                    <input type="radio" id={doctor.id}
-                                    name="doctors" value={doctor.id} on={(e)=>this.doctorIdHandleChange} required/>
-                                    <label htmlFor={doctor.firstName + doctor.lastName}>{doctor.firstName + doctor.lastName}</label>
-                                
-                            </>
-                        
-                        
-                            
-                        )
-                    })}
-                    </div>
-                
-                    {/* <div className="dateInAppointmentCreating" >
-                        
-                            <label htmlFor="1">Data wizyty:</label>
-                            <input value={this.state.appDate} onChange={(e)=>this.setState({appDate:e.target.value})} type="date" id="1234" min={this.dateToString(today,2)} max={this.dateToString(today,16)} required/>
-                    </div> */}
+            <>  
+                <p>Jeżeli pacjent nie ma jeszcze konta:</p>
+                <CreatePatient/>
+
+
+
+                <br></br>
+                <br></br>
+
+                <form  method="post" id="appointment_form_doc" onSubmit={this.handlePressedButton}>
+                    <label htmlFor="pesel">Pesel pacjenta</label>
+                    <input value={this.state.patient_pesel} onChange={e=>this.setState({petient_pesel:e.target.value})} type="text" id="pesel" name="pesel"/>
+                    <br></br>
                     <select value={this.state.appDate} name="appointments" id="appointments" onChange={(e)=>this.setState({appTime:e.target.value})}>
-                    <label for="appointments">Wybierz termin:</label>
+                    <label htmlFor="appointments">Wybierz termin:</label>
                     <optgroup label="appointment:">
                         {this.state.appointments.map(appointment=>{
 
@@ -130,7 +136,6 @@ class AddAppointment extends React.Component{
                         </optgroup>
                     </select>
                   
-
 
                     <p>{this.state.appTime}</p>
                     <button type='submit'>Dodaj wizytę</button>

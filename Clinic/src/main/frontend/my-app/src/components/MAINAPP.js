@@ -10,6 +10,7 @@ import MyAppointments from './myAppointments';
 import AddAppointment from './AddAppointment';
 import MyProfile from './myProfile';
 import RegistrationComponent from './PatientRegisterComponent';
+import Navi from './Navbar'
 
 class MainAPP extends React.Component{
     

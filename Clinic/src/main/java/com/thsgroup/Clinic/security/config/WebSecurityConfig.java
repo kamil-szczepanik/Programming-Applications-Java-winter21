@@ -1,15 +1,20 @@
 package com.thsgroup.Clinic.security.config;
 
 import com.thsgroup.Clinic.appuser.AppUserService;
+import com.thsgroup.Clinic.security.PasswordEncoder;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import lombok.AllArgsConstructor;
@@ -17,25 +22,50 @@ import lombok.AllArgsConstructor;
 @Configuration
 @AllArgsConstructor
 @EnableWebSecurity
-@CrossOrigin(origins = "http://localhost:3000")
+@EnableGlobalMethodSecurity(
+		// securedEnabled = true,
+		// jsr250Enabled = true,
+		prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
-    private final AppUserService appUserService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    private AuthenticationEntryPoint unauthorizedHandler;
+
+    @Autowired
+    AppUserService appUserService;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+    @Bean
+    public AuthTokenFilte
+
+
+
+    @Override
+	public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+		authenticationManagerBuilder.userDetailsService(appUserService).passwordEncoder(passwordEncoder.bCryptPasswordEncoder());
+	}
+
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .csrf()
-            .disable()
-            .authorizeRequests()
-            .antMatchers("/api/registration/**", "/", "/login")
-
-            .permitAll()
-            .anyRequest()
-            .authenticated()
+            .csrf().disable()
+            .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
             .and()
-            .httpBasic();
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and()
+            .authorizeRequests()
+                .antMatchers("/api/registration/**", "/", "/login")
+                .permitAll()
+            .anyRequest().authenticated();
+
+            // .and()
+            // .httpBasic()
             // .and()
             // .formLogin()
             // .defaultSuccessUrl("/",false);

@@ -45,6 +45,7 @@ class AddAppointment extends React.Component{
         event.preventDefault()
         var date_String = ""
         date_String+=this.state.appDate + "T" + this.state.appTime + ':00'
+        //dodać inne tworzenie z ID wizyty
         axios.post('http://localhost:8080/api/addPatientToAppointment', {"date":date_String, "patient_id":this.state.appPacID, "doctor_id":this.state.appDocID})
         .then(response =>{
             console.log(response)
@@ -58,7 +59,6 @@ class AddAppointment extends React.Component{
 
     dateHandleChange(event){
         event.preventDefault();
-        console.log("no siema");
 
         this.setState({appDate:event.target.value})
         console.log(this.state.appDate);
@@ -72,7 +72,6 @@ class AddAppointment extends React.Component{
     }
     
     onChangeValue(event){
-        console.log('doc dziala')
         this.setState({appDocID:event.target.value});
     }
     render(){
@@ -117,7 +116,7 @@ class AddAppointment extends React.Component{
                     <optgroup label="appointment:">
                         {this.state.appointments.map(appointment=>{
 
-                            if (this.state.appDocID===appointment.doctor_id )return(
+                            if (this.state.appDocID===appointment.doctor_id && appointment.patient_id==="")return(
                                 <>
                                     
                                         <option value={appointment.date}>{appointment.date}</option>

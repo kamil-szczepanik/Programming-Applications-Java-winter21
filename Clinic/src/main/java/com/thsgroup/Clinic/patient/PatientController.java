@@ -34,6 +34,9 @@ public class PatientController {
     private AppUserRepository appUserRepository;
 
     @Autowired
+    private PatientRepository patientRepository;
+
+    @Autowired
     public PatientController(PatientService patientService) {
         this.patientService = patientService;
     }
@@ -73,6 +76,14 @@ public class PatientController {
     public List<Appointment> getAppointmentsOfLoggedPatient() {
         AppUser appUser = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return appointmentRepository.findByPatientId(appUserRepository.findPatientByAppUserId(appUser.getId()).getId());
+    }
+
+    @ResponseBody
+    @GetMapping("/getInfoAboutLoggedPatient")
+    public Patient getInfoAboutLoggedPatient() {
+        AppUser appUser = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Patient patient = patientRepository.findByAppUserId(appUser.getId());
+        return patient;
     }
 
 }

@@ -3,6 +3,7 @@ import props from 'prop-types';
 import {useHistory} from "react-router-dom";
 import { BrowserRouter, Route,NavLink, Switch } from 'react-router-dom';
 import PatientService from '../services/PatientService';
+import "./myProfile.css"
 
 class MyProfile extends React.Component{
     constructor(props){
@@ -41,29 +42,39 @@ class MyProfile extends React.Component{
     // }
     render(){
         return(
-            <>
-            <nav>
-       
-                    <ul className="">
+            // <div id="myprofile">
 
-                        <li ><NavLink to='/appointments' exact>Moje wizyty</NavLink></li>
-                        <li ><NavLink to='/addAppointment' exact>Dodaj wizytę</NavLink></li>
-                    </ul>
-            </nav>
-            <section id="patient_information">
-            <h1>Informacje o koncie</h1>
-            <ul>
-                <li>Imie i Nazwisko:{this.state.name + " " + this.state.surname}</li>
-                <li>Pesel: {this.state.pesel}</li>
-                <li>Data urodzenia:{this.state.dob}</li>
-                <li>Wiek:{this.state.age + "lat"}</li>
-
-            </ul>
-            </section>
-            </>
-        )
+            <div className="container my-md-5">
+                <div className="row">
+                    <div className="col-md text-md-end m-auto p-2 p-md-5">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div className="col-md-7 text-md-start m-auto py-3">
+                        <section id="patient_information">
+                            <h1>Informacje o koncie</h1>
+                            <ul>
+                                <li>Imie i Nazwisko: <span>{this.state.name + " " + this.state.surname}</span></li>
+                                <li>Pesel: <span>{this.state.pesel}</span></li>
+                                <li>Data urodzenia: <span>{this.state.dob}</span></li>
+                                <li>Wiek: <span>{this.state.age + "lat"}</span></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-md-3 py-2">
+                    <NavLink to='/appointments' exact><button type="button" className="btn btn-outline-light btn-lg">Moje wizyty</button></NavLink>
+                    </div>
+                    <div className="col-md-3 py-2 ">
+                    <NavLink to='/addAppointment' exact><button type="button" className="btn btn-outline-light btn-lg">Dodaj wizytę</button></NavLink>
+                    </div>
+                </div>
+            </div>
+            // </div>
+            
+            )
         }
-
+        
 }
 
 

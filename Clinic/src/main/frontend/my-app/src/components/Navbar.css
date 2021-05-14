@@ -1,5 +1,7 @@
-#brand {
+.container-fluid{
     background-color: #222629;
+}
+#brand {
     color: #61892F;
     text-transform:uppercase;
 }

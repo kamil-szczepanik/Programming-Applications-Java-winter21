@@ -14,6 +14,8 @@ import MyProfile from './myProfile';
 import RegistrationComponent from './PatientRegisterComponent';
 import ANOTHERLoginComponent from './ANOTHERLoginComponent';
 import AuthenticatedRoute from './AuthenticatedRoute';
+import Navi from './Navbar'
+
 class MainAPP extends React.Component{
     
     render(){

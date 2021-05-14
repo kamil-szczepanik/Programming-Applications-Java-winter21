@@ -15,6 +15,7 @@ import RegistrationComponent from './PatientRegisterComponent';
 import ANOTHERLoginComponent from './ANOTHERLoginComponent';
 import AuthenticatedRoute from './AuthenticatedRoute';
 import Navi from './Navbar';
+import doctorProfile from '../components/doctorProfile';
 class MainAPP extends React.Component{
     constructor(props){
         super(props);
@@ -39,7 +40,7 @@ class MainAPP extends React.Component{
                 <Switch>
                     <Route path='/register' component={RegistrationComponent}/>
                     <Route path='/login' component={ANOTHERLoginComponent} action={this.isLogged}/>
-
+                    
                     <Route path='/' exact component={StartComponent}/>
                     <Route path='/doctors' exact component={DoctorComponent}/>
                     
@@ -49,6 +50,8 @@ class MainAPP extends React.Component{
                     <Route path='/addAppointmentDoctor' component={AddAppointment_Doctor}/>
                     <AuthenticatedRoute path="/" exact component={StartComponent} />
                     <Route path='/myProfile' component={MyProfile}/>
+                    <Route path='/myProfileDoctor' component={doctorProfile}/>
+
                     <Route component={StartComponent}/>
                 </Switch>
 

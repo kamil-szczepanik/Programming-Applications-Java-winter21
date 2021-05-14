@@ -48,7 +48,7 @@ class LoginComponent extends Component {
                 alert("Zalogowano pomyślnie")
                 
                 AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password)
-                this.props.history.push(`/myProfile`);
+                window.response.roles[0]==="PATIENT"?this.props.history.push(`/myProfile`):this.props.history.push(`/myProfile`);
             }).catch(() => {
                 this.setState({ showSuccessMessage: false })
                 this.setState({ hasLoginFailed: true })

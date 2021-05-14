@@ -105,7 +105,7 @@ class AddAppointment extends React.Component{
 
         return(
             <>  
-                <p>Jeżeli pacjent nie ma jeszcze konta:</p>
+                {/* <p>Jeżeli pacjent nie ma jeszcze konta:</p>
                 <CreatePatient/>
 
 
@@ -141,7 +141,35 @@ class AddAppointment extends React.Component{
                     <button type='submit'>Dodaj wizytę</button>
                     
                 </form>
-                
+                 */}
+                 <form  method="post" id="appointment_create_doc" onSubmit={this.createAppointmentWithoutPatient}>
+                    <label htmlFor="pesel">Pesel pacjenta</label>
+                    <input value={this.state.patient_pesel} onChange={e=>this.setState({petient_pesel:e.target.value})} type="text" id="pesel" name="pesel"/>
+                    <br></br>
+                    <select value={this.state.appDate} name="appointments" id="appointments" onChange={(e)=>this.setState({appTime:e.target.value})}>
+                    <label htmlFor="appointments">Wybierz termin:</label>
+                    <optgroup label="appointment:">
+                        {this.state.appointments.map(appointment=>{
+
+                            if (this.state.appDocID===appointment.doctor_id && appointment.patient_id==="")return(
+                                <>
+                                    
+                                        <option value={appointment.date}>{appointment.date}</option>
+                                       
+                                </>
+                            
+                            
+                                
+                            )
+                        })}
+                        </optgroup>
+                    </select>
+                  
+
+                    <p>{this.state.appTime}</p>
+                    <button type='submit'>Dodaj wizytę</button>
+                    
+                </form>
            </> 
         )
     }

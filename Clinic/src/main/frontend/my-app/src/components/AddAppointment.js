@@ -16,7 +16,8 @@ class AddAppointment extends React.Component{
             doctors:[],
             appointments:[],
             appDocID:null,
-            appoitmentID:null,
+            choosenAppoitmentId:null,
+
 
 
             
@@ -45,19 +46,25 @@ class AddAppointment extends React.Component{
     }
     handlePressedButton = (event) =>{
         event.preventDefault()
-        var date_String = ""
-
-        date_String+=this.state.appDate + "T" + this.state.appTime + ':00'
-        //dodać inne tworzenie z ID wizyty
-        axios.post('http://localhost:8080/api/addPatientToAppointment', {"id":this.state.appDate.id})
-        .then(response =>{
-            console.log(response)
-            alert("Pomyślnie dodano wizytę!")
-        })
-        .catch(error=>{
-            alert("Nie udało się dodać wizyty!")
-            console.log(error)
-        })
+        const USERTOKEN = window.response.accessToken;
+        let config = {
+            headers:{
+                'Authorization': `Bearer ${USERTOKEN}`,
+                'Access-Control-Allow-Origin':'http://localhost:3000/'}
+            };
+            alert(this.state.choosenAppoitmentId)
+        if (this.state.choosenAppoitmentId!==null){
+            axios.post('http://localhost:8080/api/appointment/addPatientToAppointment', {"id":parseInt(this.state.choosenAppoitmentId)})
+            .then(response =>{
+                console.log(response)
+                alert("Pomyślnie dodano wizytę!")
+            })
+            .catch(error=>{
+                alert("Nie udało się dodać wizyty!")
+                console.log(error)
+            })
+        }
+        
     }
 
     dateHandleChange(event){
@@ -76,6 +83,7 @@ class AddAppointment extends React.Component{
     
     onChangeValue(event){
         this.setState({appDocID:event.target.value});
+        alert(this.state.appDocID);
     }
     render(){
         var today = new Date();
@@ -98,8 +106,8 @@ class AddAppointment extends React.Component{
                         // </div>
                             <>
                                 
-                                    <input type="radio" id={doctor.id}
-                                    name="doctors" value={doctor.id} on={(e)=>this.doctorIdHandleChange} required/>
+                                    <input key={doctor.id} type="radio" id={doctor.id}
+                                    name="doctors" value={doctor.id} onChange={(e)=>this.doctorIdHandleChange} required/>
                                     <label htmlFor={doctor.firstName + doctor.lastName}>{doctor.firstName + doctor.lastName}</label>
                                 
                             </>
@@ -115,23 +123,25 @@ class AddAppointment extends React.Component{
                             <label htmlFor="1">Data wizyty:</label>
                             <input value={this.state.appDate} onChange={(e)=>this.setState({appDate:e.target.value})} type="date" id="1234" min={this.dateToString(today,2)} max={this.dateToString(today,16)} required/>
                     </div> */}
-                    <select value={this.state.appDate} name="appointments" id="appointments" onChange={(e)=>this.setState({appTime:e.target.value})}>
-                    <label for="appointments">Wybierz termin:</label>
-                    <optgroup label="appointment:">
+                    <select value={this.state.appDate} name="appointments" id="appointments" onChange={(e)=>this.setState({choosenAppoitmentId:e.target.value})}>
+                    <option value={null}>--Wybierz Termin--</option>
                         {this.state.appointments.map(appointment=>{
+                            
+                            if ( appointment.patientId===null&&parseInt(this.state.appDocID)===appointment.doctorId){
+                               
 
-                            if (this.state.appDocID===appointment.doctor_id && appointment.patient_id==="")return(
+                                
+                                return(
                                 <>
                                     
-                                        <option value={appointment.date}>{appointment.date}</option>
+                                        <option key={appointment.id} value={appointment.id}>{appointment.date}</option>
                                        
                                 </>
                             
                             
                                 
-                            )
+                            )}
                         })}
-                        </optgroup>
                     </select>
                   
 

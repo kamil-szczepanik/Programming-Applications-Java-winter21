@@ -39,7 +39,7 @@ class NavigationComponent extends React.Component{
                     <NavLink to="/login" className="nav-link">Sing Up</NavLink>
                     <NavLink to="/doctors" className="nav-link">Doktorzy</NavLink>
 
-                    <NavLink to="/myProfile" className="nav-link">Mój profil</NavLink>
+                    <NavLink to={window.response===undefined?"/":(window.response.roles[0]==="PATIENT"?"/myProfile":"/doctorProfile")} className="nav-link">Mój profil</NavLink>
 
                     <NavLink to="/addAppointment" className="nav-link">Dodaj wizytę</NavLink>
 

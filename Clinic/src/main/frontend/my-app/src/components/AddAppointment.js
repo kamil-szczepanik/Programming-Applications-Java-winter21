@@ -3,6 +3,7 @@ import props from 'prop-types';
 import DoctorService from '../services/DoctorService';
 import AppointmentService from '../services/AppointmentService';
 import axios from 'axios';
+import {useHistory, Redirect} from "react-router-dom";
 
 
 class AddAppointment extends React.Component{
@@ -14,9 +15,9 @@ class AddAppointment extends React.Component{
         this.state = {
             doctors:[],
             appointments:[],
-            appDate:null,
             appDocID:null,
-            appPacID:21,
+            appoitmentID:null,
+
 
             
         }
@@ -24,12 +25,13 @@ class AddAppointment extends React.Component{
     
 
     componentDidMount(){
+        if(window.response!==undefined){
         DoctorService.getDoctors().then((response)=>{
             this.setState({doctors: response.data})
         });
         AppointmentService.getAppointments().then((response)=>{
             this.setState({appointments: response.data})
-        });
+        });}
     }
     dateToString(given_date, delay=0){
         var date = new Date();
@@ -44,9 +46,10 @@ class AddAppointment extends React.Component{
     handlePressedButton = (event) =>{
         event.preventDefault()
         var date_String = ""
+
         date_String+=this.state.appDate + "T" + this.state.appTime + ':00'
         //dodać inne tworzenie z ID wizyty
-        axios.post('http://localhost:8080/api/addPatientToAppointment', {"date":date_String, "patient_id":this.state.appPacID, "doctor_id":this.state.appDocID})
+        axios.post('http://localhost:8080/api/addPatientToAppointment', {"id":this.state.appDate.id})
         .then(response =>{
             console.log(response)
             alert("Pomyślnie dodano wizytę!")
@@ -82,6 +85,7 @@ class AddAppointment extends React.Component{
 
         return(
             <>
+                {window.response===undefined?<Redirect to='/'/>:null}
                 <form  method="post" id="appointment_form" onSubmit={this.handlePressedButton}>
                     <div className="doctorsInAppointmentCreating" onChange={this.onChangeValue.bind(this)}>
                     {this.state.doctors.map(doctor=>{

@@ -44,13 +44,11 @@ class LoginComponent extends Component {
                     roles:response.data.roles,
                     accessToken:response.data.accessToken,
                     tokenType:response.data.tokenType})
-                    window.response=response.data;
-                // context=response.data;
-
-                alert(this.state.accessToken);
+                window.response=response.data;
+                alert("Zalogowano pomyślnie")
                 
                 AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password)
-                this.props.history.push(`/doctors`);
+                this.props.history.push(`/myProfile`);
             }).catch(() => {
                 this.setState({ showSuccessMessage: false })
                 this.setState({ hasLoginFailed: true })

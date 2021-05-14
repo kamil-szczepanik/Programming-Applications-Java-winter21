@@ -1,6 +1,6 @@
 import React from 'react';
 import props from 'prop-types';
-import {useHistory} from "react-router-dom";
+import {Redirect, useHistory} from "react-router-dom";
 import { BrowserRouter, Route,NavLink, Switch } from 'react-router-dom';
 import PatientService from '../services/PatientService';
 import "./myProfile.css"
@@ -20,31 +20,15 @@ class MyProfile extends React.Component{
             
         }
     }
-    // componentDidMount(){
-    //     PatientService.getPatients().then((response)=>{
-    //         let arr = response.data;
-    //         console.log("tu wchodzi")
-    //         console.log("tu wchodzi")
-
-    //         arr.map(patient => {
-    //             if (patient.id===this.state.id){
-    //                 this.setState({name:patient.firstName,surname:patient.lastName,dob:patient.dob,pesel:patient.pesel,age:patient.age})
-    //             }
-    //         })
-    //         arr.map(
-    //             doctor=>{
-
-    //                 return <p className = "doctor" key={doctor.id}> Imie:{doctor.firstName}<br></br> Nazwisko: {doctor.lastName} <br></br>Specjalizacja: {doctor.specialisation}</p>
-                    
-    //             }
-    //             )
-    //     });
-    // }
+    handlePressedButton(){
+        window.response=undefined;
+        alert("Wylogowano pomyślnie");
+    }
     render(){
         return(
-            // <div id="myprofile">
-
+            
             <div className="container my-md-5">
+                {window.response===undefined?<Redirect to='/'/>:null}
                 <div className="row">
                     <div className="col-md text-md-end m-auto p-2 p-md-5">
                         <i class="fas fa-user"></i>
@@ -67,6 +51,9 @@ class MyProfile extends React.Component{
                     </div>
                     <div className="col-md-3 py-2 ">
                     <NavLink to='/addAppointment' exact><button type="button" className="btn btn-outline-light btn-lg">Dodaj wizytę</button></NavLink>
+                    </div>
+                    <div className="col-md-3 py-2 ">
+                    <button type="button" onClick={this.handlePressedButton} className="btn btn-outline-light btn-lg">Wyloguj się</button>
                     </div>
                 </div>
             </div>

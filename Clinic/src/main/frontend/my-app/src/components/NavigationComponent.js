@@ -36,7 +36,15 @@ class NavigationComponent extends React.Component{
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
                     <NavLink to="/about" className="nav-link">About</NavLink>
-                    <NavLink to="/singup" className="nav-link">Sing Up</NavLink>
+                    <NavLink to="/login" className="nav-link">Sing Up</NavLink>
+                    <NavLink to="/doctors" className="nav-link">Doktorzy</NavLink>
+
+                    <NavLink to="/myProfile" className="nav-link">Mój profil</NavLink>
+
+                    <NavLink to="/addAppointment" className="nav-link">Dodaj wizytę</NavLink>
+
+                    <NavLink to="/appointments" className="nav-link">Moje wizyty</NavLink>
+
                 </div>
                 </div>
             </div>

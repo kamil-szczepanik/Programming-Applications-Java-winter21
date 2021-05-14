@@ -4,8 +4,18 @@ const APPOINTMENTS_REST_API_URL = 'http://localhost:8080/api/appointment';
 
 class AppointmentService{
 
+    
     getAppointments(){
-        return axios.get(APPOINTMENTS_REST_API_URL);
+        console.log("Pierwszy etap");
+        var USERTOKEN = window.response.accessToken;
+
+        let config = {
+            headers:{
+                'Authorization': `Bearer ${USERTOKEN}`}
+            };
+        axios.defaults.headers.common = {'Authorization': `Bearer ${USERTOKEN}`}
+        return axios.get(APPOINTMENTS_REST_API_URL, config);
+        
     }
 }
 

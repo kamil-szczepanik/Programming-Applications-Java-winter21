@@ -7,25 +7,12 @@ class StartComponent extends React.Component{
     render(){
         return(
             <>
-            <h3>Najnowsze informacje</h3>
-            <NavLink to='/login' exact>Przejdź do logowania</NavLink>
+            <h3>Żeby mieć dostęp do strony musisz być zalogowany</h3>
             <NavLink to='/register' exact>Przejdź do rejestracji</NavLink>
+            <br></br>
+            <NavLink to='/login' exact>Przejdź do logowania</NavLink>
 
-            <p>LoremIpsum</p>
-            <p>LoremIpsum</p>
-
-            <p>LoremIpsum</p>
-
-            <p>LoremIpsum</p>
-
-            <p>LoremIpsum</p>
-            <p>LoremIpsum</p>
-            <p>LoremIpsum</p>
-            <p>LoremIpsum</p>
-            <p>LoremIpsum</p>
-            <p>LoremIpsum</p>
-            <p>LoremIpsum</p>
-            <p>LoremIpsum</p>
+            
 
             </>  
         )

@@ -3,7 +3,7 @@ import props from 'prop-types';
 import DoctorComponent from './DoctorComponent';
 import LoginComponent from './LoginComponent';
 import NavigationComponent from './NavigationComponent';
-import { BrowserRouter, Route,NavLink, Switch } from 'react-router-dom';
+import { BrowserRouter, Route,NavLink, Switch, Redirect } from 'react-router-dom';
 import StartComponent from './StartComponent';
 import ContactComponent from './ContactComponent';
 import MyAppointments from './myAppointments';
@@ -14,22 +14,35 @@ import MyProfile from './myProfile';
 import RegistrationComponent from './PatientRegisterComponent';
 import ANOTHERLoginComponent from './ANOTHERLoginComponent';
 import AuthenticatedRoute from './AuthenticatedRoute';
-import Navi from './Navbar'
-
+import Navi from './Navbar';
 class MainAPP extends React.Component{
-    
+    constructor(props){
+        super(props);
+        this.state={
+            isLogged:false,
+        }
+    }
+    setIsLogged(){
+        alert("dziala");
+        this.setState({
+            isLogged:true
+        })
+    }
     render(){
         return(
         <>
             
             <BrowserRouter>
-                <NavigationComponent/>
+            
+              <NavigationComponent/>
+                
                 <Switch>
-                    
+                    <Route path='/register' component={RegistrationComponent}/>
+                    <Route path='/login' component={ANOTHERLoginComponent} action={this.isLogged}/>
+
                     <Route path='/' exact component={StartComponent}/>
                     <Route path='/doctors' exact component={DoctorComponent}/>
-                    <Route path='/register' component={RegistrationComponent}/>
-                    <Route path='/login' component={ANOTHERLoginComponent}/>
+                    
                     <Route path='/contact' component={ContactComponent}/>
                     <Route path='/appointments' component={MyAppointments}/>
                     <Route path='/addAppointment' component={AddAppointment}/>
@@ -38,6 +51,7 @@ class MainAPP extends React.Component{
                     <Route path='/myProfile' component={MyProfile}/>
                     <Route component={StartComponent}/>
                 </Switch>
+
             </BrowserRouter>
             
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import DoctorService from '../services/DoctorService';
 import props from 'prop-types';
-import {useHistory} from "react-router-dom";
+import {useHistory, Redirect} from "react-router-dom";
 
 class DoctorComponent extends React.Component{
     constructor(props){
@@ -14,14 +14,18 @@ class DoctorComponent extends React.Component{
     
 
     componentDidMount(){
+        if(window.response!==undefined){
         DoctorService.getDoctors().then((response)=>{
             this.setState({doctors: response.data})
         });
     }
+    }
     render(){
         return(
 
-            <div>
+            <div>  
+                {window.response===undefined?<Redirect to='/'/>:null}
+
                 {
                 this.state.doctors.map(
                 doctor=>{

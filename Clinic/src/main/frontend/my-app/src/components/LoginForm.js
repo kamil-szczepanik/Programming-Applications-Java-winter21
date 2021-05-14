@@ -2,32 +2,55 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../Input';
 import axios from 'axios'
+import { Redirect } from 'react-router';
+import { useHistory, withRouter} from "react-router-dom";
+import AuthenticationService from '../services/AuthenticationService';
+
 class LoginForm extends Component {
+    
     constructor(props){
-        super(props)
+        super(props);
+
         this.state = {
             username:'',
             password:'',            
         }
     }
     handleSubmit = (event) =>{
-        event.preventDefault()
         const data = new FormData(this.form)
 
-        alert(data.get('username'))
-        axios.post('http://localhost:8080/api/auth/signin', {'username':data.get('username'),
-        'password':data.get('password')})
-        .then(response =>{
-            console.log("1")
-            response.
-            alert("Pomyślnie zalogowano!");
+        AuthenticationService.executeBasicAuthenticationService(data.get('username'), data.get('password')).then(()=>{
+            this.props.history.push('/')
+        
+        }).catch(()=>{
+        console.log('blad');
         })
-        .catch(error=>{
-            console.log("2")
+        // event.preventDefault()
+        // const data = new FormData(this.form)
+        
+        // this.props.history.push('/homepage');
 
-            alert("Nie udało się zalogować!")
-            console.log(error)
-        })
+        // alert(data.get('username'))
+        // axios.post('http://localhost:8080/api/auth/signin', {'username':data.get('username'),
+        // 'password':data.get('password')})
+        // .then(response =>{
+        //     this.props.history.push('/');
+        //   console.log("1")
+        //     alert("Pomyślnie zalogowano!");
+            
+        // })
+        // .catch(error=>{
+        //     this.props.history.push('/');
+
+
+        //     console.log("2")
+
+        //     alert("Nie udało się zalogować!");
+        //     console.log(error);
+
+        // });
+        // <Redirect push to="http://localhost:3000/" />
+
     }
    
     render() {
@@ -52,5 +75,4 @@ class LoginForm extends Component {
         )
     }
 }
-
-export default LoginForm
+export default withRouter(LoginForm)

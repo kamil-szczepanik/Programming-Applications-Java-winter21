@@ -24,7 +24,14 @@ public class PatientService {
 	}
 
     public void addNewPatient(Patient patient) {
-        patientRepository.save(patient);
+        boolean patientExists = patientRepository.findByPesel(patient.getPesel()).isPresent();
+        if (!patientExists) {
+            patientRepository.save(patient);
+        }
+        else {
+            throw new IllegalStateException("pesel already taken");
+        }
+
     }
 
     public void addNewPatients(List<Patient> patients) {

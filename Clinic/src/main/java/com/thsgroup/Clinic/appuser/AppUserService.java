@@ -1,8 +1,10 @@
 package com.thsgroup.Clinic.appuser;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import com.thsgroup.Clinic.Doctor.DoctorSpecialisation;
 import com.thsgroup.Clinic.registration.token.ConfirmationToken;
 import com.thsgroup.Clinic.registration.token.ConfirmationTokenService;
 
@@ -33,7 +35,7 @@ public class AppUserService implements UserDetailsService{
                                             String.format(USER_NOT_FOUND_MSG, email)));
     }
 
-    public String signUpUser(AppUser appUser) {
+    public String signUpUser(AppUser appUser, String pesel, LocalDate dob, DoctorSpecialisation doctorSpecialisation) {
         boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
         
         
@@ -50,7 +52,10 @@ public class AppUserService implements UserDetailsService{
                     token,
                     LocalDateTime.now(),
                     LocalDateTime.now().plusMinutes(15),
-                    appUserRepository.findByEmail(appUser.getEmail()).get()
+                    appUserRepository.findByEmail(appUser.getEmail()).get(),
+                    pesel,
+                    dob,
+                    doctorSpecialisation
                 );
         
                 confirmationTokenService.saveConfirmationToken(confirmationToken);

@@ -59,6 +59,15 @@ public class Patient {
         this.appUserId = appUserId;
     }
 
+
+    public Patient(String firstName, String lastName, LocalDate dob, String pesel, Long appUserId){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = dob;
+        this.pesel = pesel;
+        this.appUserId = appUserId;
+    }
+
     public Long getId() { return id; }
 
     public void setId(Long id) { this.id = id; }

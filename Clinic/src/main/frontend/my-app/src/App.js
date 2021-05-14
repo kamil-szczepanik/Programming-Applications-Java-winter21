@@ -4,10 +4,11 @@ import DoctorComponent from './components/DoctorComponent';
 import AuthService from "./services/auth.service";
 import { Component } from 'react';
 // import AppointmentComponent from './components/AppointmentComponent';
-import LoginComponent from './components/LoginComponent'
+import LoginComponent from './components/LoginComponent';
 import MainAPP from './components/MAINAPP';
-import NavigationComponent from './components/NavigationComponent'
-
+import NavigationComponent from './components/NavigationComponent';
+import ANOTHERLoginComponent from './components/ANOTHERLoginComponent';
+import USERTOKEN from './components/ANOTHERLoginComponent';
 class App extends Component {
   constructor(props){
     super(props);
@@ -15,7 +16,9 @@ class App extends Component {
     this.state = {
       showModeratorBoard:false,
       showAdminBoard:false,
-      currentUser:undefined
+      currentUser:undefined,
+      loggedUserdata:window.response,
+
     };
   }
   componentDidMount(){
@@ -23,7 +26,7 @@ class App extends Component {
     
     if (user){
       this.setState({
-        currentUser:AuthService.getCurrentUser(),
+        currentUser:ANOTHERLoginComponent.getToken(),
         showModeratorBoard:user.roles.includes("ROLE_MODERATOR"),
         showAdminBoard: user.roles.includes("ROLE_ADMIN")
       });
@@ -32,13 +35,13 @@ class App extends Component {
   logOut(){
     AuthService.logOut();
   }
+
   render(){
     const {currentUser, showModeratorBoard, showAdminBoard} = this.state;
-  
   return (
     <div className="App">
 
-      <MainAPP/>
+      <MainAPP />
 
     </div>
   );

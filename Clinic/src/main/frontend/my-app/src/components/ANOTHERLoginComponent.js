@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import AuthenticationService from '../services/AuthenticationService';
-
+import context from '../components/context/context';
 class LoginComponent extends Component {
 
     constructor(props) {
         super(props)
 
         this.state = {
-            username: 'in28minutes',
+            username: 'email',
             password: '',
             hasLoginFailed: false,
-            showSuccessMessage: false
+            showSuccessMessage: false,
+            accountID:null,
+            email:null,
+            roles:null,
+            accessToken:null,
+            tokenType:null,
+
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -25,26 +31,26 @@ class LoginComponent extends Component {
             }
         )
     }
-
+    getToken(){
+        return this.state.getToken;
+    }
     loginClicked() {
-        //in28minutes,dummy
-        // if(this.state.username==='in28minutes' && this.state.password==='dummy'){
-        //     AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password)
-        //     this.props.history.push(`/courses`)
-        //     //this.setState({showSuccessMessage:true})
-        //     //this.setState({hasLoginFailed:false})
-        // }
-        // else {
-        //     this.setState({showSuccessMessage:false})
-        //     this.setState({hasLoginFailed:true})
-        // }
 
-       AuthenticationService
+        AuthenticationService
             .executeBasicAuthenticationService(this.state.username, this.state.password)
-            .then(() => {
+            .then((response) => {
+                this.setState({accountID:response.data.id,
+                    email:response.data.email,
+                    roles:response.data.roles,
+                    accessToken:response.data.accessToken,
+                    tokenType:response.data.tokenType})
+                    window.response=response.data;
+                // context=response.data;
+
+                alert(this.state.accessToken);
+                
                 AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password)
-                this.props.history.push(`/doctors`)
-                alert('udalo sie')
+                this.props.history.push(`/doctors`);
             }).catch(() => {
                 this.setState({ showSuccessMessage: false })
                 this.setState({ hasLoginFailed: true })

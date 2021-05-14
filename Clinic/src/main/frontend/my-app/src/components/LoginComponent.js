@@ -51,7 +51,7 @@ class LoginComponent extends Component {
             }
         )
     }
-
+    
     loginClicked() {
 
        AuthenticationService

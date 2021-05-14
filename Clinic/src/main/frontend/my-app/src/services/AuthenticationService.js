@@ -6,15 +6,16 @@ const COURSE_API_URL = 'http://localhost:8080'
 const DOCTORS_REST_API_URL = `${COURSE_API_URL}/api/${INSTRUCTOR}`
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
 
+
 class AuthenticationService {
 
     executeBasicAuthenticationService(username, password) {
         // return axios.get(`http://localhost:8080/api/auth/signin`,
         //     { headers: { authorization: this.createBasicAuthToken(username, password) } })
         return axios.post('http://localhost:8080/api/auth/signin', {'username':username,'password':password})
-        .then(response =>{
-            alert(response.data.accessToken);
-        })
+        // .then(response =>{
+        //     getResponse=response;
+        // })
     }
 
     createBasicAuthToken(username, password) {
@@ -38,7 +39,6 @@ class AuthenticationService {
         )
     }
 }
-
 export default new AuthenticationService()
 // import axios from 'axios'
 

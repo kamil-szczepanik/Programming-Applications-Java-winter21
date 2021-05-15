@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -51,6 +53,7 @@ public class ConfirmationToken {
     private String pesel;
     private LocalDate dob;
 
+    @Enumerated(EnumType.STRING)
     private DoctorSpecialisation doctorSpecialisation;
 
     @ManyToOne

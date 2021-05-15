@@ -23,9 +23,9 @@ public class DoctorConfig {
 				"Stroz",
 				DoctorSpecialisation.DERMATOLOGIA
 			);
-            repository.saveAll(
-                List.of(piotr, ewa)
-            );
+            // repository.saveAll(
+            //     List.of(piotr, ewa)
+            // );
             };
     }
 }

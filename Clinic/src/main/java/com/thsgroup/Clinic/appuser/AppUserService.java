@@ -78,7 +78,10 @@ public class AppUserService implements UserDetailsService{
             token,
             LocalDateTime.now(),
             LocalDateTime.now().plusMinutes(15),
-            appUser
+            appUser,
+            pesel,
+            dob,
+            doctorSpecialisation
         );
 
         confirmationTokenService.saveConfirmationToken(confirmationToken);

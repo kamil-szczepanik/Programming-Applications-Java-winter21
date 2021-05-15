@@ -13,7 +13,6 @@ import com.thsgroup.Clinic.appuser.AppUserRole;
 import com.thsgroup.Clinic.appuser.AppUserService;
 import com.thsgroup.Clinic.email.EmailSender;
 import com.thsgroup.Clinic.patient.Patient;
-import com.thsgroup.Clinic.patient.PatientRepository;
 import com.thsgroup.Clinic.patient.PatientService;
 import com.thsgroup.Clinic.registration.token.ConfirmationToken;
 import com.thsgroup.Clinic.registration.token.ConfirmationTokenService;
@@ -38,8 +37,6 @@ public class RegistrationService {
     private final DoctorService doctorService;
     private final AdminService adminService;
     
-    @Autowired
-    private PatientRepository patientRepository;
 
 
     public String registerPatient(RegistrationRequestPatient request) {
@@ -110,9 +107,9 @@ public class RegistrationService {
                      request.getPassword(), 
                      AppUserRole.ADMIN
                      ),
-                     null,
-                     null,
-                     null
+                     request.getPesel(),
+                     request.getDob(),
+                     request.getDoctorSpecialisation()
          );
  
          String link = "http://localhost:8080/api/registration/confirm?token=" + token;

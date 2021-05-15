@@ -19,12 +19,12 @@ public class RegistrationController {
     private final RegistrationService registrationService;
 
     @PostMapping("patient")
-    public String register(@RequestBody RegistrationRequest request) {
-        return registrationService.register(request);
+    public String registerPatient(@RequestBody RegistrationRequestPatient request) {
+        return registrationService.registerPatient(request);
     }
 
     @PostMapping("doctor")
-    public String registerDoctor(@RequestBody RegistrationRequest request) {
+    public String registerDoctor(@RequestBody RegistrationRequestDoctor request) {
         return registrationService.registerDoctor(request);
     }
 

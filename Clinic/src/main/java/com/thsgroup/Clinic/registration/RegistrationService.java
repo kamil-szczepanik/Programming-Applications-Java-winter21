@@ -6,6 +6,7 @@ import com.thsgroup.Clinic.Admin.Admin;
 import com.thsgroup.Clinic.Admin.AdminService;
 import com.thsgroup.Clinic.Doctor.Doctor;
 import com.thsgroup.Clinic.Doctor.DoctorService;
+import com.thsgroup.Clinic.Doctor.DoctorSpecialisation;
 import com.thsgroup.Clinic.appuser.AppUser;
 import com.thsgroup.Clinic.appuser.AppUserRepository;
 import com.thsgroup.Clinic.appuser.AppUserRole;
@@ -16,6 +17,7 @@ import com.thsgroup.Clinic.patient.PatientService;
 import com.thsgroup.Clinic.registration.token.ConfirmationToken;
 import com.thsgroup.Clinic.registration.token.ConfirmationTokenService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,9 +36,10 @@ public class RegistrationService {
     private final PatientService patientService;
     private final DoctorService doctorService;
     private final AdminService adminService;
+    
 
 
-    public String register(RegistrationRequest request) {
+    public String registerPatient(RegistrationRequestPatient request) {
        boolean isValidEmail = emailValidator.test(request.getEmail());
 
         if (!isValidEmail) {
@@ -50,7 +53,10 @@ public class RegistrationService {
                     request.getEmail(), 
                     request.getPassword(), 
                     AppUserRole.PATIENT
-                    )
+                    ),
+                    request.getPesel(),
+                    request.getDob(),
+                    null
         );
 
         String link = "http://localhost:8080/api/registration/confirm?token=" + token;
@@ -60,7 +66,7 @@ public class RegistrationService {
         return token;
     }
 
-    public String registerDoctor(RegistrationRequest request) {
+    public String registerDoctor(RegistrationRequestDoctor request) {
         boolean isValidEmail = emailValidator.test(request.getEmail());
  
          if (!isValidEmail) {
@@ -73,8 +79,10 @@ public class RegistrationService {
                      request.getLastName(), 
                      request.getEmail(), 
                      request.getPassword(), 
-                     AppUserRole.DOCTOR
-                     )
+                     AppUserRole.DOCTOR),
+                     null,
+                     null,
+                     request.getDoctorSpecialisation()
          );
  
          String link = "http://localhost:8080/api/registration/confirm?token=" + token;
@@ -98,7 +106,10 @@ public class RegistrationService {
                      request.getEmail(), 
                      request.getPassword(), 
                      AppUserRole.ADMIN
-                     )
+                     ),
+                     request.getPesel(),
+                     request.getDob(),
+                     request.getDoctorSpecialisation()
          );
  
          String link = "http://localhost:8080/api/registration/confirm?token=" + token;
@@ -132,7 +143,8 @@ public class RegistrationService {
         confirmationTokenService.setConfirmed(token);
         appUserService.enableAppUser(
             confirmationToken.getAppUser().getEmail());
-        createPatientDoctorOrAdminFromAppUser(confirmationToken.getAppUser());
+        createPatientDoctorOrAdminFromAppUser(confirmationToken);
+        
         return "confirmed";
         
     }
@@ -206,25 +218,37 @@ public class RegistrationService {
                 "</div></div>";
     }
 
-    public void createPatientDoctorOrAdminFromAppUser(AppUser appUser) {
+    public void createPatientDoctorOrAdminFromAppUser(ConfirmationToken confirmationToken) {
+        AppUser appUser = confirmationToken.getAppUser();
         boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
         if (userExists) {
             AppUserRole userRole = appUser.getAppUserRole();
             
             if (userRole.equals(AppUserRole.PATIENT)) {
-                Patient newPatient = new Patient(appUser.getFirstName(), appUser.getLastName(), appUser.getId());
+                // Patient newPatient = new Patient(appUser.getFirstName(), appUser.getLastName(), appUser.getId());
+                Patient newPatient = new Patient(appUser.getFirstName(),
+                                                 appUser.getLastName(), 
+                                                 confirmationToken.getDob(), 
+                                                 confirmationToken.getPesel(), 
+                                                 appUser.getId());
                 patientService.addNewPatient(newPatient);
             }
             else if (userRole.equals(AppUserRole.DOCTOR)) {
-                Doctor newDoctor = new Doctor(appUser.getFirstName(), appUser.getLastName(), appUser.getId());
+                Doctor newDoctor = new Doctor(appUser.getFirstName(), 
+                                              appUser.getLastName(), 
+                                              confirmationToken.getDoctorSpecialisation(), 
+                                              appUser.getId());
                 doctorService.addNewDoctor(newDoctor);
             }
             else if (userRole.equals(AppUserRole.ADMIN)) {
-                Admin newAdmin = new Admin(appUser.getFirstName(), appUser.getLastName(), appUser.getId());
+                Admin newAdmin = new Admin(appUser.getFirstName(), 
+                                           appUser.getLastName(), 
+                                           appUser.getId());
                 adminService.addNewAdmin(newAdmin);
             }
         } 
     }
+
 
     
 }

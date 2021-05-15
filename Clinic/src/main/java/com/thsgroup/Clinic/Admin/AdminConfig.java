@@ -23,9 +23,9 @@ public class AdminConfig {
                 "Martinez"
             );
 
-            repository.saveAll(
-                List.of(kevin, oscar)
-                );
+            // repository.saveAll(
+            //     List.of(kevin, oscar)
+            //     );
         };
     }
     

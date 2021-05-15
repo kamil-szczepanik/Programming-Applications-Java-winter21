@@ -1,9 +1,12 @@
 package com.thsgroup.Clinic.registration.token;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
+import com.thsgroup.Clinic.Doctor.DoctorSpecialisation;
 import com.thsgroup.Clinic.appuser.AppUser;
 
 import lombok.Getter;
@@ -46,6 +50,12 @@ public class ConfirmationToken {
 
     private LocalDateTime confirmedAt;
 
+    private String pesel;
+    private LocalDate dob;
+
+    @Enumerated(EnumType.STRING)
+    private DoctorSpecialisation doctorSpecialisation;
+
     @ManyToOne
     @JoinColumn(
         nullable = false,
@@ -53,6 +63,7 @@ public class ConfirmationToken {
     )
     private AppUser appUser;
 
+    // admin token
     public ConfirmationToken(String token,
                              LocalDateTime createdAt,
                              LocalDateTime expiresAt,
@@ -63,4 +74,52 @@ public class ConfirmationToken {
         this.confirmedAt = confirmedAt;
         this.appUser = appUser;
                                 }
+    
+    // patient token
+    public ConfirmationToken(String token,
+                             LocalDateTime createdAt,
+                             LocalDateTime expiresAt,
+                             AppUser appUser, 
+                             String pesel, 
+                             LocalDate dob) {
+           this.token = token;
+           this.createdAt = createdAt;
+           this.expiresAt = expiresAt;
+           this.confirmedAt = confirmedAt;
+           this.appUser = appUser;
+           this.pesel = pesel;
+           this.dob = dob;
+                          }
+
+    // doctor token
+    public ConfirmationToken(String token,
+                          LocalDateTime createdAt,
+                          LocalDateTime expiresAt,
+                          AppUser appUser, 
+                          DoctorSpecialisation doctorSpecialisation) {
+        this.token = token;
+        this.createdAt = createdAt;
+        this.expiresAt = expiresAt;
+        this.confirmedAt = confirmedAt;
+        this.appUser = appUser;
+        this.doctorSpecialisation = doctorSpecialisation;
+                       }
+
+    public ConfirmationToken(String token,
+                       LocalDateTime createdAt,
+                       LocalDateTime expiresAt,
+                       AppUser appUser, 
+                       String pesel, 
+                       LocalDate dob, 
+                       DoctorSpecialisation doctorSpecialisation) {
+     this.token = token;
+     this.createdAt = createdAt;
+     this.expiresAt = expiresAt;
+     this.confirmedAt = confirmedAt;
+     this.appUser = appUser;
+     this.pesel = pesel;
+     this.dob = dob;
+     this.doctorSpecialisation = doctorSpecialisation;
+                    }
+                                
 }

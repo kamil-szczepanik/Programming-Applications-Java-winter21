@@ -29,9 +29,9 @@ public class PatientConfig {
                 "92838383921"
             );
 
-            repository.saveAll(
-                List.of(michael, dwight)
-                );
+            // repository.saveAll(
+            //     List.of(michael, dwight)
+            //     );
         };
     }
     

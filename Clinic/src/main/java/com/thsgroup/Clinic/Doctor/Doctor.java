@@ -52,6 +52,13 @@ public class Doctor {
         this.appUserId = appUserId;
     }
 
+    public Doctor(String firstName, String lastName, DoctorSpecialisation specialisation, Long appUserId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.specialisation = specialisation;
+        this.appUserId = appUserId;
+    }
+
     public Long getId() {
         return this.id;
     }

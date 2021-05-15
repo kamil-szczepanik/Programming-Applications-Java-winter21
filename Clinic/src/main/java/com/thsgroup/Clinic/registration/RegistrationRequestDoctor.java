@@ -1,7 +1,5 @@
 package com.thsgroup.Clinic.registration;
 
-import java.time.LocalDate;
-
 import com.thsgroup.Clinic.Doctor.DoctorSpecialisation;
 
 import lombok.AllArgsConstructor;
@@ -13,12 +11,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class RegistrationRequest {
+public class RegistrationRequestDoctor {
     private final String firstName;
     private final String lastName;
     private final String email;
     private final String password;
-    private final String pesel;
-    private final LocalDate dob;
     private final DoctorSpecialisation doctorSpecialisation;
 }

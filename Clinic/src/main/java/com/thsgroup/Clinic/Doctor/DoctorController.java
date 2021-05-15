@@ -85,6 +85,12 @@ public class DoctorController {
         Doctor doctor = doctorRepository.findByAppUserId(appUser.getId());
         return doctor;
     }
+
+    @ResponseBody
+    @GetMapping("/getDoctorSpecialisation")
+    public DoctorSpecialisation[] getDoctorSpecialisation() {
+        return DoctorSpecialisation.values();
+    }
     
 
 

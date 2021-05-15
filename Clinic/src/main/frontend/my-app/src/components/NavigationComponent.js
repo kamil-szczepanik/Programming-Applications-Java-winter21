@@ -37,6 +37,7 @@ class NavigationComponent extends React.Component{
                 <div class="navbar-nav ms-auto">
                     <NavLink to="/about" className="nav-link">Start</NavLink>
                     <NavLink to="/login" className="nav-link">Zaloguj się</NavLink>
+
                     <NavLink to="/doctors" className="nav-link">Doktorzy</NavLink>
                     
                     <NavLink to="/myProfile" className="nav-link">Mój profil</NavLink>

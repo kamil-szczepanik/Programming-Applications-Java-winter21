@@ -65,17 +65,21 @@ class RegistrationForm extends Component {
 
     render() {
         const inputs = this.props.inputs.map(
-          ({name, placeholder, type, value, className}, index) => (
+          ({name, placeholder, type, value, className}, index) => (<div className="mb-2">
+            <label class="form-label">{name}</label>
             <Input key={index} name={name} placeholder={placeholder} type={type} value={value}
-              className={type==='submit'? className : ''} handleError={this.handleError} />
+              className={type==='submit'? className : ''} className="form-control" handleError={this.handleError} />
+         </div>
           )
         )
         const errors = this.renderError()
         return (
+            <div className="container my-2">
             <form {...this.props} onSubmit={this.handleSubmit} ref={fm => {this.form=fm}} >
               {inputs}
               {errors}
             </form>
+            </div>
         )
     }
 }

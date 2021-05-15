@@ -37,4 +37,9 @@ public class RegistrationController {
     public String confirm(@RequestParam("token") String token) {
         return registrationService.confirmToken(token);
     }
+
+    @PostMapping("registerDoctorAsAdmin")
+    public String registerDoctorAsAdmin(@RequestBody RegistrationRequestDoctor request) {
+        return registrationService.registerDoctorAsAdmin(request);
+    }
 }

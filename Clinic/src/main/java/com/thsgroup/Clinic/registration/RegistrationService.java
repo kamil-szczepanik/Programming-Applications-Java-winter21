@@ -256,6 +256,25 @@ public class RegistrationService {
         } 
     }
 
+    public String registerDoctorAsAdmin(RegistrationRequestDoctor request) {
+        boolean isValidEmail = emailValidator.test(request.getEmail());
+ 
+        if (!isValidEmail) {
+           throw new IllegalStateException("email not valid");
+        }
+
+        String defaultPassword = new String("password");
+
+        AppUser appUser = new AppUser(request.getFirstName(), request.getLastName(), request.getEmail(), defaultPassword, AppUserRole.DOCTOR);
+
+        DoctorSpecialisation specialisation = request.getDoctorSpecialisation();
+ 
+        String message = appUserService.signUpDoctor(appUser, specialisation);
+        
+        return message;
+ 
+     }
+
 
     
 }

@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+import com.thsgroup.Clinic.Doctor.Doctor;
+import com.thsgroup.Clinic.Doctor.DoctorService;
 import com.thsgroup.Clinic.Doctor.DoctorSpecialisation;
 import com.thsgroup.Clinic.registration.token.ConfirmationToken;
 import com.thsgroup.Clinic.registration.token.ConfirmationTokenService;
@@ -27,6 +29,7 @@ public class AppUserService implements UserDetailsService{
     private final AppUserRepository appUserRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
+    private final DoctorService doctorService;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -117,7 +120,7 @@ public class AppUserService implements UserDetailsService{
         appUserRepository.save(existingAppUser);
 	}
 
-    public List<AppUser> geAppUsers() {
+    public List<AppUser> getAppUsers() {
         return appUserRepository.findAll();
     }
 
@@ -131,6 +134,32 @@ public class AppUserService implements UserDetailsService{
 
     public void deleteAppUser(Long id) {
         appUserRepository.deleteById(id);
+    }
+
+    public String signUpDoctor(AppUser appUser, DoctorSpecialisation doctorSpecialisation) {
+        boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
+        
+        if(userExists) {
+            throw new IllegalStateException("email already taken");
+        }
+
+        String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
+
+        appUser.setPassword(encodedPassword);
+
+        appUser.setEnabled(true);
+                
+        appUserRepository.save(appUser);
+        
+        Doctor newDoctor = new Doctor(appUser.getFirstName(), 
+                                        appUser.getLastName(), 
+                                        doctorSpecialisation, 
+                                        appUser.getId());
+        doctorService.addNewDoctor(newDoctor);
+
+        appUserRepository.save(appUser);
+
+        return "Created doctor and his account";
     }
     
 }

@@ -1,6 +1,4 @@
-package com.thsgroup.Clinic.Admin;
-
-import java.util.List;
+package com.thsgroup.Clinic.appuser;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -10,18 +8,18 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @Configuration
-public class AdminConfig {
+public class AppUserConfig {
 
-    private final AdminService adminService;
-    
+    private final AppUserService appUserService;
 
     @Bean
-    CommandLineRunner commandLineAdminRunner(AdminRepository repository){
+    CommandLineRunner commandLineAppUserRunner(AppUserRepository repository){
 
-        Admin defaultAdmin = new Admin("admin", "admin", 1L);
-        boolean defaultAdminExists = adminService.defaultFirstAdminExists();
+        AppUser defaultAppUser = new AppUser("admin", "admin", "admin@clinic.com", "password", AppUserRole.ADMIN);
+        boolean defaultAdminExists = appUserService.defaultFirstAppUserExists();
         if (!defaultAdminExists) {
-            adminService.addNewAdmin(defaultAdmin);
+            appUserService.addNewAppUser(defaultAppUser);
+            appUserService.enableAppUser("admin@clinic.com");
         }
 
 
@@ -43,5 +41,6 @@ public class AdminConfig {
             //     );
         };
     }
+    
     
 }

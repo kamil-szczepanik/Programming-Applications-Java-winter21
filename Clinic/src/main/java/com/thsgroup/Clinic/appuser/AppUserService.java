@@ -185,5 +185,9 @@ public class AppUserService implements UserDetailsService{
 
         return "Created admin and his account";
     }
+
+    boolean defaultFirstAppUserExists() {
+        return appUserRepository.existsById(1L);
+    }
     
 }

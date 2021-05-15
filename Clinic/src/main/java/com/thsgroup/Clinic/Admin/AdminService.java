@@ -44,4 +44,8 @@ public class AdminService {
         adminRepository.save(existingAdmin);
 
     }
+
+    public boolean defaultFirstAdminExists() {
+        return adminRepository.existsById(1L);
+    }
 }

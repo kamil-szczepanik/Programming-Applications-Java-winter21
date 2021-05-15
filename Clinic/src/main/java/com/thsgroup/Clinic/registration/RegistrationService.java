@@ -145,7 +145,9 @@ public class RegistrationService {
             confirmationToken.getAppUser().getEmail());
         createPatientDoctorOrAdminFromAppUser(confirmationToken);
         
-        return "confirmed";
+        return "<h1 style=\"color: #5e9ca0;\">Wyeryfikacja przebiegła pomyślnie</h1>" +
+                "\n" +
+                "<h2 style=\"text-align: left;\"><a href=\"http://localhost:3000/\">Przejdź do strony kliniki</a></h2>";
         
     }
 

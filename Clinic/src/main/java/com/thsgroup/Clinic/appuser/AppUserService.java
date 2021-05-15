@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+import com.thsgroup.Clinic.Admin.Admin;
+import com.thsgroup.Clinic.Admin.AdminService;
 import com.thsgroup.Clinic.Doctor.Doctor;
 import com.thsgroup.Clinic.Doctor.DoctorService;
 import com.thsgroup.Clinic.Doctor.DoctorSpecialisation;
@@ -30,6 +32,7 @@ public class AppUserService implements UserDetailsService{
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
     private final DoctorService doctorService;
+    private final AdminService adminService;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -148,7 +151,7 @@ public class AppUserService implements UserDetailsService{
         appUser.setPassword(encodedPassword);
 
         appUser.setEnabled(true);
-                
+
         appUserRepository.save(appUser);
         
         Doctor newDoctor = new Doctor(appUser.getFirstName(), 
@@ -157,9 +160,30 @@ public class AppUserService implements UserDetailsService{
                                         appUser.getId());
         doctorService.addNewDoctor(newDoctor);
 
-        appUserRepository.save(appUser);
-
         return "Created doctor and his account";
+    }
+
+    public String signUpAdmin(AppUser appUser) {
+        boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
+        
+        if(userExists) {
+            throw new IllegalStateException("email already taken");
+        }
+
+        String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
+
+        appUser.setPassword(encodedPassword);
+
+        appUser.setEnabled(true);
+        appUserRepository.save(appUser);
+        
+        Admin newAdmin = new Admin(appUser.getFirstName(), 
+                                        appUser.getLastName(), 
+                                        appUser.getId());
+        adminService.addNewAdmin(newAdmin);
+
+
+        return "Created admin and his account";
     }
     
 }

@@ -42,4 +42,9 @@ public class RegistrationController {
     public String registerDoctorAsAdmin(@RequestBody RegistrationRequestDoctor request) {
         return registrationService.registerDoctorAsAdmin(request);
     }
+
+    @PostMapping("registerNewAdmin")
+    public String registerNewAdmin(@RequestBody RegistrationRequest request) {
+        return registrationService.registerNewAdmin(request);
+    }
 }

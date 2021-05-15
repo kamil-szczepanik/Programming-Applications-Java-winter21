@@ -107,9 +107,9 @@ public class RegistrationService {
                      request.getPassword(), 
                      AppUserRole.ADMIN
                      ),
-                     request.getPesel(),
-                     request.getDob(),
-                     request.getDoctorSpecialisation()
+                     null,
+                     null,
+                     null
          );
  
          String link = "http://localhost:8080/api/registration/confirm?token=" + token;
@@ -270,6 +270,23 @@ public class RegistrationService {
         DoctorSpecialisation specialisation = request.getDoctorSpecialisation();
  
         String message = appUserService.signUpDoctor(appUser, specialisation);
+        
+        return message;
+ 
+     }
+
+     public String registerNewAdmin(RegistrationRequest request) {
+        boolean isValidEmail = emailValidator.test(request.getEmail());
+ 
+        if (!isValidEmail) {
+           throw new IllegalStateException("email not valid");
+        }
+
+        String defaultPassword = new String("password");
+
+        AppUser appUser = new AppUser(request.getFirstName(), request.getLastName(), request.getEmail(), defaultPassword, AppUserRole.ADMIN);
+ 
+        String message = appUserService.signUpAdmin(appUser);
         
         return message;
  

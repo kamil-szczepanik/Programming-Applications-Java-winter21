@@ -123,6 +123,9 @@ class MyProfile extends React.Component{
                         <NavLink to='/addAppointmentDoctor' exact><button type="button" className="btn btn-outline-light btn-lg">Dodaj wizytę</button></NavLink>
                         </div>
                         <div className="col-md-3 py-2 ">
+                        <NavLink to='/deleteAppointmentDoctor' exact><button type="button" className="btn btn-outline-light btn-lg">Usuń wizytę</button></NavLink>
+                        </div>
+                        <div className="col-md-3 py-2 ">
                         <button type="button" onClick={this.handlePressedButton} className="btn btn-outline-light btn-lg">Wyloguj się</button>
                         </div>
                     </div>

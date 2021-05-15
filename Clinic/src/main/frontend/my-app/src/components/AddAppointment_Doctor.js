@@ -87,7 +87,6 @@ class AddAppointment extends React.Component{
         var minute = parseInt(this.state.appTime.toString().slice(3,5));
 
         date.push(year,month,day,hour,minute);
-        alert(date);
         axios.post('http://localhost:8080/api/appointment/registerNewAppointment', {
     "doctorId": this.state.appDocID.toString(),
     "date": [year, month, day, hour, minute]
@@ -132,7 +131,6 @@ class AddAppointment extends React.Component{
                 <label for="appt">Godzina:</label>
                 <input value={this.state.appTime}  onChange={e=>this.setState({appTime:e.target.value})} type="time" id="appt" name="appt"
                     min="09:00" max="18:00" required/>
-                    <p>{this.state.appTime}</p>
                     <button type='submit'>Dodaj wizytę</button>
                     
                 </form>

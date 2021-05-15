@@ -91,7 +91,7 @@ class MyAppointments extends React.Component{
             return(
 
                 <div>
-                    <h2>Moje wizyty1</h2> 
+                    <h2>Moje wizyty</h2> 
                     <br></br> 
                     {window.response===undefined?<Redirect to='/'/>:null}
 

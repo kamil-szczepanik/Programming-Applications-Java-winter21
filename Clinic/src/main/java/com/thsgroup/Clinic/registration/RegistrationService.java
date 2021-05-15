@@ -145,9 +145,7 @@ public class RegistrationService {
             confirmationToken.getAppUser().getEmail());
         createPatientDoctorOrAdminFromAppUser(confirmationToken);
         
-        return "<h1 style=\"color: #5e9ca0;\">Wyeryfikacja przebiegła pomyślnie</h1>" +
-                "\n" +
-                "<h2 style=\"text-align: left;\"><a href=\"http://localhost:3000/\">Przejdź do strony kliniki</a></h2>";
+        return confirmationMessage;
         
     }
 
@@ -219,6 +217,13 @@ public class RegistrationService {
                 "\n" +
                 "</div></div>";
     }
+
+    private final String confirmationMessage = new String(
+                "<h1><span style=\"background-color: #000000;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; </span></h1>" +
+                "<h1 style=\"color: #5e9ca0;\">Wyeryfikacja przebiegła pomyślnie</h1>" +
+                "\n" +
+                "<h2 style=\"text-align: left;\"><a href=\"http://localhost:3000/\">Przejdź do strony kliniki</a></h2>" +
+                "<h1><span style=\"background-color: #000000;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; </span></h1>");
 
     public void createPatientDoctorOrAdminFromAppUser(ConfirmationToken confirmationToken) {
         AppUser appUser = confirmationToken.getAppUser();

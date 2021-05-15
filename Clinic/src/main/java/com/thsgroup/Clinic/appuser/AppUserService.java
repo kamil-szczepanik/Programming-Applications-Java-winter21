@@ -132,4 +132,5 @@ public class AppUserService implements UserDetailsService{
     public void deleteAppUser(Long id) {
         appUserRepository.deleteById(id);
     }
+    
 }

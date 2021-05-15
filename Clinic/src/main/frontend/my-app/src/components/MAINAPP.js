@@ -16,7 +16,6 @@ import ANOTHERLoginComponent from './ANOTHERLoginComponent';
 import AuthenticatedRoute from './AuthenticatedRoute';
 import Navi from './Navbar';
 import doctorProfile from '../components/doctorProfile';
-import RegistrationComponentDoctor from './DoctorRegisterComponent';
 import DeleteAppointmentPatient from './DeleteAppointmentPatient';
 import DeleteAppointmentDoctor from './DeleteAppointmentDoctor';
 

@@ -19,11 +19,12 @@ class RegistrationForm extends Component {
     handleSubmit = (event) =>{
         event.preventDefault()
         const data = new FormData(this.form)
-        alert(data.get('firstName'))
         axios.post('http://localhost:8080/api/registration/patient', {'firstName':data.get('firstName'),
         'lastName':data.get('lastName'),
         'email':data.get('email'),
-        'password':data.get('password')})
+        'password':data.get('password'),
+        'pesel':data.get('pesel'),
+        'dob':data.get('dob')})
         .then(response =>{
             console.log(response)
             alert("Pomyślnie zarejestrowano! Aby korzystać ze wszystkich usług potwierdź maila");

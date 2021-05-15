@@ -22,7 +22,7 @@ class MyAppointments extends React.Component{
     componentDidMount(){
         if(window.response!==undefined){
             if (window.response.roles[0]==="PATIENT"){
-            AppointmentService.getAppointments().then((response)=>{
+            MyAppointmentsService.getMyAppointments().then((response)=>{
                 this.setState({myAppointments: response.data})
             });
             DoctorService.getDoctors().then((response)=>{
@@ -52,7 +52,10 @@ class MyAppointments extends React.Component{
 
                 <div>
                     <h2>Moje wizyty</h2> 
-                    <br></br> 
+                    <br></br>
+                    <NavLink to="/deleteAppointment">Usuń wizytę</NavLink> 
+                    <br></br>
+                    <br></br>
                     {window.response===undefined?<Redirect to='/'/>:null}
 
                     {

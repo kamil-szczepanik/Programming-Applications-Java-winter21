@@ -57,9 +57,12 @@ class AddAppointment extends React.Component{
             .then(response =>{
                 console.log(response)
                 alert("Pomyślnie dodano wizytę!")
+                this.props.history.push('/myProfile')
             })
             .catch(error=>{
                 alert("Nie udało się dodać wizyty!")
+                this.props.history.push('/myProfile')
+
                 console.log(error)
             })
         }

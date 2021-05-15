@@ -27,7 +27,6 @@ class MyProfile extends React.Component{
         if(window.response!==undefined){
             if (window.response.roles[0]==="PATIENT"){
                 getInfoAboutLoggedPatient.getInfo().then((response)=>{
-                    alert(response.data)
                     this.setState({id:response.data.id,
                         name:response.data.firstName,
                         surname:response.data.lastName,

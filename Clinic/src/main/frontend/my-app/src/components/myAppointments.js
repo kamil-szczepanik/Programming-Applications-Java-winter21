@@ -7,65 +7,110 @@ import AddAppointment from './AddAppointment';
 import { BrowserRouter, Route,NavLink, Switch } from 'react-router-dom';
 import ContactComponent from './ContactComponent'
 import MyAppointmentsService from '../services/MyAppointmentsService';
+import DoctorAppointmentService from '../services/DoctorAppointmentService';
 class MyAppointments extends React.Component{
     constructor(props){
         super(props)
         this.state = {
             myAppointments:[],
             doctors:[],
+            myAppointmentsDoctor:[],
             
         }
     }
 
     componentDidMount(){
         if(window.response!==undefined){
+            if (window.response.roles[0]==="PATIENT"){
             AppointmentService.getAppointments().then((response)=>{
                 this.setState({myAppointments: response.data})
             });
             DoctorService.getDoctors().then((response)=>{
                 this.setState({doctors: response.data})
             });
+            }
+            if(window.response.roles[0]==="DOCTOR"){
+                console.log("wykonano dla doktora")
+                DoctorAppointmentService.getAppointments().then((response)=>{
+                    this.setState({myAppointmentsDoctor: response.data})
+                });
+            }
+
     }}
        
     render(){
         var docId=null;
         var docName=null;
         var docSurname=null;
-        return(
-
-            <div>
-                <h2>Moje wizyty</h2> 
-                <br></br> 
-                {window.response===undefined?<Redirect to='/'/>:null}
-
-                {
-                
-                this.state.myAppointments.map(
-                appointment=>{
-                    this.state.doctors.forEach(
-                        doctor=>{
-                        if(doctor.id===appointment.doctorId){
-                            docId=doctor.id;
-                            docName=doctor.firstName;
-                            docSurname=doctor.lastName;    
-                        }
-
-                    })
-
-                    return (
-                    <>
-                        <p className = "appointment" key={"doctor"+appointment.id}> Doktor: {docName+" "+docSurname}</p>
-                        <p className = "appointment" key={appointment.id+1000}> {appointment.date.toString().slice(0,10)+" "+appointment.date.toString().slice(11,16)}</p>
-                        <br></br>
-                    </>)
-
-                }
+        if(window.response===undefined){
+            return(
+                window.response===undefined?<Redirect to='/'/>:null
                 )
-            }
-               
-            </div>
+        }
+        if(window.response.roles[0]==="PATIENT"){
+            return(
+
+                <div>
+                    <h2>Moje wizyty</h2> 
+                    <br></br> 
+                    {window.response===undefined?<Redirect to='/'/>:null}
+
+                    {
+                    
+                    this.state.myAppointments.map(
+                    appointment=>{
+                        this.state.doctors.forEach(
+                            doctor=>{
+                            if(doctor.id===appointment.doctorId){
+                                docId=doctor.id;
+                                docName=doctor.firstName;
+                                docSurname=doctor.lastName;    
+                            }
+
+                        })
+
+                        return (
+                        <>
+                            <p className = "appointment" key={"doctor"+appointment.id}> Doktor: {docName+" "+docSurname}</p>
+                            <p className = "appointment" key={appointment.id+1000}> {appointment.date.toString().slice(0,10)+" "+appointment.date.toString().slice(11,16)}</p>
+                            <br></br>
+                        </>)
+
+                    }
+                    )
+                }
                 
-        )
+                </div>
+                    
+            )
+        }
+        if(window.response.roles[0]==="DOCTOR"){
+            return(
+
+                <div>
+                    <h2>Moje wizyty1</h2> 
+                    <br></br> 
+                    {window.response===undefined?<Redirect to='/'/>:null}
+
+                    {
+                    
+                    this.state.myAppointmentsDoctor.map(
+                    appointment=>{
+                        console.log("1")
+                        return (
+                        <>
+                            <p className = "appointment" key={appointment.id+1000}> {appointment.date.toString().slice(0,10)+" "+appointment.date.toString().slice(11,16)}</p>
+                            <br></br>
+                        </>)
+
+                    }
+                    )
+                }
+                
+                </div>
+                    
+            )
+        }
     }
 }
 

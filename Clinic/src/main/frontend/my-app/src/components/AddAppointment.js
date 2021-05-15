@@ -52,7 +52,6 @@ class AddAppointment extends React.Component{
                 'Authorization': `Bearer ${USERTOKEN}`,
                 'Access-Control-Allow-Origin':'http://localhost:3000/'}
             };
-            alert(this.state.choosenAppoitmentId)
         if (this.state.choosenAppoitmentId!==null){
             axios.post('http://localhost:8080/api/appointment/addPatientToAppointment', {"id":parseInt(this.state.choosenAppoitmentId)})
             .then(response =>{
@@ -83,17 +82,27 @@ class AddAppointment extends React.Component{
     
     onChangeValue(event){
         this.setState({appDocID:event.target.value});
-        alert(this.state.appDocID);
     }
     render(){
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0');
         var yyyy = today.getFullYear();
-
+        if(window.response===undefined){
+            return(
+                <Redirect to='/'/>
+                )
+        }
+        if(window.response.roles[0]==="DOCTOR"){
+            return(
+                <Redirect to='/addAppointmentDoctor'/>
+                )
+        }
+        if(window.response.roles[0]==="PATIENT"){
         return(
             <>
-                {window.response===undefined?<Redirect to='/'/>:null}
+                {window.response.roles[0]==="DOCTOR"?<Redirect to='/addAppointmentDoctor'/>:null}
+
                 <form  method="post" id="appointment_form" onSubmit={this.handlePressedButton}>
                     <div className="doctorsInAppointmentCreating" onChange={this.onChangeValue.bind(this)}>
                     {this.state.doctors.map(doctor=>{
@@ -124,7 +133,7 @@ class AddAppointment extends React.Component{
                             <input value={this.state.appDate} onChange={(e)=>this.setState({appDate:e.target.value})} type="date" id="1234" min={this.dateToString(today,2)} max={this.dateToString(today,16)} required/>
                     </div> */}
                     <select value={this.state.appDate} name="appointments" id="appointments" onChange={(e)=>this.setState({choosenAppoitmentId:e.target.value})}>
-                    <option value={null}>--Wybierz Termin--</option>
+                    <option value={null}>-----Wybierz Termin-----</option>
                         {this.state.appointments.map(appointment=>{
                             
                             if ( appointment.patientId===null&&parseInt(this.state.appDocID)===appointment.doctorId){
@@ -154,6 +163,7 @@ class AddAppointment extends React.Component{
            </> 
         )
     }
+}
 }
 
 export default AddAppointment;

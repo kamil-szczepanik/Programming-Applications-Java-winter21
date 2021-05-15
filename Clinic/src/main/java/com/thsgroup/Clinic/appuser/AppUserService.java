@@ -2,6 +2,7 @@ package com.thsgroup.Clinic.appuser;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 import com.thsgroup.Clinic.Doctor.DoctorSpecialisation;
@@ -115,4 +116,20 @@ public class AppUserService implements UserDetailsService{
 
         appUserRepository.save(existingAppUser);
 	}
+
+    public List<AppUser> geAppUsers() {
+        return appUserRepository.findAll();
+    }
+
+    public AppUser getAppUserById(Long id) {
+        return appUserRepository.findById(id).orElse(null);
+    }
+
+    public void addNewAppUser(AppUser appUser) {
+        appUserRepository.save(appUser);
+    }
+
+    public void deleteAppUser(Long id) {
+        appUserRepository.deleteById(id);
+    }
 }

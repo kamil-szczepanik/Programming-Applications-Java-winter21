@@ -1,16 +1,12 @@
 package com.thsgroup.Clinic.security;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.thsgroup.Clinic.appuser.AppUser;
 import com.thsgroup.Clinic.appuser.AppUserRepository;
-import com.thsgroup.Clinic.appuser.AppUserRole;
 import com.thsgroup.Clinic.appuser.AppUserService;
 import com.thsgroup.Clinic.appuser.RoleRepository;
-import com.thsgroup.Clinic.appuser.UserRole;
 import com.thsgroup.Clinic.payload.request.ChangePasswordRequest;
 import com.thsgroup.Clinic.payload.request.LoginRequest;
 import com.thsgroup.Clinic.payload.response.JwtResponse;

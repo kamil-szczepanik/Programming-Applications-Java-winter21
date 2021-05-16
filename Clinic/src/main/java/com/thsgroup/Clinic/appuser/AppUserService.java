@@ -13,7 +13,6 @@ import com.thsgroup.Clinic.Doctor.DoctorSpecialisation;
 import com.thsgroup.Clinic.registration.token.ConfirmationToken;
 import com.thsgroup.Clinic.registration.token.ConfirmationTokenService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

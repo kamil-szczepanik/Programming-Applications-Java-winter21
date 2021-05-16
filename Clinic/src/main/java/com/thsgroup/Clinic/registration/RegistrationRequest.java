@@ -1,9 +1,5 @@
 package com.thsgroup.Clinic.registration;
 
-import java.time.LocalDate;
-
-import com.thsgroup.Clinic.Doctor.DoctorSpecialisation;
-
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

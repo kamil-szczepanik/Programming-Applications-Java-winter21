@@ -103,7 +103,7 @@ class AddAppointment extends React.Component{
         }
         if(window.response.roles[0]==="ADMIN"){
             return(
-                <Redirect to='/myProfile'/>
+                <Redirect to='/'/>
                 )
         }
         if(window.response.roles[0]==="PATIENT"){

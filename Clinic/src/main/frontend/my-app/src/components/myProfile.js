@@ -46,6 +46,7 @@ class MyProfile extends React.Component{
                         })
                 });
             }
+            
 
     }}
     handlePressedButton(){
@@ -149,10 +150,7 @@ class MyProfile extends React.Component{
                         <div className="col-md-7 text-md-start m-auto py-3">
                             <section id="patient_information">
                                 <h1>Informacje o koncie</h1>
-                                <ul>
-                                    <li>Imie i Nazwisko: <span>{this.state.name + " " + this.state.surname}</span></li>
-                                  
-                                </ul>
+                                <p>Admin</p>
                             </section>
                         </div>
                     </div>

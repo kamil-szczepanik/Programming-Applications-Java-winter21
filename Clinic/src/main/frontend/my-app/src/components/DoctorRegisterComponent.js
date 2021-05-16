@@ -29,30 +29,30 @@ class DoctorRegisterComponent extends React.Component{
         if(this.state.choosenSpecialisation===""){
             return alert('Wybierz specjalizację');
         }
-        alert(this.state.firstName)
-        alert(this.state.lastName)
-        alert(this.state.email)
-        alert(this.state.choosenSpecialisation)
 
-        // const USERTOKEN = window.response.accessToken;
-        // let config = {
-        //     headers:{
-        //         'Authorization': `Bearer ${USERTOKEN}`,
-        //         'Access-Control-Allow-Origin':'http://localhost:3000/'}}
 
-        //     axios.post('http://localhost:8080/api/registration/registerDoctorAsAdmin', {"firstName":this.state.choosenAppoitmentId,
-        // "lastName":})
-        //     .then(response =>{
-        //         console.log(response)
-        //         alert("Pomyślnie dodano wizytę!")
-        //         this.props.history.push('/myProfile')
-        //     })
-        //     .catch(error=>{
-        //         alert("Nie udało się dodać wizyty!")
-        //         this.props.history.push('/myProfile')
+        const USERTOKEN = window.response.accessToken;
+        let config = {
+            headers:{
+                'Authorization': `Bearer ${USERTOKEN}`,
+                'Access-Control-Allow-Origin':'http://localhost:3000/'}
+            }
 
-        //         console.log(error)
-        //     })
+            axios.post('http://localhost:8080/api/registration/registerDoctorAsAdmin', {"firstName":this.state.firstName,
+        "lastName":this.state.lastName,
+        "email":this.state.email,
+        "doctorSpecialisation":this.state.choosenSpecialisation})
+            .then(response =>{
+                console.log(response)
+                alert("Pomyślnie dodano doktora!")
+                this.props.history.push('/myProfile')
+            })
+            .catch(error=>{
+                alert("Nie udało się dodać doktora!")
+                this.props.history.push('/myProfile')
+
+                console.log(error)
+            })
         
     }
     render(){

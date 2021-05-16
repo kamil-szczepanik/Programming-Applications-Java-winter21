@@ -101,6 +101,11 @@ class AddAppointment extends React.Component{
                 <Redirect to='/addAppointmentDoctor'/>
                 )
         }
+        if(window.response.roles[0]==="ADMIN"){
+            return(
+                <Redirect to='/myProfile'/>
+                )
+        }
         if(window.response.roles[0]==="PATIENT"){
         return(
             <>

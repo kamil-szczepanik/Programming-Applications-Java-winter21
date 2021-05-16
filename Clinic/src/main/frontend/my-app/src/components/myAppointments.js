@@ -47,6 +47,9 @@ class MyAppointments extends React.Component{
                 window.response===undefined?<Redirect to='/'/>:null
                 )
         }
+        if(window.response.roles[0]==="ADMIN"){
+            <Redirect to="/myProfile"/>
+        }
         if(window.response.roles[0]==="PATIENT"){
             return(
 

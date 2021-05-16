@@ -107,9 +107,9 @@ public class RegistrationService {
                      request.getPassword(), 
                      AppUserRole.ADMIN
                      ),
-                     request.getPesel(),
-                     request.getDob(),
-                     request.getDoctorSpecialisation()
+                     null,
+                     null,
+                     null
          );
  
          String link = "http://localhost:8080/api/registration/confirm?token=" + token;
@@ -145,7 +145,7 @@ public class RegistrationService {
             confirmationToken.getAppUser().getEmail());
         createPatientDoctorOrAdminFromAppUser(confirmationToken);
         
-        return "confirmed";
+        return confirmationMessage;
         
     }
 
@@ -218,6 +218,13 @@ public class RegistrationService {
                 "</div></div>";
     }
 
+    private final String confirmationMessage = new String(
+                "<h1><span style=\"background-color: #000000;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; </span></h1>" +
+                "<h1 style=\"color: #5e9ca0;\">Wyeryfikacja przebiegła pomyślnie</h1>" +
+                "\n" +
+                "<h2 style=\"text-align: left;\"><a href=\"http://localhost:3000/\">Przejdź do strony kliniki</a></h2>" +
+                "<h1><span style=\"background-color: #000000;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; </span></h1>");
+
     public void createPatientDoctorOrAdminFromAppUser(ConfirmationToken confirmationToken) {
         AppUser appUser = confirmationToken.getAppUser();
         boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
@@ -248,6 +255,42 @@ public class RegistrationService {
             }
         } 
     }
+
+    public String registerDoctorAsAdmin(RegistrationRequestDoctor request) {
+        boolean isValidEmail = emailValidator.test(request.getEmail());
+ 
+        if (!isValidEmail) {
+           throw new IllegalStateException("email not valid");
+        }
+
+        String defaultPassword = new String("password");
+
+        AppUser appUser = new AppUser(request.getFirstName(), request.getLastName(), request.getEmail(), defaultPassword, AppUserRole.DOCTOR);
+
+        DoctorSpecialisation specialisation = request.getDoctorSpecialisation();
+ 
+        String message = appUserService.signUpDoctor(appUser, specialisation);
+        
+        return message;
+ 
+     }
+
+     public String registerNewAdmin(RegistrationRequest request) {
+        boolean isValidEmail = emailValidator.test(request.getEmail());
+ 
+        if (!isValidEmail) {
+           throw new IllegalStateException("email not valid");
+        }
+
+        String defaultPassword = new String("password");
+
+        AppUser appUser = new AppUser(request.getFirstName(), request.getLastName(), request.getEmail(), defaultPassword, AppUserRole.ADMIN);
+ 
+        String message = appUserService.signUpAdmin(appUser);
+        
+        return message;
+ 
+     }
 
 
     

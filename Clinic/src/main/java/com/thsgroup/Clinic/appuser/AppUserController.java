@@ -28,7 +28,7 @@ public class AppUserController {
     
     @GetMapping
     public List<AppUser> getAppUsers() {
-        return appUserService.geAppUsers();
+        return appUserService.getAppUsers();
     }
 
     @GetMapping("{id}")

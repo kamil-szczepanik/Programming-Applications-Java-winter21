@@ -8,8 +8,10 @@ import java.util.stream.Collectors;
 import com.thsgroup.Clinic.appuser.AppUser;
 import com.thsgroup.Clinic.appuser.AppUserRepository;
 import com.thsgroup.Clinic.appuser.AppUserRole;
+import com.thsgroup.Clinic.appuser.AppUserService;
 import com.thsgroup.Clinic.appuser.RoleRepository;
 import com.thsgroup.Clinic.appuser.UserRole;
+import com.thsgroup.Clinic.payload.request.ChangePasswordRequest;
 import com.thsgroup.Clinic.payload.request.LoginRequest;
 import com.thsgroup.Clinic.payload.response.JwtResponse;
 import com.thsgroup.Clinic.security.jwt.JwtUtils;
@@ -46,6 +48,9 @@ public class AuthController {
     @Autowired
 	JwtUtils jwtUtils;
 
+	@Autowired
+	private AppUserService appUserService;
+
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
 
@@ -65,6 +70,29 @@ public class AuthController {
 												 userDetails.getUsername(), 
 												 userDetails.getEmail(), 
 												 roles));
+	}
+
+
+	@PostMapping("/changePassword")
+	public String changePassword(@RequestBody ChangePasswordRequest changePasswordRequest) {
+
+		AppUser appUser = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		Authentication authentication = authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(appUser.getEmail(), changePasswordRequest.getPassword()));
+
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+
+		String encodedPassword = encoder.encode(changePasswordRequest.getNewPassword());
+
+        appUser.setPassword(encodedPassword);
+
+		appUserService.updateAppUser(appUser);
+		
+
+		return "Password changed successfully";
+
+					
 	}
 
 }

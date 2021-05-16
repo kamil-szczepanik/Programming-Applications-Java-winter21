@@ -1,11 +1,11 @@
 import axios from 'axios';
 import LoginComponent from '../components/ANOTHERLoginComponent';
 import context from '../components/context/context';
-const DOCTORS_REST_API_URL = 'http://localhost:8080/api/doctor';
+const PATIENT_INFO_URL = 'http://localhost:8080/api/patient/getInfoAboutLoggedPatient';
 
-class DoctorService{
+class getInfoAboutLoggedPatient{
 
-    getDoctors(){
+    getInfo(){
         var USERTOKEN = window.response.accessToken;
 
         let config = {
@@ -13,9 +13,9 @@ class DoctorService{
                 'Authorization': `Bearer ${USERTOKEN}`}
             };
         axios.defaults.headers.common = {'Authorization': `Bearer ${USERTOKEN}`}
-        return axios.get(DOCTORS_REST_API_URL, config);
+        return axios.get(PATIENT_INFO_URL, config);
         
     }
 }
 
-export default new DoctorService();
+export default new getInfoAboutLoggedPatient();

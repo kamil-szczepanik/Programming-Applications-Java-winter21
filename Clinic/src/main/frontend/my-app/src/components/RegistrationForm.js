@@ -19,11 +19,12 @@ class RegistrationForm extends Component {
     handleSubmit = (event) =>{
         event.preventDefault()
         const data = new FormData(this.form)
-        alert(data.get('firstName'))
         axios.post('http://localhost:8080/api/registration/patient', {'firstName':data.get('firstName'),
         'lastName':data.get('lastName'),
         'email':data.get('email'),
-        'password':data.get('password')})
+        'password':data.get('password'),
+        'pesel':data.get('pesel'),
+        'dob':data.get('dob')})
         .then(response =>{
             console.log(response)
             alert("Pomyślnie zarejestrowano! Aby korzystać ze wszystkich usług potwierdź maila");
@@ -65,17 +66,21 @@ class RegistrationForm extends Component {
 
     render() {
         const inputs = this.props.inputs.map(
-          ({name, placeholder, type, value, className}, index) => (
+          ({name, placeholder, type, value, className}, index) => (<div className="mb-2">
+            <label class="form-label">{name}</label>
             <Input key={index} name={name} placeholder={placeholder} type={type} value={value}
-              className={type==='submit'? className : ''} handleError={this.handleError} />
+              className={type==='submit'? className : ''} className="form-control" handleError={this.handleError} />
+         </div>
           )
         )
         const errors = this.renderError()
         return (
+            <div className="container my-2">
             <form {...this.props} onSubmit={this.handleSubmit} ref={fm => {this.form=fm}} >
               {inputs}
               {errors}
             </form>
+            </div>
         )
     }
 }

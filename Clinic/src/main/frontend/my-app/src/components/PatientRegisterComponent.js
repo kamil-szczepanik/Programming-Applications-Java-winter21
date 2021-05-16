@@ -22,6 +22,14 @@ const inputs = [{
     placeholder: "password",
     type: "password"
   },{
+    name: "pesel",
+    placeholder: "pesel",
+    type: "text"
+  },{
+    name: "dob",
+    placeholder: "dob",
+    type: "date"
+  },{
     type: "submit",
     value: "Submit",
     className: "btn" 

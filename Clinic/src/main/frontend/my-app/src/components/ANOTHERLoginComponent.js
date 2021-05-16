@@ -7,7 +7,7 @@ class LoginComponent extends Component {
         super(props)
 
         this.state = {
-            username: 'email',
+            username: '',
             password: '',
             hasLoginFailed: false,
             showSuccessMessage: false,
@@ -48,7 +48,7 @@ class LoginComponent extends Component {
                 alert("Zalogowano pomyślnie")
                 
                 AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password)
-                this.props.history.push(`/myProfile`);
+                window.response.roles[0]==="PATIENT"?this.props.history.push(`/myProfile`):this.props.history.push(`/myProfile`);
             }).catch(() => {
                 this.setState({ showSuccessMessage: false })
                 this.setState({ hasLoginFailed: true })
@@ -62,11 +62,11 @@ class LoginComponent extends Component {
                 <h1>Login</h1>
                 <div className="container">
                     {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
-                    {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials</div>}
-                    {this.state.showSuccessMessage && <div>Login Sucessful</div>}
+                    {this.state.hasLoginFailed && <div className="alert alert-warning">Niepoprawne dane</div>}
+                    {this.state.showSuccessMessage && <div>Logowanie się powiodło</div>}
                     {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
-                    User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
-                    Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+                    Email: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
+                    Hasło: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                     <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
                 </div>
             </div>

@@ -5,6 +5,7 @@ import AppointmentService from '../services/AppointmentService';
 import axios from 'axios';
 import PatientService from '../services/PatientService';
 import CreatePatient from './CreatePatient';
+import getInfoAboutLoggedDoctor from '../services/getInfoAboutLoggedDoctor';
 
 
 class AddAppointment extends React.Component{
@@ -19,7 +20,7 @@ class AddAppointment extends React.Component{
             patients:[],
             appDate:null,
             appTime:null,
-            appDocID:1,
+            appDocID:null,
             patient_pesel:null,
 
             
@@ -28,6 +29,7 @@ class AddAppointment extends React.Component{
     
 
     componentDidMount(){
+        if(window.response!==undefined){
         DoctorService.getDoctors().then((response)=>{
             this.setState({doctors: response.data})
         });
@@ -37,6 +39,10 @@ class AddAppointment extends React.Component{
         PatientService.getPatients().then((response)=>{
             this.setState({patients: response.data})
         });
+        getInfoAboutLoggedDoctor.getInfo().then((response)=>{
+            this.setState({appDocID: response.data.id})
+        })
+    }
     }
     dateToString(given_date, delay=0){
         var date = new Date();
@@ -65,11 +71,26 @@ class AddAppointment extends React.Component{
 
     }
     handlePressedButton = (event) =>{
-        this.createPatientIfNeeded()
         event.preventDefault()
-        var date_String = ""
-        date_String+=this.state.appDate + "T" + this.state.appTime + ':00'
-        axios.post('http://localhost:8080/api/appointment', { "patient_id":this.state.appPacID, "doctor_id":this.state.appDocID,"date":date_String,})
+        var date = []
+        const USERTOKEN=window.response.accessToken;
+        let config = {
+            headers:{
+                'Authorization': `Bearer ${USERTOKEN}`}
+            };
+        axios.defaults.headers.common = {'Authorization': `Bearer ${USERTOKEN}`}
+        //DOKONCZYC
+        var year = parseInt(this.state.appDate.toString().slice(0,4));
+        var month = parseInt(this.state.appDate.toString().slice(5,7));
+        var day = parseInt(this.state.appDate.toString().slice(8,10));
+        var hour = parseInt(this.state.appTime.toString().slice(0,2));
+        var minute = parseInt(this.state.appTime.toString().slice(3,5));
+
+        date.push(year,month,day,hour,minute);
+        axios.post('http://localhost:8080/api/appointment/registerNewAppointment', {
+    "doctorId": this.state.appDocID.toString(),
+    "date": [year, month, day, hour, minute]
+    }, config)
         .then(response =>{
             console.log(response)
             alert("Pomyślnie dodano wizytę!")
@@ -84,13 +105,11 @@ class AddAppointment extends React.Component{
         event.preventDefault();
 
         this.setState({appDate:event.target.value})
-        console.log(this.state.appDate);
 
     }
    timeHandleChange(event){
         event.preventDefault();
         this.setState({appTime:event.target.value})
-        console.log(this.state.appTime);
 
     }
     
@@ -105,43 +124,16 @@ class AddAppointment extends React.Component{
 
         return(
             <>  
-                <p>Jeżeli pacjent nie ma jeszcze konta:</p>
-                <CreatePatient/>
+                <form  method="post" id="appointment_create_doc" onSubmit={this.handlePressedButton}>
+                <label for="start">Data:</label>
+                <input value={this.state.appDate} onChange={e=>this.setState({appDate:e.target.value})} type="date" id="app_date" name="app_date" />
 
-
-
-                <br></br>
-                <br></br>
-
-                <form  method="post" id="appointment_form_doc" onSubmit={this.handlePressedButton}>
-                    <label htmlFor="pesel">Pesel pacjenta</label>
-                    <input value={this.state.patient_pesel} onChange={e=>this.setState({petient_pesel:e.target.value})} type="text" id="pesel" name="pesel"/>
-                    <br></br>
-                    <select value={this.state.appDate} name="appointments" id="appointments" onChange={(e)=>this.setState({appTime:e.target.value})}>
-                    <label htmlFor="appointments">Wybierz termin:</label>
-                    <optgroup label="appointment:">
-                        {this.state.appointments.map(appointment=>{
-
-                            if (this.state.appDocID===appointment.doctor_id && appointment.patient_id==="")return(
-                                <>
-                                    
-                                        <option value={appointment.date}>{appointment.date}</option>
-                                       
-                                </>
-                            
-                            
-                                
-                            )
-                        })}
-                        </optgroup>
-                    </select>
-                  
-
-                    <p>{this.state.appTime}</p>
-                    <button type='submit'>Dodaj wizytę</button>
+                <label for="appt">Godzina:</label>
+                <input value={this.state.appTime}  onChange={e=>this.setState({appTime:e.target.value})} type="time" id="appt" name="appt"
+                    min="09:00" max="18:00" required/>
+                    <button className="btn btn-success" type='submit'>Dodaj wizytę</button>
                     
                 </form>
-                
            </> 
         )
     }

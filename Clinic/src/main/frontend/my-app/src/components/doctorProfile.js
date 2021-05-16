@@ -28,7 +28,7 @@ class MyProfile extends React.Component{
                     <ul className="">
 
                         <li ><NavLink to='/appointments' exact>Moje wizyty</NavLink></li>
-                        <li ><NavLink to='/addAppointment' exact>Dodaj wizytę</NavLink></li>
+                        <li ><NavLink to='/addAppointmentDoctor' exact>Dodaj wizytę</NavLink></li>
                     </ul>
             </nav>
             <section id="patient_information">

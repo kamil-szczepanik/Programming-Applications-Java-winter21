@@ -126,6 +126,45 @@ class MyProfile extends React.Component{
                         <NavLink to='/deleteAppointmentDoctor' exact><button type="button" className="btn btn-outline-light btn-lg">Usuń wizytę</button></NavLink>
                         </div>
                         <div className="col-md-3 py-2 ">
+                        <NavLink to='/changePassword' exact><button type="button" className="btn btn-outline-light btn-lg">Zmień hasło</button></NavLink>
+                        </div>
+                        <div className="col-md-3 py-2 ">
+                        <button type="button" onClick={this.handlePressedButton} className="btn btn-outline-light btn-lg">Wyloguj się</button>
+                        </div>
+                    </div>
+                </div>
+                // </div>
+                
+                )
+        }
+        if(window.response.roles[0]==="ADMIN"){
+            return(
+            
+                <div className="container my-md-5">
+                    {/* {window.response===undefined?<Redirect to='/'/>:null} */}
+                    <div className="row">
+                        <div className="col-md text-md-end m-auto p-2 p-md-5">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div className="col-md-7 text-md-start m-auto py-3">
+                            <section id="patient_information">
+                                <h1>Informacje o koncie</h1>
+                                <ul>
+                                    <li>Imie i Nazwisko: <span>{this.state.name + " " + this.state.surname}</span></li>
+                                  
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                    <div className="row justify-content-center">
+                        <div className="col-md-3 py-2">
+                        </div>
+                        <div className="col-md-3 py-2 ">
+                        </div>
+                        <div className="col-md-3 py-2 ">
+                        <NavLink to='/registerDoctor' exact><button type="button" className="btn btn-outline-light btn-lg">Zarejestruj doktora</button></NavLink>
+                        </div>
+                        <div className="col-md-3 py-2 ">
                         <button type="button" onClick={this.handlePressedButton} className="btn btn-outline-light btn-lg">Wyloguj się</button>
                         </div>
                     </div>

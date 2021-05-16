@@ -159,7 +159,7 @@ class AddAppointment extends React.Component{
 
 
                     <p>{this.state.appTime}</p>
-                    <button type='submit'>Dodaj wizytę</button>
+                    <button className="btn btn-success" type='submit'>Dodaj wizytę</button>
                     
                 </form>
                 

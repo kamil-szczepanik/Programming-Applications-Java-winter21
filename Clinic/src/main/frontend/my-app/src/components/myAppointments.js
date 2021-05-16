@@ -91,7 +91,7 @@ class MyAppointments extends React.Component{
             return(
 
                 <div>
-                    <h2>Moje wizyty</h2> 
+                    <h2>Moje wizyty bez zapisanych pacjentów</h2> 
                     <br></br> 
                     {window.response===undefined?<Redirect to='/'/>:null}
 
@@ -99,17 +99,38 @@ class MyAppointments extends React.Component{
                     
                     this.state.myAppointmentsDoctor.map(
                     appointment=>{
-                        console.log("1")
+                        if (appointment.patientId===null){
+
+                        
                         return (
                         <>
                             <p className = "appointment" key={appointment.id+1000}> {appointment.date.toString().slice(0,10)+" "+appointment.date.toString().slice(11,16)}</p>
                             <br></br>
                         </>)
+                        }
 
                     }
                     )
                 }
-                
+                <h2>Moje wizyty z zapisanymi pacjentami</h2> 
+                    <br></br> 
+                    {
+                    
+                    this.state.myAppointmentsDoctor.map(
+                    appointment=>{
+                        if (appointment.patientId!==null){
+
+                        
+                        return (
+                        <>
+                            <p className = "appointment" key={appointment.id+1000}> {appointment.date.toString().slice(0,10)+" "+appointment.date.toString().slice(11,16)}</p>
+                            <br></br>
+                        </>)
+                        }
+
+                    }
+                    )
+                }
                 </div>
                     
             )

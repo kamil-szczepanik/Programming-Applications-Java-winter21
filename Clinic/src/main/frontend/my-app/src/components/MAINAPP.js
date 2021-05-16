@@ -12,12 +12,14 @@ import AddAppointment_Doctor from './AddAppointment_Doctor';
 import AuthenticationService from '../services/AuthenticationService';
 import MyProfile from './myProfile';
 import RegistrationComponent from './PatientRegisterComponent';
+import RegistrationComponentDoctor from './DoctorRegisterComponent';
 import ANOTHERLoginComponent from './ANOTHERLoginComponent';
 import AuthenticatedRoute from './AuthenticatedRoute';
 import Navi from './Navbar';
 import doctorProfile from '../components/doctorProfile';
 import DeleteAppointmentPatient from './DeleteAppointmentPatient';
 import DeleteAppointmentDoctor from './DeleteAppointmentDoctor';
+import ChangePasswordComponent from './ChangePasswordComponent';
 
 class MainAPP extends React.Component{
     constructor(props){
@@ -42,10 +44,12 @@ class MainAPP extends React.Component{
                 
                 <Switch>
                     <Route path='/register' component={RegistrationComponent}/>
+                    <Route path='/registerDoctor' component={RegistrationComponentDoctor}/>
 
                     <Route path='/login' component={ANOTHERLoginComponent} action={this.isLogged}/>
                     <Route path='/deleteAppointment' component={DeleteAppointmentPatient} />
                     <Route path='/deleteAppointmentDoctor' component={DeleteAppointmentDoctor} />
+                    <Route path='/changePassword' exact component={ChangePasswordComponent}/>
 
                     <Route path='/' exact component={StartComponent}/>
                     <Route path='/doctors' exact component={DoctorComponent}/>

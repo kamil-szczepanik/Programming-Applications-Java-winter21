@@ -131,7 +131,7 @@ class AddAppointment extends React.Component{
                 <label for="appt">Godzina:</label>
                 <input value={this.state.appTime}  onChange={e=>this.setState({appTime:e.target.value})} type="time" id="appt" name="appt"
                     min="09:00" max="18:00" required/>
-                    <button type='submit'>Dodaj wizytę</button>
+                    <button className="btn btn-success" type='submit'>Dodaj wizytę</button>
                     
                 </form>
            </> 

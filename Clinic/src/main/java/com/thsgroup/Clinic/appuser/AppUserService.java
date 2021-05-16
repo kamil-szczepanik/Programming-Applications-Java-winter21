@@ -186,7 +186,9 @@ public class AppUserService implements UserDetailsService{
     }
 
     boolean defaultFirstAppUserExists() {
-        return appUserRepository.existsById(1L);
+        AppUser defaultAppUser = new AppUser("admin", "admin", "admin@clinic.com", "password", AppUserRole.ADMIN);
+        boolean exists = checkIfAttributesAreTheSame(defaultAppUser);
+        return exists;
     }
     
 }

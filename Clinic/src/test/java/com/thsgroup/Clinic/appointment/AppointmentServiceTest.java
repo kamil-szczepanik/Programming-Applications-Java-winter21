@@ -3,9 +3,7 @@ package com.thsgroup.Clinic.appointment;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
 
 import com.thsgroup.Clinic.Appointment.Appointment;
 import com.thsgroup.Clinic.Appointment.AppointmentRepository;

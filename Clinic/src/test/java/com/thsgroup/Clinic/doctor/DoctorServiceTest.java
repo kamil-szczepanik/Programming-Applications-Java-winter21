@@ -3,9 +3,6 @@ package com.thsgroup.Clinic.doctor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
-import java.time.LocalDate;
-import java.time.Month;
-
 import com.thsgroup.Clinic.Doctor.Doctor;
 import com.thsgroup.Clinic.Doctor.DoctorRepository;
 import com.thsgroup.Clinic.Doctor.DoctorService;

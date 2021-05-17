@@ -23,20 +23,30 @@ class DoctorComponent extends React.Component{
     render(){
         return(
 
-            <div>  
+                <div className="container mt-3">
+                    <h1 className="m-4">Nasza załoga</h1>
+                        <div class="row row-cols-1 row-cols-md-3 g-2 g-md-3">
                 {window.response===undefined?<Redirect to='/'/>:null}
 
                 {
                 this.state.doctors.map(
                 doctor=>{
-
-                    return <p className = "doctor" key={doctor.id}> Imie:{doctor.firstName}<br></br> Nazwisko: {doctor.lastName} <br></br>Specjalizacja: {doctor.specialisation}</p>
                     
+                    return <>
+                            <div className="col">
+                                <div class="card p-3 h-100 bg-light">
+
+                                    <p className= "text-dark" key={doctor.id}> Imie:{doctor.firstName}<br></br> Nazwisko: {doctor.lastName} <br></br>Specjalizacja: {doctor.specialisation}</p>
+                                </div>
+
+                            </div>
+                            </>
                 }
                 )
             }
-               
-            </div>
+               </div>
+               </div>
+
                 
         )
     }

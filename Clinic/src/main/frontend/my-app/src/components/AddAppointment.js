@@ -108,7 +108,8 @@ class AddAppointment extends React.Component{
         }
         if(window.response.roles[0]==="PATIENT"){
         return(
-            <>
+            <div className="container">
+                
                 {window.response.roles[0]==="DOCTOR"?<Redirect to='/addAppointmentDoctor'/>:null}
 
                 <form  method="post" id="appointment_form" onSubmit={this.handlePressedButton}>
@@ -121,13 +122,14 @@ class AddAppointment extends React.Component{
                         //     name={doctor.firstName + doctor.lastName} value={doctor.firstName + doctor.lastName}/>
                         //     <label htmlFor={doctor.firstName + doctor.lastName}>{doctor.firstName + doctor.lastName}</label>
                         // </div>
-                            <>
+                            <div className="pb-1">
                                 
-                                    <input key={doctor.id} type="radio" id={doctor.id}
+                                    <input className="form-check-input" key={doctor.id} type="radio" id={doctor.id}
                                     name="doctors" value={doctor.id} onChange={(e)=>this.doctorIdHandleChange} required/>
-                                    <label htmlFor={doctor.firstName + doctor.lastName}>{doctor.firstName + doctor.lastName}</label>
+                                    <label className="form-check-label" htmlFor={doctor.firstName + doctor.lastName}>{doctor.firstName + doctor.lastName}</label>
+                                    <br></br>
                                 
-                            </>
+                            </div>
                         
                         
                             
@@ -140,7 +142,8 @@ class AddAppointment extends React.Component{
                             <label htmlFor="1">Data wizyty:</label>
                             <input value={this.state.appDate} onChange={(e)=>this.setState({appDate:e.target.value})} type="date" id="1234" min={this.dateToString(today,2)} max={this.dateToString(today,16)} required/>
                     </div> */}
-                    <select value={this.state.appDate} name="appointments" id="appointments" onChange={(e)=>this.setState({choosenAppoitmentId:e.target.value})}>
+                    <div className="col-5 m-auto">
+                    <select className="form-select" value={this.state.appDate} name="appointments" id="appointments" onChange={(e)=>this.setState({choosenAppoitmentId:e.target.value})}>
                     <option value={null}>-----Wybierz Termin-----</option>
                         {this.state.appointments.map(appointment=>{
                             
@@ -160,15 +163,15 @@ class AddAppointment extends React.Component{
                             )}
                         })}
                     </select>
-                  
+                    </div>
 
 
                     <p>{this.state.appTime}</p>
-                    <button className="btn btn-success" type='submit'>Dodaj wizytę</button>
+                    <button className="btn btn-outline-light btn-lg" type='submit'>Dodaj wizytę</button>
                     
                 </form>
                 
-           </> 
+           </div> 
         )
     }
 }

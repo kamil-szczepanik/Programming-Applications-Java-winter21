@@ -58,18 +58,38 @@ class LoginComponent extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Login</h1>
-                <div className="container">
-                    {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
-                    {this.state.hasLoginFailed && <div className="alert alert-warning">Niepoprawne dane</div>}
-                    {this.state.showSuccessMessage && <div>Logowanie się powiodło</div>}
-                    {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
-                    Email: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
-                    Hasło: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-                    <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
+            <div className="container">
+                <div className="col-md-8 m-auto mt-3">
+                    <form>
+                        <h1>Logowanie</h1>
+                        {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
+                        {this.state.hasLoginFailed && <div className="alert alert-warning">Niepoprawne dane</div>}
+                        {this.state.showSuccessMessage && <div>Zalogowano pomyślnie</div>}
+                        {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
+        
+                        <div className="row form-group">
+                            <label for="username" className="col-md-4 col-form-label text-md-end">Nazwa Użytkownika:</label>
+                            <div className="col-md-6 my-auto">
+                                <input className="form-control" type="text" name="username" value={this.state.username} onChange={this.handleChange} />
+                            </div>
+                        </div>
+                            
+                        <div className="row form-group mb-3">
+                        
+                            <label for="password" className="col-md-4 col-form-label text-md-end">Hasło:</label>
+                        
+                            <div className="col-md-6 my-auto">
+                                <input className="form-control" type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+                            </div>
+                        </div>
+                            
+                    </form>
+                    <button className="btn btn-outline-light btn-lg" type="submit" onClick={this.loginClicked}>Login</button>
                 </div>
+                    
+                
             </div>
+                
         )
     }
 }

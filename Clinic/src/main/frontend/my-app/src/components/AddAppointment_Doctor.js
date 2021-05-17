@@ -123,18 +123,28 @@ class AddAppointment extends React.Component{
         var yyyy = today.getFullYear();
 
         return(
-            <>  
+            <div className="container">
+            <div className="col-md-8 m-auto mt-3">
+            <h1 className="mt-5">Dodawanie wizyt</h1>
                 <form  method="post" id="appointment_create_doc" onSubmit={this.handlePressedButton}>
-                <label for="start">Data:</label>
-                <input value={this.state.appDate} onChange={e=>this.setState({appDate:e.target.value})} type="date" id="app_date" name="app_date" />
-
-                <label for="appt">Godzina:</label>
-                <input value={this.state.appTime}  onChange={e=>this.setState({appTime:e.target.value})} type="time" id="appt" name="appt"
+                <div className="row form-group">
+                <label className="col-md-4 col-form-label text-md-end" for="start">Data:</label>
+                <div className="col-md-6 my-auto">
+                <input className="form-control text-center" value={this.state.appDate} onChange={e=>this.setState({appDate:e.target.value})} type="date" id="app_date" name="app_date" />
+                </div>
+                </div>
+                <div className="row form-group">
+                <label className="col-md-4 col-form-label text-md-end" for="appt">Godzina:</label>
+                <div className="col-md-6 my-auto">
+                <input className="form-control text-center" value={this.state.appTime}  onChange={e=>this.setState({appTime:e.target.value})} type="time" id="appt" name="appt"
                     min="09:00" max="18:00" required/>
-                    <button className="btn btn-success" type='submit'>Dodaj wizytę</button>
-                    
+                </div>
+                </div>
+                    <button className="btn btn-outline-light btn-lg my-3" type='submit'>Dodaj wizytę</button>
+                
                 </form>
-           </> 
+           </div>
+           </div> 
         )
     }
 }

@@ -31,19 +31,33 @@ class ChangePasswordComponent extends React.Component{
         return(
 
                 <>
-                <form onSubmit={this.handlePressedButton}>
-                    <br></br>
-                    <label htmlFor="password">Aktualne hasło</label>
-                    <input value={this.state.currentPassword} onChange={(e)=>this.setState({currentPassword:e.target.value})} type="password" id="password" name="password"/>
-                    <br></br>
-
-                    <label htmlFor="newPassword">Nowe hasło</label>
-                    <input value={this.state.newPassword} onChange={(e)=>this.setState({newPassword:e.target.value})} type="password" id="newPassword" name="newPassword"/>
-                    <br></br>
-
-
-                    <button className="btn btn-success" type="submit">Zmień hasło</button>
-                </form>
+                <div className="container">
+                <div className="col-md-8 m-auto mt-3">
+                    <form onSubmit={this.handlePressedButton}>
+                        <h1>Zmiana hasła</h1>                 
+        
+                        <div className="row form-group">
+                            <label for="password" className="col-md-4 col-form-label text-md-end">Aktualne hasło:</label>
+                            <div className="col-md-6 my-auto">
+                                <input className="form-control" value={this.state.currentPassword} onChange={(e)=>this.setState({currentPassword:e.target.value})} type="password" id="password" name="password" />
+                            </div>
+                        </div>
+                            
+                        <div className="row form-group mb-3">
+                        
+                            <label for="newPassword" className="col-md-4 col-form-label text-md-end">Nowe hasło:</label>
+                        
+                            <div className="col-md-6 my-auto">
+                                <input className="form-control" value={this.state.newPassword} onChange={(e)=>this.setState({newPassword:e.target.value})} type="password" id="newPassword" name="newPassword" />
+                            </div>
+                        </div>
+                            
+                        <button className="btn btn-outline-light btn-lg" type="submit" >Zmień hasło</button>
+                    </form>
+                </div>
+                    
+                
+            </div>
                 </>
                 
         )

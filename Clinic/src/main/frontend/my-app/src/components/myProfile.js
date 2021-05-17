@@ -88,7 +88,7 @@ class MyProfile extends React.Component{
                     <NavLink to='/addAppointment' exact><button type="button" className="btn btn-outline-light btn-lg">Dodaj wizytę</button></NavLink>
                     </div>
                     <div className="col-md-3 py-2 ">
-                    <button type="button" onClick={this.handlePressedButton} className="btn btn-outline-light btn-lg">Wyloguj się</button>
+                    <NavLink to='/' onClick={this.handlePressedButton} className="btn btn-outline-light btn-lg">Wyloguj się</NavLink>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@ class MyProfile extends React.Component{
                         <NavLink to='/changePassword' exact><button type="button" className="btn btn-outline-light btn-lg">Zmień hasło</button></NavLink>
                         </div>
                         <div className="col-md-3 py-2 ">
-                        <button type="button" onClick={this.handlePressedButton} className="btn btn-outline-light btn-lg">Wyloguj się</button>
+                        <NavLink to='/' onClick={this.handlePressedButton} className="btn btn-outline-light btn-lg">Wyloguj się</NavLink>
                         </div>
                     </div>
                 </div>
@@ -163,7 +163,7 @@ class MyProfile extends React.Component{
                         <NavLink to='/registerDoctor' exact><button type="button" className="btn btn-outline-light btn-lg">Zarejestruj doktora</button></NavLink>
                         </div>
                         <div className="col-md-3 py-2 ">
-                        <button type="button" onClick={this.handlePressedButton} className="btn btn-outline-light btn-lg">Wyloguj się</button>
+                        <NavLink to='/' onClick={this.handlePressedButton} className="btn btn-outline-light btn-lg">Wyloguj się</NavLink>
                         </div>
                     </div>
                 </div>

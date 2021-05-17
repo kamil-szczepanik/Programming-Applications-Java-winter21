@@ -57,23 +57,33 @@ class DoctorRegisterComponent extends React.Component{
     }
     render(){
         return(
-            <>
+            <div className="container">
+                <h1 className = "mt-5">Rejestracja doktora</h1>
+                <div className="col-md-8 m-auto mt-3">
                 <form onSubmit={this.handleSubmit}>
-                    <br></br>
-                    <label htmlFor="fname">Imie</label>
-                    <input value={this.state.firstName} onChange={(e)=>this.setState({firstName:e.target.value})} type="text" id="fname" name="fname"/>
-                    <br></br>
+                    <div className="row form-group">
+                    <label htmlFor="fname" className="col-md-4 col-form-label text-md-end">Imie</label>
+                    <div className="col-md-6 my-auto">
+                    <input className="form-control" value={this.state.firstName} onChange={(e)=>this.setState({firstName:e.target.value})} type="text" id="fname" name="fname"/>
+                    </div>
+                    </div>
+                    <div className="row form-group">
+                    <label htmlFor="lname" className="col-md-4 col-form-label text-md-end">Nazwisko</label>
+                    <div className="col-md-6 my-auto">
+                    <input className="form-control" value={this.state.lastName} onChange={(e)=>this.setState({lastName:e.target.value})} type="text" id="lname" name="lname"/>
+                    </div>
+                    </div>
+                    <div className="row form-group">
 
-                    <label htmlFor="lname">Nazwisko</label>
-                    <input value={this.state.lastName} onChange={(e)=>this.setState({lastName:e.target.value})} type="text" id="lname" name="lname"/>
-                    <br></br>
-
-                    <label htmlFor="fname">Email:</label>
-                    <input value={this.state.email} onChange={(e)=>this.setState({email:e.target.value})} type="email" id="email" name="email"/>
-                    <br></br>
-
-                    <label for="specialisations">Specjalizacja:</label>
-                    <select name="specialisations" id="specialisations" onChange={(e)=>this.setState({choosenSpecialisation:e.target.value})}>
+                    <label htmlFor="fname" className="col-md-4 col-form-label text-md-end">Email:</label>
+                    <div className="col-md-6 my-auto">
+                    <input className="form-control" value={this.state.email} onChange={(e)=>this.setState({email:e.target.value})} type="email" id="email" name="email"/>
+                    </div>
+                    </div>
+                    <div className="row form-group">
+                    <label className="col-md-4 col-form-label text-md-end" for="specialisations">Specjalizacja:</label>
+                    <div className="col-md-6 my-auto">
+                    <select className="form-select" name="specialisations" id="specialisations" onChange={(e)=>this.setState({choosenSpecialisation:e.target.value})}>
                     <option value="">Wybierz specializację</option>
 
                        {this.state.specialisations.map((specialisation)=>{
@@ -84,11 +94,13 @@ class DoctorRegisterComponent extends React.Component{
                            )
                        })}
                     </select>
-                    <br></br>
+                    </div>
+                    </div>
 
-                    <button className="btn btn-success" type="submit">Zarejestruj</button>
+                    <button className="btn btn-outline-light btn-lg mt-3" type="submit">Zarejestruj</button>
                 </form>
-            </>
+                </div>
+            </div>
         )
         
     }

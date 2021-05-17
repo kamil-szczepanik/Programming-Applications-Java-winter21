@@ -117,21 +117,23 @@ class MyProfile extends React.Component{
                         </div>
                     </div>
                     <div className="row justify-content-center">
-                        <div className="col-md-3 py-2">
+                    <div class="row row-cols-2 row-cols-md-5 g-3 g-md-2">
+                        <div className="col">
                         <NavLink to='/appointments' exact><button type="button" className="btn btn-outline-light btn-lg">Moje wizyty</button></NavLink>
                         </div>
-                        <div className="col-md-3 py-2 ">
+                        <div className="col ">
                         <NavLink to='/addAppointmentDoctor' exact><button type="button" className="btn btn-outline-light btn-lg">Dodaj wizytę</button></NavLink>
                         </div>
-                        <div className="col-md-3 py-2 ">
+                        <div className="col ">
                         <NavLink to='/deleteAppointmentDoctor' exact><button type="button" className="btn btn-outline-light btn-lg">Usuń wizytę</button></NavLink>
                         </div>
-                        <div className="col-md-3 py-2 ">
+                        <div className="col ">
                         <NavLink to='/changePassword' exact><button type="button" className="btn btn-outline-light btn-lg">Zmień hasło</button></NavLink>
                         </div>
-                        <div className="col-md-3 py-2 ">
+                        <div className="col ">
                         <button type="button" onClick={this.handlePressedButton} className="btn btn-outline-light btn-lg">Wyloguj się</button>
                         </div>
+                    </div>
                     </div>
                 </div>
                 // </div>

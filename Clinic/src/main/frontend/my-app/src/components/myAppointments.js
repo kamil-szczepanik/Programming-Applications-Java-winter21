@@ -55,39 +55,41 @@ class MyAppointments extends React.Component{
         if(window.response.roles[0]==="PATIENT"){
             return(
 
-                <div>
-                    <h2>Moje wizyty</h2> 
-                    <br></br>
-                    <NavLink to="/deleteAppointment">Usuń wizytę</NavLink> 
-                    <br></br>
-                    <br></br>
+                <div className="container mt-3">
+                    <h1>Moje wizyty</h1> 
+                    
+                    <div className="row">
                     {window.response===undefined?<Redirect to='/'/>:null}
 
                     {
-                    
-                    this.state.myAppointments.map(
-                    appointment=>{
-                        this.state.doctors.forEach(
-                            doctor=>{
-                            if(doctor.id===appointment.doctorId){
-                                docId=doctor.id;
-                                docName=doctor.firstName;
-                                docSurname=doctor.lastName;    
-                            }
+                        
+                        this.state.myAppointments.map(
+                            appointment=>{
+                                this.state.doctors.forEach(
+                                    doctor=>{
+                                        if(doctor.id===appointment.doctorId){
+                                            docId=doctor.id;
+                                            docName=doctor.firstName;
+                                            docSurname=doctor.lastName;    
+                                        }
+                                        
+                                    })
+                                    
+                                    return (
+                                        <div className="col-md-4 gy-3">
+                            <div className="card">
+                            <p className = "appointment text-dark" key={"doctor"+appointment.id}><span className="text-gray">Doktor:</span> {docName+" "+docSurname}</p>
+                            <p className = "appointment text-dark" key={appointment.id+1000}> {appointment.date.toString().slice(0,10)+" "+appointment.date.toString().slice(11,16)}</p>
+                            </div>
+                        </div>)
 
-                        })
-
-                        return (
-                        <>
-                            <p className = "appointment" key={"doctor"+appointment.id}> Doktor: {docName+" "+docSurname}</p>
-                            <p className = "appointment" key={appointment.id+1000}> {appointment.date.toString().slice(0,10)+" "+appointment.date.toString().slice(11,16)}</p>
-                            <br></br>
-                        </>)
-
-                    }
+}
                     )
                 }
-                
+                <div className="row my-3">
+                <NavLink to="/deleteAppointment"><button type="button" className="btn btn-outline-danger btn-lg">Usuń wizytę</button></NavLink>
+                </div>
+                </div>
                 </div>
                     
             )

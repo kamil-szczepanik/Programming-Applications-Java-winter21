@@ -10,7 +10,7 @@ class StartComponent extends React.Component{
                 <div className="container py-5">
                     <div className="bg-dark col-md-7 col-lg-6 m-auto rounded-3 pb-5 px-5 pt-2" id="jumbo">
                 <i className="fa fa-lock p-3" aria-hidden="true"></i>
-            <p>Żeby mieć dostęp do strony musisz być zalogowany</p>
+            <p>Aby uzyskać dostęp do strony, musisz być zalogowany</p>
             <div class="container">
                 <div class="row">
                     <div class="col">

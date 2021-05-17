@@ -84,8 +84,8 @@ class LoginComponent extends Component {
                         </div>
                             
                     </form>
+                    <button className="btn btn-outline-light btn-lg" type="submit" onClick={this.loginClicked}>Login</button>
                 </div>
-                    <button className="btn btn-outline-light btn-lg" onClick={this.loginClicked}>Login</button>
                     
                 
             </div>

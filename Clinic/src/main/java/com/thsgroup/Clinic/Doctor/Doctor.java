@@ -1,6 +1,8 @@
 package com.thsgroup.Clinic.Doctor;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,23 +25,38 @@ public class Doctor {
     private Long id;
     private String firstName;
     private String lastName;
-    private String specialisation;
+    @Enumerated(EnumType.STRING)
+    private DoctorSpecialisation specialisation;
+    private Long appUserId;
 
 
     public Doctor() {
     }
 
-    public Doctor(String firstName, String lastName, String specialisation) {
+    public Doctor(String firstName, String lastName, DoctorSpecialisation specialisation) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.specialisation = specialisation;
     }
 
-    public Doctor(Long id, String firstName, String lastName, String specialisation) {
+    public Doctor(Long id, String firstName, String lastName, DoctorSpecialisation specialisation) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.specialisation = specialisation;
+    }
+
+    public Doctor(String firstName, String lastName, Long appUserId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.appUserId = appUserId;
+    }
+
+    public Doctor(String firstName, String lastName, DoctorSpecialisation specialisation, Long appUserId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.specialisation = specialisation;
+        this.appUserId = appUserId;
     }
 
     public Long getId() {
@@ -66,13 +83,18 @@ public class Doctor {
         this.lastName = lastName;
     }
 
-    public String getSpecialisation() {
+    public DoctorSpecialisation getSpecialisation() {
         return this.specialisation;
     }
 
-    public void setSpecialisation(String specialisation) {
+    public void setSpecialisation(DoctorSpecialisation specialisation) {
         this.specialisation = specialisation;
     }
+
+    public Long getAppUserId() { return appUserId; }
+
+    public void setAppUserId(Long appUserId) { this.appUserId = appUserId; }
+
 
     @Override
     public String toString() {
@@ -80,7 +102,8 @@ public class Doctor {
             " id='" + getId() + "'" +
             ", firstName='" + getFirstName() + "'" +
             ", lastName='" + getLastName() + "'" +
-            ", specialisation='" + getSpecialisation() + "'" +
+            ", specialisation='" + getSpecialisation().toString() + "'" +
+            ", appUserId='" + getAppUserId() + "'" +
             "}";
     }
 

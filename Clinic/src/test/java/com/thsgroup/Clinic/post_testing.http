@@ -1,0 +1,53 @@
+
+###
+POST  http://localhost:8080/api/appointment/registerNewAppointment
+Content-Type: application/json
+
+{
+    "patientId": "2",
+    "doctorId": "1",
+    "date": [2021, 3, 4, 15, 30]
+}
+
+###
+DELETE  http://localhost:8080/api/patient/delete/4
+
+###
+PUT http://localhost:8080/api/patient/update
+Content-Type: application/json
+
+{
+    "id": "3",
+    "firstName": "Ross",
+    "lastName": "Geller",
+    "dob": "1975-07-12",
+    "pesel": "753245825712"
+}
+
+###
+POST  http://localhost:8080/api/doctor
+Content-Type: application/json
+
+{
+    "firstName": "Drake",
+    "lastName": "Rammoray",
+    "specialisation": "Neurosurgeon"
+}
+
+###
+GET http://localhost:8080/api/doctor
+###
+DELETE  http://localhost:8080/api/doctor/delete/3
+
+###
+PUT http://localhost:8080/api/doctor/update
+Content-Type: application/json
+
+{
+    "id": "3",
+    "firstName": "Ross",
+    "lastName": "Geller",
+    "specialisation": "Ortopeda"
+}
+
+

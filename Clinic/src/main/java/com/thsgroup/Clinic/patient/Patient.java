@@ -29,15 +29,16 @@ public class Patient {
     private String firstName;
     private String lastName;
     private LocalDate dob;
-    private Long pesel;
+    private String pesel;
     @Transient
     private Integer age;
+    private Long appUserId;
 
     
     public Patient() {
     }
 
-    public Patient(Long id, String firstName, String lastName, LocalDate dob, Long pesel){
+    public Patient(Long id, String firstName, String lastName, LocalDate dob, String pesel){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,11 +46,26 @@ public class Patient {
         this.pesel = pesel;
     }
 
-    public Patient(String firstName, String lastName, LocalDate dob, Long pesel){
+    public Patient(String firstName, String lastName, LocalDate dob, String pesel){
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
         this.pesel = pesel;
+    }
+
+    public Patient(String firstName, String lastName, Long appUserId){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.appUserId = appUserId;
+    }
+
+
+    public Patient(String firstName, String lastName, LocalDate dob, String pesel, Long appUserId){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = dob;
+        this.pesel = pesel;
+        this.appUserId = appUserId;
     }
 
     public Long getId() { return id; }
@@ -68,13 +84,23 @@ public class Patient {
 
     public void setDob(LocalDate dob) { this.dob = dob; }
 
-    public Integer getAge() { return Period.between(this.dob, LocalDate.now()).getYears(); }
+    public Integer getAge() { 
+        try {
+            return Period.between(this.dob, LocalDate.now()).getYears();
+        } catch (Exception e) { ;
+        }
+        return 0;
+        }
     
     public void setAge(Integer age) { this.age = age; }
 
-    public Long getPesel() { return pesel; }
+    public String getPesel() { return pesel; }
 
-    public void setPesel(Long pesel) { this.pesel = pesel; }
+    public void setPesel(String pesel) { this.pesel = pesel; }
+
+    public Long getAppUserId() { return appUserId; }
+
+    public void setAppUserId(Long appUserId) { this.appUserId = appUserId; }
 
     @Override
     public String toString() {
@@ -85,6 +111,7 @@ public class Patient {
             ", dob='" + getDob() + "'" +
             ", pesel='" + getPesel() + "'" +
             ", age='" + getAge() + "'" +
+            ", appUserId='" + getAppUserId() + "'" +
             "}";
     }
 

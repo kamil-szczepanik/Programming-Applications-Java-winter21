@@ -1,0 +1,62 @@
+
+###
+POST http://localhost:8080/api/registration/patient
+Content-Type: application/json
+
+{
+    "firstName": "Joey",
+    "lastName": "Tribbiani",
+    "email": "joey.tribiani@gmail.com",
+    "password": "password"
+}
+
+###
+POST http://localhost:8080/api/registration/doctor
+Content-Type: application/json
+
+{
+    "firstName": "Drake",
+    "lastName": "Rammoray",
+    "email": "drake.ramorray@gmail.com",
+    "password": "password"
+}
+
+###
+POST http://localhost:8080/api/registration/admin
+Content-Type: application/json
+
+{
+    "firstName": "Chandler",
+    "lastName": "Bing",
+    "email": "chandler.bing@gmail.com",
+    "password": "password"
+}
+
+###
+GET http://localhost:8080/api/registration/confirm?token=a0ecd8bb-5d7a-457f-8fa0-35cbf945b9dd
+Content-Type: application/json
+
+{
+    "firstName": "Joey",
+    "lastName": "Tribbiani",
+    "email": "joey.tribiani@gmail.com",
+    "password": "password"
+}
+
+###
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+    "username": "joey.tribiani@gmail.com",
+    "password": "password"
+}
+
+###
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+    "username": "a@a.com",
+    "password": "a"
+}

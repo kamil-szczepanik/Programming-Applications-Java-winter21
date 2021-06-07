@@ -42,6 +42,7 @@ class MyAppointments extends React.Component{
         var docId=null;
         var docName=null;
         var docSurname=null;
+        var docSpecialisation=null;
         if(window.response===undefined){
             return(
                 window.response===undefined?<Redirect to='/'/>:null
@@ -71,6 +72,7 @@ class MyAppointments extends React.Component{
                                             docId=doctor.id;
                                             docName=doctor.firstName;
                                             docSurname=doctor.lastName;    
+                                            docSpecialisation=doctor.specialisation;
                                         }
                                         
                                     })
@@ -79,7 +81,9 @@ class MyAppointments extends React.Component{
                                         <div className="col-md-4 gy-3">
                             <div className="card">
                             <p className = "appointment text-dark" key={"doctor"+appointment.id}><span className="text-gray">Doktor:</span> {docName+" "+docSurname}</p>
-                            <p className = "appointment text-dark" key={appointment.id+1000}> {appointment.date.toString().slice(0,10)+" "+appointment.date.toString().slice(11,16)}</p>
+                            <p className = "appointment text-dark" key={"doctor"+appointment.id}><span className="text-gray">Specjalizacja:</span> {docSpecialisation}</p>
+
+                            <p className = "appointment text-dark" key={appointment.id+1000}>Data wizyty: {appointment.date.toString().slice(0,10)+" "+appointment.date.toString().slice(11,16)}</p>
                             </div>
                         </div>)
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import props from 'prop-types';
 import DoctorService from '../services/DoctorService';
 import AppointmentService from '../services/AppointmentService';
+import specialisationService from '../services/specialistionService';
 import axios from 'axios';
 import {useHistory, Redirect} from "react-router-dom";
 
@@ -17,6 +18,7 @@ class AddAppointment extends React.Component{
             appointments:[],
             appDocID:null,
             choosenAppoitmentId:null,
+            specialisations:null,
 
 
 
@@ -32,6 +34,9 @@ class AddAppointment extends React.Component{
         });
         AppointmentService.getAppointments().then((response)=>{
             this.setState({appointments: response.data})
+        });
+        specialisationService.getSpecialisation().then((response)=>{
+            this.setState({specialisations: response.data})
         });}
     }
     dateToString(given_date, delay=0){
@@ -126,7 +131,7 @@ class AddAppointment extends React.Component{
                                 
                                     <input className="form-check-input" key={doctor.id} type="radio" id={doctor.id}
                                     name="doctors" value={doctor.id} onChange={(e)=>this.doctorIdHandleChange} required/>
-                                    <label className="form-check-label" htmlFor={doctor.firstName + doctor.lastName}>{doctor.firstName + doctor.lastName}</label>
+                                    <label className="form-check-label" htmlFor={doctor.firstName + doctor.lastName}>{doctor.firstName +" "+ doctor.lastName +" "+ doctor.specialisation}</label>
                                     <br></br>
                                 
                             </div>
